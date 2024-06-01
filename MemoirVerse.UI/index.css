@@ -128,34 +128,33 @@ body {
 }
 
 @media only screen and (max-width: 424px) {
-  body {
+  body, .container {
     flex-direction: column;
   }
 
   .container {
-    flex-direction: column;
     margin: 10px;
   }
-  
-  .welcome-section { 
+
+  .welcome-section {
     align-items: center;
+    padding: 18px;
   }
 
-  .welcome-section, .signin-section {
-    padding: 18px;;
+  .signin-section {
+    padding: 18px;
   }
 
   .welcome-section h1 {
     font-size: 24px;
   }
 
-  .welcome-section p, .signin-section h2 {
+  .welcome-section p, .signin-section h2, .signin-btn, .create-account-btn {
     font-size: 14px;
   }
 
   .signin-btn, .create-account-btn {
     width: 100%;
     margin: 5px 0;
-    font-size: 14px;
   }
 }
