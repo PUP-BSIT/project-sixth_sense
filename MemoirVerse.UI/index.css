@@ -17,7 +17,7 @@ body {
 }
 
 .welcome-section {
-  background-color: #33527f;
+  background-color: #334868;
   color: #ffffff;
   padding: 50px;
   flex: 1;
@@ -125,4 +125,36 @@ body {
 
 .login-link a:hover {
   color: #1a3155;
+}
+
+@media only screen and (max-width: 424px) {
+  body, .container {
+    flex-direction: column;
+  }
+
+  .container {
+    margin: 10px;
+  }
+
+  .welcome-section {
+    align-items: center;
+    padding: 18px;
+  }
+
+  .signin-section {
+    padding: 18px;
+  }
+
+  .welcome-section h1 {
+    font-size: 24px;
+  }
+
+  .welcome-section p, .signin-section h2, .signin-btn, .create-account-btn {
+    font-size: 14px;
+  }
+
+  .signin-btn, .create-account-btn {
+    width: 100%;
+    margin: 5px 0;
+  }
 }
