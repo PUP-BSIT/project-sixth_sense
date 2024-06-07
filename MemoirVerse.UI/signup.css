@@ -157,24 +157,24 @@ input[type=date] {
 @media only screen and (max-width: 424px) {
 body, .container {
       flex-direction: column;
-  }
+}
 
 .container {
       margin: 10px;
-  }
+}
 
 .welcome-section {
       align-items: center;
       padding: 18px;
-  }
+}
 
 .form-section {
       padding: 18px;
-  }
+}
 
 .welcome-section h1 {
       font-size: 24px;
-  }
+}
 
 .welcome-section p, .form-section h2, .submit-btn, .create-account-btn {
       font-size: 14px;
