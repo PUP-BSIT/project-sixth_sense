@@ -5,21 +5,22 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #83d1db;
+  background-color: #ffffff;
 }
 
 .container {
   display: flex;
   background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 8px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
+  width: 800px; /* Adjusted width */
 }
 
 .welcome-section {
   background-color: #334868;
   color: #ffffff;
-  padding: 50px;
+  padding: 30px; /* Adjusted padding */
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -29,16 +30,16 @@ body {
 
 .welcome-section h1 {
   margin: 0;
-  font-size: 2.5em;
+  font-size: 2em; /* Adjusted font size */
 }
 
 .welcome-section p {
-  font-size: 1.2em;
-  margin-top: 20px;
+  font-size: 1em; /* Adjusted font size */
+  margin-top: 15px;
 }
 
 .form-section {
-  padding: 50px;
+  padding: 30px; /* Adjusted padding */
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -50,7 +51,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 300px;
+  width: 250px; /* Adjusted width */
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ddd;
