@@ -3,12 +3,12 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MemoirVerse Sign Up</title>
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./signup.css" />
   </head>
   <body>
     <div class="container">
       <div class="signin-section">
-        <h2>Sign Up</h2>
+        <h2>Register Account</h2>
         <form action="signup_process.php" method="post">
           <input type="text" name="username" placeholder="Username" required/>
           <input
@@ -16,7 +16,7 @@
             name="password"
             placeholder="Password"
             required/>
-          <button type="submit" class="login-signup-btn">Sign Up</button>
+          <button type="submit" class="signin-btn">Register</button>
         </form>
         <p class="login-link">
           Already have an account?
