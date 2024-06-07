@@ -11,16 +11,17 @@ body {
 .container {
   display: flex;
   background-color: #ffffff;
-  box-shadow: 8px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 25px 20px 25px rgba(0, 0, 0, 0.719);
   border-radius: 10px;
   overflow: hidden;
-  width: 800px; /* Adjusted width */
+  width: 800px;
+  padding: 0px;
 }
 
 .welcome-section {
   background-color: #334868;
   color: #ffffff;
-  padding: 30px; /* Adjusted padding */
+  padding: 30px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -30,16 +31,16 @@ body {
 
 .welcome-section h1 {
   margin: 0;
-  font-size: 2em; /* Adjusted font size */
+  font-size: 2em;
 }
 
 .welcome-section p {
-  font-size: 1em; /* Adjusted font size */
+  font-size: 1em;
   margin-top: 15px;
 }
 
 .form-section {
-  padding: 30px; /* Adjusted padding */
+  padding: 30px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -154,33 +155,33 @@ input[type=date] {
 }
 
 @media only screen and (max-width: 424px) {
-  body, .container {
+body, .container {
       flex-direction: column;
   }
 
-  .container {
+.container {
       margin: 10px;
   }
 
-  .welcome-section {
+.welcome-section {
       align-items: center;
       padding: 18px;
   }
 
-  .form-section {
+.form-section {
       padding: 18px;
   }
 
-  .welcome-section h1 {
+.welcome-section h1 {
       font-size: 24px;
   }
 
-  .welcome-section p, .form-section h2, .submit-btn, .create-account-btn {
+.welcome-section p, .form-section h2, .submit-btn, .create-account-btn {
       font-size: 14px;
-  }
+}
 
-  .submit-btn, .create-account-btn {
+.submit-btn, .create-account-btn {
       width: 100%;
       margin: 5px 0;
-  }
+}
 }
