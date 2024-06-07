@@ -65,12 +65,12 @@ body {
   font-family: 'Google Sans', sans-serif;
 }
 
-.signin-btn.github {
+.login-signup-btn {
   padding: 10px 20px;
     font-size: 16px;
     font-weight: 500;
     color: white;
-    background-color: #24292e; /* GitHub's brand color */
+    background-color: #007cf8;
     border: none;
     border-radius: 4px;
     cursor: pointer;

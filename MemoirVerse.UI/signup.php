@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MemoirVerse Sign Up</title>
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./testingindex.css" />
   </head>
   <body>
     <div class="container">
@@ -16,7 +16,7 @@
             name="password"
             placeholder="Password"
             required/>
-          <button type="submit" class="signin-btn github">Sign Up</button>
+          <button type="submit" class="login-signup-btn">Sign Up</button>
         </form>
         <p class="login-link">
           Already have an account?
