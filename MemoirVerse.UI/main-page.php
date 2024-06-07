@@ -12,20 +12,17 @@
           <div class="profile-pic"></div>
           <span class="profile-name">MemoirVerse Team!</span>
         </div>
-
         <div class="menu">
           <div class="menu-item active">Home</div>
           <div class="menu-item">Mood Tracker</div>
           <div class="menu-item">To do List</div>
           <div class="menu-item">Pinned</div>
         </div>
-        
       </div>
       <div class="main">
         <div class="header">
           <input type="text" class="search-bar" placeholder="Search"/>
         </div>
-
         <div class="content">
           <div class="writing-box">
             <input
