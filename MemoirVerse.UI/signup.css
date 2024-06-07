@@ -52,7 +52,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 250px; /* Adjusted width */
+  width: 250px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ddd;
