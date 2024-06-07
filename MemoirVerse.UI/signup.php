@@ -16,7 +16,7 @@
             name="password"
             placeholder="Password"
             required/>
-          <button type="submit" class="login-signup-btn">Sign Up</button>
+          <button type="submit" class="signin-btn">Sign Up</button>
         </form>
         <p class="login-link">
           Already have an account?
