@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MemoirVerse</title>
-    <link rel="stylesheet" href="./home-page.css" />
-  </head>
-  <body>
-    <header>
-      <div class="profile">
-        <img src="" alt="Profile Picture" />
-        <span>MemoirVerse</span>
-      </div>
-    </header>
-    <main>
-      <div class="intro">
-        <h1>Dive into the MemoirVerse!</h1>
-        <p>
-           Explore, reflect, and document your life's adventures in the
-           MemoirVerse!
-        </p>
-      </div>
-      <div class="features">
-        <div class="feature">
-          <div class="icon">📔</div>
-          <span>Diary</span>
+    <link rel="stylesheet" href="./home-page.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-left">
+            <img src="profile-picture.png" alt="Profile Picture" class="profile-pic">
+            <a href="#">MemoirVerse</a>
         </div>
-        <div class="feature">
-          <div class="icon">😃😢</div>
-          <span>Emotional Tracker</span>
+    </div>
+    <div class="content">
+        <h1>Welcome to MemoirVerse!</h1>
+        <p>Explore, reflect, and document your life's adventures in the MemoirVerse!</p>
+        <div class="features">
+            <div class="feature">
+                <div class="icon">📔</div>
+                <h3>Diary</h3>
+                <p>Keep track of your daily thoughts and experiences.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">😃😢</div>
+                <h3>Emotional Tracker</h3>
+                <p>Monitor your emotions and well-being over time.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">📜</div>
+                <h3>History</h3>
+                <p>Review your past entries and see your progress.</p>
+            </div>
         </div>
-        <div class="feature">
-          <div class="icon">📜</div>
-          <span>History</span>
-        </div>
-      </div>
-    </main>
-  </body>
+    </div>
+    </div>
+</body>
 </html>
