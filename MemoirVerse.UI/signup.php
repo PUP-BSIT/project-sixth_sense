@@ -8,7 +8,7 @@
   <body>
     <div class="container">
       <div class="signin-section">
-        <h2>Sign Up</h2>
+        <h2>Register Account</h2>
         <form action="signup_process.php" method="post">
           <input type="text" name="username" placeholder="Username" required/>
           <input
@@ -16,7 +16,7 @@
             name="password"
             placeholder="Password"
             required/>
-          <button type="submit" class="signin-btn">Sign Up</button>
+          <button type="submit" class="signin-btn">Register</button>
         </form>
         <p class="login-link">
           Already have an account?
