@@ -17,7 +17,7 @@ body {
 }
 
 .sidebar {
-  width: 200px;
+  width: 250px;
   background-color: #fafafa;
   border-right: 1px solid #e0e0e0;
   padding: 20px;
@@ -100,6 +100,17 @@ body {
   font-size: 18px;
   background-color: #d9eef6;
   color: #333;
+  border-radius: 10px;
+}
+
+.save-entry-button {
+  padding: 10px 20px;
+  background-color: #c2e3ef;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 .color-palette {
@@ -154,7 +165,7 @@ body {
   color: white;
   border: none;
   cursor: pointer;
-  padding: 15px 32px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -173,7 +184,7 @@ body {
   color: white;
   border: none;
   cursor: pointer;
-  padding: 15px 32px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -186,18 +197,4 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.diary-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; 
-}
-
-.diary {
-  width: 50%;
-  padding: 20px;
-  background-color: #d9eef6;
-  border-radius: 10px;
 }

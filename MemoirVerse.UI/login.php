@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="login-section">
             <h2>Sign in</h2>
             <form id="login_form" 
-            action="login.php" 
+            action="home-page.php" 
             method="post">
             <input type="email" 
             id="email" 
