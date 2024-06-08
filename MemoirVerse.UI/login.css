@@ -12,11 +12,13 @@ body {
   display: flex;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 25px 20px 25px rgba(0, 0, 0, 0.719);
+  border-radius: 10px;
   overflow: hidden;
   width: 800px;
-  max-width: 100%;
+  padding: 0px;
 }
+
 
 .welcome-section,
 .dashboard-section {

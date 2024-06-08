@@ -17,11 +17,13 @@
         <h1>Welcome to MemoirVerse!</h1>
         <p>Explore, reflect, and document your life's adventures in the MemoirVerse!</p>
         <div class="features">
-            <div class="feature">
-                <div class="icon">📔</div>
-                <h3>Diary</h3>
-                <p>Keep track of your daily thoughts and experiences.</p>
-            </div>
+            <a href="main-page.php" class="feature-link">
+                <div class="feature">
+                    <div class="icon">📔</div>
+                    <h3>Diary</h3>
+                    <p>Keep track of your daily thoughts and experiences.</p>
+                </div>
+            </a>
             <div class="feature">
                 <div class="icon">😃😢</div>
                 <h3>Emotional Tracker</h3>
@@ -34,11 +36,10 @@
             </div>
         </div>
     </div>
-    </div>
     <div class="button-container">
-    <a href="main-page.php">
-        <button class="home-btn">Home</button>
-    </a>
-</div>
+        <a href="main-page.php">
+            <button class="home-btn">Home</button>
+        </a>
+    </div>
 </body>
 </html>
