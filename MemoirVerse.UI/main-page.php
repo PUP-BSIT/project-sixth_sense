@@ -1,3 +1,20 @@
+<?php
+require 'db_conn.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST["entry"])) {
+        $entry = sanitize_input($_POST["entry"]);
+        $userId = 1;
+        $sql = "INSERT INTO diary_entries (user_id, entry) VALUES ('$userId', '$entry')";
+        if ($conn->query($sql) === TRUE) {
+            echo "<script>alert('Diary entry saved successfully');</script>";
+        } else {
+            echo "<script>alert('Error: " . $sql . "<br>" . $conn->error . "');</script>";
+        }
+        $conn->close();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -54,5 +71,14 @@
         </div>
       </div>
     </div>
+    <div class="diary-container">
+  <div class="diary">
+    <h2>Write here</h2>
+    <form action="save_entry.php" method="post">
+      <textarea name="entry" placeholder="Your diary entry..." required></textarea>
+      <button type="submit">Save Entry</button>
+    </form>
+  </div>
+</div>
   </body>
 </html>

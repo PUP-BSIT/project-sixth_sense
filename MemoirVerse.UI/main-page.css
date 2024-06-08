@@ -187,3 +187,17 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.diary-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+.diary {
+  width: 50%;
+  padding: 20px;
+  background-color: #d9eef6;
+  border-radius: 10px;
+}
