@@ -35,5 +35,10 @@
         </div>
     </div>
     </div>
+    <div class="button-container">
+    <a href="main-page.php">
+        <button class="home-btn">Home</button>
+    </a>
+</div>
 </body>
 </html>

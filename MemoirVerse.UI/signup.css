@@ -60,10 +60,10 @@ form {
   background-color: #fff;
 }
 
-input[type=email],
-input[type=text],
-input[type=password],
-input[type=date] {
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="date"] {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -73,7 +73,7 @@ input[type=date] {
 
 .submit-btn {
   padding: 12px 24px;
-  background-color: #2C3E50;
+  background-color: #2c3e50;
   color: white;
   border: none;
   border-radius: 5px;
@@ -106,7 +106,7 @@ input[type=date] {
 }
 
 .submit-btn:hover {
-  background-color: #1A232C;
+  background-color: #1a232c;
 }
 
 .submit-text {
@@ -155,33 +155,38 @@ input[type=date] {
 }
 
 @media only screen and (max-width: 424px) {
-body, .container {
-      flex-direction: column;
-}
+  body,
+  .container {
+    flex-direction: column;
+  }
 
-.container {
-      margin: 10px;
-}
+  .container {
+    margin: 10px;
+  }
 
-.welcome-section {
-      align-items: center;
-      padding: 18px;
-}
+  .welcome-section {
+    align-items: center;
+    padding: 18px;
+  }
 
-.form-section {
-      padding: 18px;
-}
+  .form-section {
+    padding: 18px;
+  }
 
-.welcome-section h1 {
-      font-size: 24px;
-}
+  .welcome-section h1 {
+    font-size: 24px;
+  }
 
-.welcome-section p, .form-section h2, .submit-btn, .create-account-btn {
-      font-size: 14px;
-}
+  .welcome-section p,
+  .form-section h2,
+  .submit-btn,
+  .create-account-btn {
+    font-size: 14px;
+  }
 
-.submit-btn, .create-account-btn {
-      width: 100%;
-      margin: 5px 0;
-}
+  .submit-btn,
+  .create-account-btn {
+    width: 100%;
+    margin: 5px 0;
+  }
 }
