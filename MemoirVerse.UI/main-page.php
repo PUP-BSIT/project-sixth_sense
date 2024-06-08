@@ -13,12 +13,14 @@
           <span class="profile-name">MemoirVerse Team!</span>
         </div>
         <div class="menu">
-          <div class="menu-item active">Home</div>
-          <div class="menu-item">Mood Tracker</div>
-          <div class="menu-item">To do List</div>
-          <div class="menu-item">Pinned</div>
-        </div>
-      </div>
+  <div class="menu-item active">Home</div>
+  <div class="menu-item">Mood Tracker</div>
+  <div class="menu-item">To do List</div>
+  <div class="menu-item">Pinned</div>
+  <div class="menu-item">
+    
+  </div>
+</div>
       <div class="main">
         <div class="header">
           <input type="text" class="search-bar" placeholder="Search"/>
@@ -41,6 +43,14 @@
         </div>
         <div class="footer">
           <button class="more-pages-button">More Pages</button>
+          <div class="button-container">
+          <a href="home-page.php">
+    <button type="submit" class="home-btn">Home Page</button>
+         </div>
+
+          <form action="login.php" method="post">
+      <button type="submit" class="logout-btn">Logout</button>
+    </form>
         </div>
       </div>
     </div>

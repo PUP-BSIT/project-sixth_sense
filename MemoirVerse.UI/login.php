@@ -1,34 +1,31 @@
 <?php
-require_once 'db_conn.php';
-
-$errorMsg = "Sorry, Unable to Connect";
+require 'db_conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = sanitize_input($_POST["email"]);
-    $password = $_POST["password"];
+    if (isset($_POST["email"]) && isset($_POST["password"])) {
+        $email = sanitize_input($_POST["email"]);
+        $password = sanitize_input($_POST["password"]);
 
-    $sql = "SELECT * FROM users WHERE email = '$email'";
-    $result = $conn->query($sql);
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $result = $conn->query($sql);
 
-    if ($result->num_rows == 1) {
-        $user = $result->fetch_assoc();
-        if (password_verify($password, $user['password_hash'])) {
-            session_start();
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['user_name'] = $user['first_name'] ."".$user['last_name'];
-            header("Location: dashboard.php");
-            exit();
+        if ($result->num_rows > 0) {
+            $user = $result->fetch_assoc();
+            if (password_verify($password, $user["password"])) {
+                echo "<script>alert('Login successful');</script>";
+                header("Location: main-page.php");
+                exit();
+            } else {
+                echo "<script>alert('Invalid password');</script>";
+            }
         } else {
-            $errorMsg = "Invalid email or password";
+            echo "<script>alert('No user found with this email');</script>";
         }
-    } else {
-        $errorMsg = "Invalid email or password";
+
+        $conn->close();
     }
 }
-
-$registrationSuccess = isset($_GET['success']) && $_GET['success'] == 1;
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,15 +43,25 @@ $registrationSuccess = isset($_GET['success']) && $_GET['success'] == 1;
         </div>
         <div class="login-section">
             <h2>Sign in</h2>
-            <form id="login_form">
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="password" id="password" 
-                    placeholder="Password" required>
-                <button type="submit" class="btn login-btn">Sign in</button>
+            <form id="login_form" 
+            action="login.php" 
+            method="post">
+            <input type="email" 
+            id="email" 
+            name="email" 
+             placeholder="Email" 
+            required>
+            <input type="password" 
+           id="password" 
+           name="password" 
+           placeholder="Password" 
+           required>
+            <button type="submit" 
+            class="btn login-btn">Sign in</button>
             </form>
 
             <p>Don't have an account? Create one! 
-                <a href="signup.php"> Registration Now!</a></p>
+                <a href="signup.php"> Register Here</a></p>
         </div>
     </div>
     <script src="login.js"></script>
