@@ -6,11 +6,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["entry"]) && !empty($_POST["entry"])) {
         $entry = mysqli_real_escape_string($conn, $_POST["entry"]);
         $userId = $_SESSION['user_id'];
-        $sql = "INSERT INTO diary_entries (user_id, entry) VALUES ('$userId', '$entry')";
+        $sql = "INSERT INTO diary_entries (user_id, entry)
+         VALUES ('$userId', '$entry')";
         if ($conn->query($sql) === TRUE) {
             echo "<script>alert('Diary entry saved successfully');</script>";
         } else {
-            echo "<script>alert('Error: Could not save diary entry.');</script>";
+            echo "<script>alert('Error: Could not save diary entry.');
+            </script>";
         }
     }
     $conn->close();
@@ -41,13 +43,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="main">
             <div class="header">
-                <input type="text" class="search-bar" placeholder="Sorting"/>
+                <input type="text" class="search-bar" 
+                 placeholder="Sorting"/>
             </div>
             <div class="content">
                 <div class="writing-box">
                     <form action="main-page.php" method="post">
-                        <textarea name="entry" class="writing-input" placeholder="Start Writing Your Thoughts" required></textarea>
-                        <button type="submit" class="save-entry-button">Save Entry</button>
+                        <textarea name="entry" class="writing-input" 
+                        placeholder="Start Writing Your Thoughts" 
+                        required></textarea>
+                        <button type="submit" class="save-entry-button">
+                         Save Entry</button>
                     </form>
                 </div>
                 <div class="color-palette">
@@ -63,7 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button class="more-pages-button">More Pages</button>
                 <div class="button-container">
                     <a href="home-page.php">
-                        <button type="submit" class="home-btn">Home Page</button>
+                        <button type="submit" class="home-btn">
+                         Home Page</button>
                     </a>
                 </div>
                 <form action="login.php" method="post">
