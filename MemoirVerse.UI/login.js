@@ -1,8 +1,8 @@
 document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault();
 
-  var emailInput = document.querySelector('input[type="email"]');
-  var passwordInput = document.querySelector('input[type="password"]');
+  let emailInput = document.querySelector('input[type="email"]');
+  let passwordInput = document.querySelector('input[type="password"]');
 
   if (emailInput.value === "") {
     alert("Please enter your email.");
