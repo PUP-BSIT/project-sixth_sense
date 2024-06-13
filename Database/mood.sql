@@ -24,18 +24,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `diary_entries`
+-- Table structure for table `mood`
 --
 
-CREATE TABLE `diary_entries` (
+CREATE TABLE `mood` (
   `id` int(11) NOT NULL,
-  `entry_id` varchar(255) NOT NULL,
-  `entry` text NOT NULL,
-  `entry_date` timestamp NULL DEFAULT current_timestamp(),
-  `user_id` int(11) DEFAULT NULL,
-  `history_id` int(11) NOT NULL,
-  `time_created` timestamp NOT NULL,
-  `time_updated` timestamp NOT NULL DEFAULT current_timestamp()
+  `mood_id` varchar(255) NOT NULL,
+  `mood` varchar(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `entry_id` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -43,31 +40,20 @@ CREATE TABLE `diary_entries` (
 --
 
 --
--- Indexes for table `diary_entries`
+-- Indexes for table `mood`
 --
-ALTER TABLE `diary_entries`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+ALTER TABLE `mood`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `diary_entries`
+-- AUTO_INCREMENT for table `mood`
 --
-ALTER TABLE `diary_entries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `diary_entries`
---
-ALTER TABLE `diary_entries`
-  ADD CONSTRAINT `diary_entries_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+ALTER TABLE `mood`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
