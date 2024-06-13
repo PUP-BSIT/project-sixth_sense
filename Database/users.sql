@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 13, 2024 at 01:50 PM
+-- Generation Time: Jun 13, 2024 at 04:57 PM
 -- Server version: 10.11.7-MariaDB-cll-lve
 -- PHP Version: 7.2.34
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `lastName` varchar(255) NOT NULL,
   `firstName` varchar(255) NOT NULL,
@@ -44,8 +45,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `lastName`, `firstName`, `password`, `dob`, `reset_token_hash`, `reset_token_expires_at`, `time_created`, `time_updated`) VALUES
-(1, 'trinidadkianleeb@gmail.com', 'trinidad', 'kian lee', '$2y$10$PI488G2xmuAjj9jypSh6gOK25l1B63rbrCQuKgIxK7/P9yhjIZxGa', '2004-08-10', NULL, NULL, '0000-00-00 00:00:00', '2024-06-13 11:49:12');
+INSERT INTO `users` (`id`, `user_id`, `email`, `lastName`, `firstName`, `password`, `dob`, `reset_token_hash`, `reset_token_expires_at`, `time_created`, `time_updated`) VALUES
+(1, '', 'trinidadkianleeb@gmail.com', 'trinidad', 'kian lee', '$2y$10$PI488G2xmuAjj9jypSh6gOK25l1B63rbrCQuKgIxK7/P9yhjIZxGa', '2004-08-10', NULL, NULL, '0000-00-00 00:00:00', '2024-06-13 11:49:12');
 
 --
 -- Indexes for dumped tables

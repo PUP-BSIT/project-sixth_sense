@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 13, 2024 at 01:48 PM
+-- Generation Time: Jun 13, 2024 at 04:56 PM
 -- Server version: 10.11.7-MariaDB-cll-lve
 -- PHP Version: 7.2.34
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `diary_entries` (
   `id` int(11) NOT NULL,
+  `entry_id` varchar(255) NOT NULL,
   `entry` text NOT NULL,
   `entry_date` timestamp NULL DEFAULT current_timestamp(),
   `user_id` int(11) DEFAULT NULL,
@@ -40,11 +41,26 @@ CREATE TABLE `diary_entries` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `mood`
+--
+
+CREATE TABLE `mood` (
+  `id` int(11) NOT NULL,
+  `mood_id` varchar(255) NOT NULL,
+  `mood` varchar(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `entry_id` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `lastName` varchar(255) NOT NULL,
   `firstName` varchar(255) NOT NULL,
@@ -60,8 +76,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `lastName`, `firstName`, `password`, `dob`, `reset_token_hash`, `reset_token_expires_at`, `time_created`, `time_updated`) VALUES
-(1, 'trinidadkianleeb@gmail.com', 'trinidad', 'kian lee', '$2y$10$PI488G2xmuAjj9jypSh6gOK25l1B63rbrCQuKgIxK7/P9yhjIZxGa', '2004-08-10', NULL, NULL, '0000-00-00 00:00:00', '2024-06-13 11:49:12');
+INSERT INTO `users` (`id`, `user_id`, `email`, `lastName`, `firstName`, `password`, `dob`, `reset_token_hash`, `reset_token_expires_at`, `time_created`, `time_updated`) VALUES
+(1, '', 'trinidadkianleeb@gmail.com', 'trinidad', 'kian lee', '$2y$10$PI488G2xmuAjj9jypSh6gOK25l1B63rbrCQuKgIxK7/P9yhjIZxGa', '2004-08-10', NULL, NULL, '0000-00-00 00:00:00', '2024-06-13 11:49:12');
 
 --
 -- Indexes for dumped tables
@@ -73,6 +89,12 @@ INSERT INTO `users` (`id`, `email`, `lastName`, `firstName`, `password`, `dob`, 
 ALTER TABLE `diary_entries`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `mood`
+--
+ALTER TABLE `mood`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -89,6 +111,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `diary_entries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `mood`
+--
+ALTER TABLE `mood`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
