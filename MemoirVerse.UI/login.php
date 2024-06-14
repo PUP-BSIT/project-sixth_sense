@@ -44,18 +44,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="login-section">
             <h2>Sign in</h2>
             <form id="login_form" 
-            action="home-page.php" 
-            method="post">
+              action="login.php" 
+              method="post">
             <input type="email" 
-            id="email" 
-            name="email" 
-             placeholder="Email" 
-            required>
+               id="email" 
+               name="email" 
+               placeholder="Email" 
+               required>
             <input type="password" 
-           id="password" 
-           name="password" 
-           placeholder="Password" 
-           required>
+                id="password" 
+                name="password" 
+                placeholder="Password" 
+                required>
             <button type="submit" 
             class="btn login-btn">Sign in</button>
             </form>

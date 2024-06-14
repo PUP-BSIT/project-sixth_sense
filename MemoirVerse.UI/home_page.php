@@ -9,13 +9,15 @@
 <body>
     <div class="navbar">
         <div class="nav-left">
-            <img src="profile-picture.png" alt="Profile Picture" class="profile-pic">
+            <img src="profile-picture.png" alt="Profile Picture" 
+            class="profile-pic">
             <a href="#">MemoirVerse</a>
         </div>
     </div>
     <div class="content">
         <h1>Welcome to MemoirVerse!</h1>
-        <p>Explore, reflect, and document your life's adventures in the MemoirVerse!</p>
+        <p>Explore, reflect, and document your life's 
+           adventures in the MemoirVerse!</p>
         <div class="features">
             <a href="main-page.php" class="feature-link">
                 <div class="feature">

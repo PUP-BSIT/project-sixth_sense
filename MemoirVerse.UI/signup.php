@@ -7,12 +7,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = password_hash(sanitize_input($_POST["password"]), PASSWORD_DEFAULT);
     $dob = sanitize_input($_POST["dob"]);
 
-    $sql = "INSERT INTO users (email, lastName, firstName, password, dob) VALUES ('$email', '$lastName', '$firstName', '$password', '$dob')";
+    $sql = "INSERT INTO users (email, lastName, firstName, password, dob) 
+    VALUES ('$email', '$lastName', '$firstName', '$password', '$dob')";
 
     if ($conn->query($sql) === TRUE) {
       echo "<script>alert('New record created successfully');</script>";
   } else {
-      echo "<script>alert('Error: " . $sql . "<br>" . $conn->error . "');</script>";
+      echo "<script>alert('Error: " . $sql . "<br>" . $conn->error . "');
+      </script>";
   }
 
     $conn->close();
@@ -23,9 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MemoirVerse Registration</title>
-  <link rel="stylesheet" href="./signup.css" />
+  <link rel="stylesheet" href="./signup.css"/>
 </head>
 
 <body>
@@ -41,7 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <span class="submit-text">Register</span>
     </button>
 
-    <button type="button" class="submit-btn" onclick="window.location.href='login.php'">
+    <button type="button" class="submit-btn"
+     onclick="window.location.href='login.php'">
     <span class="submit-text">Back to Login</span>
     </button>
 </form>
