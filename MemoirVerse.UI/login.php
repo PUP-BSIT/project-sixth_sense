@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MemoirVerse Login</title>
-    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./style/login.css">
 </head>
 <body>
     <div class="container">
@@ -64,6 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a href="signup.php"> Register Here</a></p>
         </div>
     </div>
-    <script src="login.js"></script>
+    <script src="./script//login.js"></script>
 </body>
 </html>

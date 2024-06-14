@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Interface</title>
-    <link rel="stylesheet" href="./main-page.css" />
+    <link rel="stylesheet" href="./style/main_page.css" />
   </head>
   <body>
     <div class="container">
@@ -82,6 +82,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
       </div>
     </div>
-    <script src="./main_page.js"></script>
+    <script src="./script/main_page.js"></script>
   </body>
 </html>
