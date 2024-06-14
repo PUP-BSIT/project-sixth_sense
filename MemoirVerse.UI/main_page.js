@@ -1,17 +1,17 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("entryForm");
-    const entryInput = document.getElementById("entryInput");
-    const entriesContainer = document.getElementById("entriesContainer");
-    const sortNewestButton = document.getElementById("sortNewest");
-    const sortOldestButton = document.getElementById("sortOldest");
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("entry_form");
+    const entryInput = document.getElementById("entry_input");
+    const entriesContainer = document.getElementById("entries_container");
+    const sortNewestButton = document.getElementById("sort_newest");
+    const sortOldestButton = document.getElementById("sort_oldest");
 
-    const entries = [];
+    const entries = []; 
 
-    form.addEventListener("submit", function(event) {
-        event.preventDefault();
+    form.addEventListener("submit", (event) => {
+        event.preventDefault(); 
 
         const entryText = entryInput.value.trim();
-        if (entryText === "") return;
+        if (!entryText) return;
 
         const timestamp = new Date().toLocaleString();
         const entry = {
@@ -21,15 +21,15 @@ document.addEventListener("DOMContentLoaded", function() {
         };
 
         entries.push(entry);
-        entriesContainer.prepend(entry.element);
-        entryInput.value = "";
+        entriesContainer.prepend(entry.element); 
+        entryInput.value = ""; 
     });
 
-    sortNewestButton.addEventListener("click", function() {
+    sortNewestButton.addEventListener("click", () => {
         sortEntries('newest');
     });
 
-    sortOldestButton.addEventListener("click", function() {
+    sortOldestButton.addEventListener("click", () => {
         sortEntries('oldest');
     });
 

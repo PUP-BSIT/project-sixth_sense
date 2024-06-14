@@ -21,12 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Interface</title>
     <link rel="stylesheet" href="./main-page.css" />
   </head>
   <body>
     <div class="container">
+
       <div class="sidebar">
         <div class="profile">
           <div class="profile-pic"></div>
@@ -39,7 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="menu-item">Pinned</div>
         </div>
       </div>
+
       <div class="main">
+
         <div class="header">
           <a href="home-page.php">
             <button type="button" class="home-btn">Home Page</button>
@@ -48,17 +51,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit" class="logout-btn">Logout</button>
           </form>
         </div>
+
         <div class="content">
+
           <div class="sorting-buttons">
-            <button id="sortNewest" 
-             class="sort-button">Sort by Newest</button>
-            <button id="sortOldest"
-             class="sort-button">Sort by Oldest</button>
+            <button id="sort_newest" class="sort-button">Sort by Newest</button>
+            <button id="sort_oldest" class="sort-button">Sort by Oldest</button>
           </div>
+
           <div class="writing-box">
-            <form id="entryForm" action="main-page.php" method="post">
+            <form id="entry_form" action="main-page.php" method="post">
               <textarea
-                id="entryInput"
+                id="entry_input"
                 name="entry"
                 class="writing-input"
                 placeholder="Start Writing Your Thoughts"
@@ -68,11 +72,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </button>
             </form>
           </div>
-          <div id="entriesContainer"></div>
+
+          <div id="entries_container"></div>
         </div>
+
         <div class="footer">
           <button class="more-pages-button">More Pages</button>
         </div>
+        
       </div>
     </div>
     <script src="./main_page.js"></script>
