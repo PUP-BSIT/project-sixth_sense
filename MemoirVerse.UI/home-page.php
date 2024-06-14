@@ -28,12 +28,28 @@
                 <p>Monitor your emotions and well-being over time.</p>
             </div>
             <div class="feature">
-                <div class="icon">📜</div>
-                <h3>History</h3>
-                <p>Review your past entries and see your progress.</p>
+                <div class="icon">📝</div>
+                <h3>To do List</h3>
+                <p>Track your tasks and progress throughout the day.</p>
             </div>
         </div>
     </div>
-    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; <?php echo date("Y"); ?> MemoirVerse. All rights reserved.</p>
+            <p>MemoirVerse services collectively provide a comprehensive and user-friendly platform for
+                maintaining a personal diary, ensuring that users can record their thoughts and
+                memories in a secure, customizable, and enjoyable manner. </p>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="home-page.js"></script>
+    <a href=""></a>
+    <a href=""></a>
+    <a href=""></a>
 </body>
 </html>
