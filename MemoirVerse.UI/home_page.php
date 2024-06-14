@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MemoirVerse</title>
-    <link rel="stylesheet" href="./home-page.css">
+    <link rel="stylesheet" href="./style/home_page.css">
 </head>
 <body>
     <div class="navbar">
@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="button-container">
-        <a href="main-page.php">
+        <a href="main_page.php">
             <button class="home-btn">Home</button>
         </a>
     </div>
