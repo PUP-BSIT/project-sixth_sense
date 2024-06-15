@@ -1,0 +1,235 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #fafafa;
+  border-right: 1px solid #e0e0e0;
+  padding: 20px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #c2e3ef;
+  margin-right: 10px;
+}
+
+.profile-name {
+  font-weight: bold;
+}
+
+.menu .menu-item {
+  padding: 10px 0;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+}
+
+.menu .menu-item.active {
+  background-color: #e0e0e0;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #c2e3ef;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.search-bar {
+  width: 200px;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mood-tracker {
+  text-align: center;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mood-tracker h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.mood-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.mood-icon img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.motivational-quote {
+  font-size: 18px;
+  color: #333;
+  margin-top: 20px;
+}
+
+.writing-box {
+  background-color: #d9eef6;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.writing-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  background-color: #d9eef6;
+  color: #333;
+  border-radius: 10px;
+}
+
+.save-entry-button {
+  padding: 10px 20px;
+  background-color: #c2e3ef;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.color-palette {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.color {
+  width: 200px;
+  height: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.color1 {
+  background-color: #1e3a5f;
+}
+
+.color2 {
+  background-color: #d7f5fb;
+}
+
+.color3 {
+  background-color: #64c7db;
+}
+
+.color4 {
+  background-color: #e1f2fa;
+}
+
+.color5 {
+  background-color: #284b7e;
+}
+
+.color6 {
+  background-color: #a8dfe9;
+}
+
+.footer {
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+}
+
+.more-pages-button, .home-btn, .logout-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.more-pages-button {
+  background-color: #c2e3ef;
+}
+
+.home-btn {
+  background-color: rgb(136, 131, 131)
+  3b5998;
+  color: rgb(0, 0, 0);
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+}
+
+.home-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.logout-btn {
+  background-color: #f44336;
+  color: white;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+}
+
+.logout-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
