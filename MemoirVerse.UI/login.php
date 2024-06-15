@@ -8,7 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = sanitize_input($_POST["email"]);
         $password = sanitize_input($_POST["password"]);
 
-        // Use prepared statements for better security
         $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
