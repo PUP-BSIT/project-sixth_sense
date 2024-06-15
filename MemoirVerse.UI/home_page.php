@@ -12,6 +12,7 @@
             <img src="profile-picture.png" alt="Profile Picture" class="profile-pic">
             <a href="#">MemoirVerse</a>
         </div>
+
     </div>
     <div class="content">
         <h1>Welcome to MemoirVerse!</h1>
@@ -24,6 +25,7 @@
                     <p>Keep track of your daily thoughts and experiences.</p>
                 </div>
             </a>
+
             <div class="feature">
             <a href="./mood.php" class="feature-link">
                 <div class="icon">😃😢</div>
@@ -31,6 +33,7 @@
                 <p>Monitor your emotions and well-being over time.</p>
             </div>
             </a>
+
             <div class="feature">
             <a href="./to_do_list.php" class="feature-link">
                 <div class="icon">📝</div>
@@ -39,6 +42,7 @@
             </div>
             </a>
         </div>
+
     </div>
     <footer class="footer">
         <div class="footer-content">
@@ -51,6 +55,7 @@
                 <li><a href="#">Terms of Service</a></li>
                 <li><a href="#">Contact Us</a></li>
             </ul>
+            
     </div>
     <a href="todo_list.html">To do list</a>
 </body>
