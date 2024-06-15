@@ -1,4 +1,6 @@
 <?php
+require 'functions.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require 'db_conn.php';
     $email = sanitize_input($_POST["email"]);
@@ -27,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MemoirVerse Registration</title>
-  <link rel="stylesheet" href="./signup.css"/>
+  <link rel="stylesheet" href="style/signup.css"/>
 </head>
 
 <body>
