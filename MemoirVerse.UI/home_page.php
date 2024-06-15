@@ -19,7 +19,7 @@
         <p>Explore, reflect, and document your life's 
            adventures in the MemoirVerse!</p>
         <div class="features">
-            <a href="main-page.php" class="feature-link">
+            <a href="main_page.php" class="feature-link">
                 <div class="feature">
                     <div class="icon">📔</div>
                     <h3>Diary</h3>
