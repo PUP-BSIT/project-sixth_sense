@@ -1,5 +1,5 @@
 body {
-  font-family: "Arial", sans-serif;
+  font-family: 'Comic Sans MS';
   background-color: #f4f4f9;
   color: #333;
   margin: 0;
@@ -75,32 +75,65 @@ body {
   margin: 15px 0;
 }
 
-.feature .icon {
+.feature
+.icon {
   font-size: 60px;
   margin-bottom: 10px;
 }
 
-.home-btn {
-  background-color: #3b5998;
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-}
-
-.button-container {
+html, body {
+  height: 100%;
+  margin: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
-.home-btn:hover {
-  background-color: white;
-  color: black;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content {
+  flex: 1;
+}
+
+.footer {
+  background-color: #DCF2F1;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #DCF2F1;
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer p {
+  margin: 0;
+  color: #555;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.footer-links li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
 }

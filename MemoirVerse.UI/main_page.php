@@ -25,60 +25,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Interface</title>
     <link rel="stylesheet" href="./style/main_page.css" />
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="sidebar">
-            <div class="profile">
-                <div class="profile-pic"></div>
-                <span class="profile-name">Memories</span>
-            </div>
-            <div class="menu">
-                <div class="menu-item active">Home</div>
-                <div class="menu-item">Mood Tracker</div>
-                <a href="todo_list.html">
-                    <div class="menu-item">To do List</div>
-                </a>
-                <div class="menu-item">Pinned</div>
-            </div>
+
+      <div class="sidebar">
+        <div class="profile">
+          <div class="profile-pic"></div>
+          <span class="profile-name">Memories</span>
+        </div>
+        <div class="menu">
+          <div class="menu-item active">Home</div>
+          <div class="menu-item">Mood Tracker</div>
+          <div class="menu-item">To do List</div>
+          <div class="menu-item">Pinned</div>
+        </div>
+      </div>
+
+      <div class="main">
+
+        <div class="header">
+          <a href="home-page.php">
+            <button type="button" class="home-btn">Home Page</button>
+          </a>
+          <form action="login.php" method="post" class="logout-form">
+            <button type="submit" class="logout-btn">Logout</button>
+          </form>
         </div>
 
-        <div class="main">
-            <div class="header">
-                <a href="home_page.php">
-                    <button type="button" class="home-btn">Home Page</button>
-                </a>
-                <form action="login.php" method="post" class="logout-form">
-                    <button type="submit" class="logout-btn">Logout</button>
-                </form>
-            </div>
+        <div class="content">
 
-            <div class="content">
-                <div class="sorting-buttons">
-                    <button id="sort_newest" class="sort-button">Sort by Newest</button>
-                    <button id="sort_oldest" class="sort-button">Sort by Oldest</button>
-                </div>
+          <div class="sorting-buttons">
+            <button id="sort_newest" class="sort-button">Sort by Newest</button>
+            <button id="sort_oldest" class="sort-button">Sort by Oldest</button>
+          </div>
 
-                <div class="writing-box">
-                    <form id="entry_form" action="main_page.php" method="post">
-                        <textarea id="entry_input" name="entry" class="writing-input" placeholder="Start Writing Your Thoughts" required></textarea>
-                        <button type="submit" class="save-entry-button">Save Entry</button>
-                    </form>
-                </div>
+          <div class="writing-box">
+            <form id="entry_form" action="main-page.php" method="post">
+              <textarea
+                id="entry_input"
+                name="entry"
+                class="writing-input"
+                placeholder="Start Writing Your Thoughts"
+                required></textarea>
+              <button type="submit" class="save-entry-button">
+                Save Entry
+              </button>
+            </form>
+          </div>
 
-                <div id="entries_container"></div>
-            </div>
-
-            <div class="footer">
-                <button class="more-pages-button">More Pages</button>
-            </div>
+          <div id="entries_container"></div>
         </div>
+
+        <div class="footer">
+          <button class="more-pages-button">More Pages</button>
+        </div>
+        
+      </div>
     </div>
-
     <script src="./script/main_page.js"></script>
-</body>
+  </body>
 </html>
