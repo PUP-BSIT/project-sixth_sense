@@ -14,6 +14,20 @@ document.addEventListener('DOMContentLoaded', function () {
         icon.addEventListener('click', function () {
             const mood = this.dataset.mood;
             motivationalQuote.textContent = quotes[mood];
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'mood.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        console.log(xhr.responseText);
+                    } else {
+                        console.error('Error occurred:', xhr.statusText);
+                    }
+                }
+            };
+            xhr.send('mood=' + mood);
         });
     });
 });
