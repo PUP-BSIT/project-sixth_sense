@@ -30,7 +30,7 @@ $sql = "INSERT INTO moods (mood) VALUES ('$mood')
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Interface</title>
-    <link rel="stylesheet" href="./mood.css" />
+    <link rel="stylesheet" href="./style/mood_style.css" />
 </head>
 <body>
     <div class="container">
@@ -96,6 +96,6 @@ $sql = "INSERT INTO moods (mood) VALUES ('$mood')
         </div>
     </div>
 </div>
-    <script src="./mood-tracker.js"></script>
+    <script src="./script/mood_script.js"></script>
 </body>
 </html>
