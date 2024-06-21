@@ -38,18 +38,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="profile-pic"></div>
           <span class="profile-name">Memories</span>
         </div>
+        
         <div class="menu">
           <div class="menu-item active">Home</div>
           <div class="menu-item">Mood Tracker</div>
-          <div class="menu-item">To do List</div>
+          <a href="todo_list.html">
+            <div class="menu-item">To do List</div>
+          </a>
           <div class="menu-item">Pinned</div>
         </div>
       </div>
 
       <div class="main">
-
         <div class="header">
-          <a href="home-page.php">
+          <a href="home_page.php">
             <button type="button" class="home-btn">Home Page</button>
           </a>
           <form action="login.php" method="post" class="logout-form">
@@ -58,20 +60,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <div class="content">
-
           <div class="sorting-buttons">
             <button id="sort_newest" class="sort-button">Sort by Newest</button>
             <button id="sort_oldest" class="sort-button">Sort by Oldest</button>
           </div>
 
           <div class="writing-box">
-            <form id="entry_form" action="main-page.php" method="post">
+            <form
+              id="entry_form"
+              action="main-page.php"
+              method="post"
+              enctype="multipart/form-data">
               <textarea
                 id="entry_input"
                 name="entry"
                 class="writing-input"
                 placeholder="Start Writing Your Thoughts"
                 required></textarea>
+              <input
+                type="file"
+                id="entry_image"
+                name="entry_image"
+                accept="image/*"/>
               <button type="submit" class="save-entry-button">
                 Save Entry
               </button>
@@ -84,9 +94,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="footer">
           <button class="more-pages-button">More Pages</button>
         </div>
-        
       </div>
     </div>
+
     <script src="./script/main_page.js"></script>
   </body>
 </html>
+
