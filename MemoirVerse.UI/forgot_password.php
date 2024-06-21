@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Forgot Password</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/forgot_password.css">
+    <title>Forgot Password</title>
 </head>
 <body>
+    <div class="container">
+        <div class="welcome-section">
+            <h1>Welcome to MemoirVerse!</h1>
+            <p>Kindly submit the email address you used for registration 
+               to reset your password.</p>
+        </div>
 
-    <h1>Forgot Password</h1>
-
-    <form method="post" action="send-password-reset.php">
-
-        <label for="email">email</label>
-        <input type="email" name="email" id="email">
-
-        <button>Send</button>
-
-    </form>
-
+        <div class="forgot-password-section">
+            <h2>Forget Password</h2>
+            <form id="forgot-password-form">
+                <input type="email" id="email" 
+                    placeholder="Email Address" required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
