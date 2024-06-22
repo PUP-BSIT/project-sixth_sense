@@ -63,19 +63,19 @@ $sql = "INSERT INTO moods (mood) VALUES ('$mood')
                     </div>
 
                     <div class="mood-icon" data-mood="content">
-                        <img src="./style/content.png" alt="Content"/>
+                        <img src="./assets/content.png" alt="Content"/>
                     </div>
 
                     <div class="mood-icon" data-mood="neutral">
-                        <img src="./style/neutral.png" alt="Neutral" />
+                        <img src="./assets/neutral.png" alt="Neutral" />
                     </div>
 
                     <div class="mood-icon" data-mood="sad">
-                        <img src="./style/sad.png" alt="Sad" />
+                        <img src="./assets/sad.png" alt="Sad" />
                     </div>
 
                     <div class="mood-icon" data-mood="angry">
-                        <img src="./style/anger.png" alt="Angry" />
+                        <img src="./assets/anger.png" alt="Angry" />
                     </div>
 
                 </div>
