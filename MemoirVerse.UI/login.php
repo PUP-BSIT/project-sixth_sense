@@ -17,8 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user = $result->fetch_assoc();
             if (password_verify($password, $user["password"])) {
                 $_SESSION['user_id'] = $user['id'];
+                $_SESSION['first_name'] = $user['firstName'];
                 echo "<script>alert('Login successful'); window.location.href = 'home_page.php';</script>";
                 exit();
+            }
             } else {
                 echo "<script>alert('Invalid password');</script>";
             }

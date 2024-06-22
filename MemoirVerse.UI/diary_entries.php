@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $entryDate = date('Y-m-d H:i:s');
         $entryImage = '';
 
-        // Handle file upload
         if (isset($_FILES['entry_image']) && $_FILES['entry_image']['error'] == UPLOAD_ERR_OK) {
             $imageTmpPath = $_FILES['entry_image']['tmp_name'];
             $imageName = $_FILES['entry_image']['name'];

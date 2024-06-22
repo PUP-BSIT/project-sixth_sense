@@ -1,3 +1,8 @@
+<?php
+session_start();
+$welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "MemoirVerse";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +20,7 @@
     </div>
 
     <div class="content">
-        <h1>Welcome to MemoirVerse!</h1>
+    <h1>Welcome to <?php echo $welcomeName; ?>!</h1>
         <p>Explore, reflect, and document your life's adventures in the MemoirVerse!</p>
         <class="features">
             <div class="feature">
