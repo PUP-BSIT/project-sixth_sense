@@ -1,3 +1,9 @@
+<?php
+require 'db_conn.php';
+session_start();
+$welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "MemoirVerse";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
