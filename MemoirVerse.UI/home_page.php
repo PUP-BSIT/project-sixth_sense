@@ -62,7 +62,7 @@ $welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "Memoi
             <ul class="footer-links">
                 <li><a href="#">Privacy Policy</a></li>
                 <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="about_us.php">About Us</a></li>
             </ul>
         </div>
     </footer>
