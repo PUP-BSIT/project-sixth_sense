@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['mood'])) {
     $mood = $_POST['mood'];
 
 $sql = "INSERT INTO moods (mood) VALUES ('$mood')
-     ON DUPLICATE KEY UPDATE mood='$mood', timestamp=CURRENT_TIMESTAMP";
-     if ($conn->query($sql) === TRUE) {
+    ON DUPLICATE KEY UPDATE mood='$mood', timestamp=CURRENT_TIMESTAMP";
+    if ($conn->query($sql) === TRUE) {
         echo "Mood updated successfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -34,11 +34,11 @@ $sql = "INSERT INTO moods (mood) VALUES ('$mood')
 </head>
 <body>
     <div class="container">
-    <div class="sidebar">
-        <div class="profile">
-             <div class="profile-pic"></div>
-            <span class="profile-name">Memories</span>
-        </div>
+        <div class="sidebar">
+            <div class="profile">
+                <div class="profile-pic"></div>
+                <span class="profile-name">Memories</span>
+            </div>
 
         <div class="menu">
             <div class="menu-item">Home</div>
@@ -46,6 +46,7 @@ $sql = "INSERT INTO moods (mood) VALUES ('$mood')
             <div class="menu-item">To do List</div>
             <div class="menu-item">Pinned</div>
         </div>
+
     </div>
 
     <div class="main">
@@ -62,7 +63,7 @@ $sql = "INSERT INTO moods (mood) VALUES ('$mood')
                     </div>
 
                     <div class="mood-icon" data-mood="content">
-                        <img src="path_to_content_icon.png" alt="Content" />
+                        <img src="path_to_content_icon.png" alt="Content"/>
                     </div>
 
                     <div class="mood-icon" data-mood="neutral">
@@ -72,30 +73,31 @@ $sql = "INSERT INTO moods (mood) VALUES ('$mood')
                     <div class="mood-icon" data-mood="sad">
                         <img src="path_to_sad_icon.png" alt="Sad" />
                     </div>
-                    
+
                     <div class="mood-icon" data-mood="angry">
                         <img src="path_to_angry_icon.png" alt="Angry" />
                     </div>
+
                 </div>
 
                 <div class="motivational-quote">Motivational Quote</div>
             </div>
         </div>
 
-        <div class="footer">
-            <button class="more-pages-button">More Pages</button>
-            <div class="button-container">
-                <a href="home-page.php">
-                    <button type="submit" class="home-btn">Home Page</button>
-                 </a>
+            <div class="footer">
+                <button class="more-pages-button">More Pages</button>
+                <div class="button-container">
+                    <a href="home-page.php">
+                        <button type="submit" class="home-btn">Home Page</button>
+                    </a>
             </div>
-            
-            <form action="login.php" method="post">
-                <button type="submit" class="logout-btn">Logout</button>
-            </form>
+
+                <form action="login.php" method="post">
+                    <button type="submit" class="logout-btn">Logout</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
     <script src="./script/mood_script.js"></script>
 </body>
 </html>
