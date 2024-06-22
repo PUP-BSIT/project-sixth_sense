@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="main">
 
         <div class="header">
-          <a href="home-page.php">
+          <a href="home_page.php">
             <button type="button" class="home-btn">Home Page</button>
           </a>
           <form action="login.php" method="post" class="logout-form">
