@@ -54,49 +54,49 @@ $sql = "INSERT INTO moods (mood) VALUES ('$mood')
             <input type="text" class="search-bar" placeholder="Sorting" />
         </div>
 
-        <div class="content">
-            <div class="mood-tracker">
-                <h2>Choose Your State of Mind:</h2>
-                <div class="mood-icons">
-                    <div class="mood-icon" data-mood="happy">
-                        <img src="./style/happy.png" alt="Happy" />
-                    </div>
-
-                    <div class="mood-icon" data-mood="content">
-                        <img src="./assets/content.png" alt="Content"/>
-                    </div>
-
-                    <div class="mood-icon" data-mood="neutral">
-                        <img src="./assets/neutral.png" alt="Neutral" />
-                    </div>
-
-                    <div class="mood-icon" data-mood="sad">
-                        <img src="./assets/sad.png" alt="Sad" />
-                    </div>
-
-                    <div class="mood-icon" data-mood="angry">
-                        <img src="./assets/anger.png" alt="Angry" />
-                    </div>
-
+    <div class="content">
+        <div class="mood-tracker">
+            <h2>Choose Your State of Mind:</h2>
+            <div class="mood-icons">
+                <div class="mood-icon" data-mood="happy">
+                    <img src="./style/happy.png" alt="Happy" />
                 </div>
+
+                <div class="mood-icon" data-mood="content">
+                    <img src="./assets/content.png" alt="Content"/>
+                </div>
+
+                <div class="mood-icon" data-mood="neutral">
+                    <img src="./assets/neutral.png" alt="Neutral" />
+                </div>
+
+                <div class="mood-icon" data-mood="sad">
+                    <img src="./assets/sad.png" alt="Sad" />
+                </div>
+
+                <div class="mood-icon" data-mood="angry">
+                    <img src="./assets/anger.png" alt="Angry" />
+                </div>
+
+            </div>
 
                 <div class="motivational-quote">Motivational Quote</div>
             </div>
         </div>
 
-            <div class="footer">
-                <button class="more-pages-button">More Pages</button>
-                <div class="button-container">
-                    <a href="home-page.php">
-                        <button type="submit" class="home-btn">Home Page</button>
-                    </a>
-            </div>
-
-                <form action="login.php" method="post">
-                    <button type="submit" class="logout-btn">Logout</button>
-                </form>
-            </div>
+        <div class="footer">
+            <button class="more-pages-button">More Pages</button>
+            <div class="button-container">
+                <a href="home-page.php">
+                    <button type="submit" class="home-btn">Home Page</button>
+                </a>
         </div>
+
+            <form action="login.php" method="post">
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
+        </div>
+    </div>
     </div>
     <script src="./script/mood_script.js"></script>
 </body>
