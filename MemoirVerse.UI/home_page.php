@@ -25,7 +25,7 @@ $welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "Memoi
         <class="features">
             <div class="feature">
                 <div class="icon">📔</div>
-                <a href="./diary_entries.php" class="icon">
+                <a href="./main_page.php" class="icon">
                 <h3>Diary</h3>
                 <p>Keep track of your daily thoughts and experiences.</p>
             </div>
