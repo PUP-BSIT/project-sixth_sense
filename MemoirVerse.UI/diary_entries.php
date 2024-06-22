@@ -15,8 +15,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $entry = $_POST["entry"] ?? '';
     if (!empty($entry)) {
         $entryDate = date('Y-m-d H:i:s');
-        $stmt = $conn->prepare("INSERT INTO diary_entries (entry_id, entry, entry_date, user_id, history_id, time_created, time_updated) VALUES (UUID(), ?, ?, ?, NULL, ?, ?)");
-        $stmt->bind_param('sssss', $entry, $entryDate, $userId, $entryDate, $entryDate);
+        $entryImage = '';
+
+        // Handle file upload
+        if (isset($_FILES['entry_image']) && $_FILES['entry_image']['error'] == UPLOAD_ERR_OK) {
+            $imageTmpPath = $_FILES['entry_image']['tmp_name'];
+            $imageName = $_FILES['entry_image']['name'];
+            $imageSize = $_FILES['entry_image']['size'];
+            $imageType = $_FILES['entry_image']['type'];
+            $imageExtension = pathinfo($imageName, PATHINFO_EXTENSION);
+
+            $imageDir = 'uploads/';
+            $newImageName = uniqid('img_') . '.' . $imageExtension;
+            $imageDestPath = $imageDir . $newImageName;
+
+            if (move_uploaded_file($imageTmpPath, $imageDestPath)) {
+                $entryImage = $imageDestPath;
+            } else {
+                echo json_encode(['status' => 'error', 'message' => 'Error: Could not upload image.']);
+                exit();
+            }
+        }
+
+        $stmt = $conn->prepare("INSERT INTO diary_entries (entry_id, entry, entry_date, user_id, time_created, time_updated, entry_image) VALUES (UUID(), ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param('ssssss', $entry, $entryDate, $userId, $entryDate, $entryDate, $entryImage);
         if ($stmt->execute()) {
             echo json_encode(['status' => 'success', 'message' => 'Diary entry saved successfully']);
         } else {
@@ -74,4 +96,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
-?>
