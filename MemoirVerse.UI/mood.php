@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['mood'])) {
     $mood = $_POST['mood'];
 
 $sql = "INSERT INTO moods (mood) VALUES ('$mood')
-     ON DUPLICATE KEY UPDATE mood='$mood', timestamp=CURRENT_TIMESTAMP";
-     if ($conn->query($sql) === TRUE) {
+    ON DUPLICATE KEY UPDATE mood='$mood', timestamp=CURRENT_TIMESTAMP";
+    if ($conn->query($sql) === TRUE) {
         echo "Mood updated successfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -34,11 +34,11 @@ $sql = "INSERT INTO moods (mood) VALUES ('$mood')
 </head>
 <body>
     <div class="container">
-    <div class="sidebar">
-        <div class="profile">
-             <div class="profile-pic"></div>
-            <span class="profile-name">Memories</span>
-        </div>
+        <div class="sidebar">
+            <div class="profile">
+                <div class="profile-pic"></div>
+                <span class="profile-name">Memories</span>
+            </div>
 
         <div class="menu">
             <div class="menu-item">Home</div>
@@ -46,6 +46,7 @@ $sql = "INSERT INTO moods (mood) VALUES ('$mood')
             <div class="menu-item">To do List</div>
             <div class="menu-item">Pinned</div>
         </div>
+
     </div>
 
     <div class="main">
@@ -53,30 +54,31 @@ $sql = "INSERT INTO moods (mood) VALUES ('$mood')
             <input type="text" class="search-bar" placeholder="Sorting" />
         </div>
 
-        <div class="content">
-            <div class="mood-tracker">
-                <h2>Choose Your State of Mind:</h2>
-                <div class="mood-icons">
-                    <div class="mood-icon" data-mood="happy">
-                        <img src="path_to_happy_icon.png" alt="Happy" />
-                    </div>
-
-                    <div class="mood-icon" data-mood="content">
-                        <img src="path_to_content_icon.png" alt="Content" />
-                    </div>
-
-                    <div class="mood-icon" data-mood="neutral">
-                        <img src="path_to_neutral_icon.png" alt="Neutral" />
-                    </div>
-
-                    <div class="mood-icon" data-mood="sad">
-                        <img src="path_to_sad_icon.png" alt="Sad" />
-                    </div>
-                    
-                    <div class="mood-icon" data-mood="angry">
-                        <img src="path_to_angry_icon.png" alt="Angry" />
-                    </div>
+    <div class="content">
+        <div class="mood-tracker">
+            <h2>Choose Your State of Mind:</h2>
+            <div class="mood-icons">
+                <div class="mood-icon" data-mood="happy">
+                    <img src="./style/happy.png" alt="Happy" />
                 </div>
+
+                <div class="mood-icon" data-mood="content">
+                    <img src="./assets/content.png" alt="Content"/>
+                </div>
+
+                <div class="mood-icon" data-mood="neutral">
+                    <img src="./assets/neutral.png" alt="Neutral" />
+                </div>
+
+                <div class="mood-icon" data-mood="sad">
+                    <img src="./assets/sad.png" alt="Sad" />
+                </div>
+
+                <div class="mood-icon" data-mood="angry">
+                    <img src="./assets/anger.png" alt="Angry" />
+                </div>
+
+            </div>
 
                 <div class="motivational-quote">Motivational Quote</div>
             </div>
@@ -87,15 +89,15 @@ $sql = "INSERT INTO moods (mood) VALUES ('$mood')
             <div class="button-container">
                 <a href="home-page.php">
                     <button type="submit" class="home-btn">Home Page</button>
-                 </a>
-            </div>
-            
+                </a>
+        </div>
+
             <form action="login.php" method="post">
                 <button type="submit" class="logout-btn">Logout</button>
             </form>
         </div>
     </div>
-</div>
+    </div>
     <script src="./script/mood_script.js"></script>
 </body>
 </html>
