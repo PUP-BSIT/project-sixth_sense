@@ -5,53 +5,74 @@
 }
 
 body {
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    background: linear-gradient(to right, #DCF2F1, white); 
+    font-family: 'Comic Sans MS', 'Comic Sans', 'cursive';
     background-color: #f9f9f9;
+    color: #004f7c;
+    line-height: 1.6;
 }
 
 header {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    background-color: #C8E9EE;
-    padding: 10px 20px;
+    background-color: #c8e9ee;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
 .sorting-dropdown select {
-    padding: 5px 10px;
-    border: none;
+    padding: 8px 15px;
+    border: 1px solid #b0d8e0;
     background-color: #fff;
     border-radius: 5px;
+    font-size: 0.9rem;
+    color: #004f7c;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sorting-dropdown select:hover {
+    background-color: #e9f4f6;
 }
 
 .container {
     display: flex;
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
 }
 
 .sidebar {
-    width: 200px;
-    background-color: #E9F4F6;
-    padding: 20px;
-    border-right: 1px solid #ccc;
+    width: 250px;
+    background-color: #e9f4f6;
+    padding: 30px 20px;
+    border-right: 1px solid #b0d8e0;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
 }
 
 .profile {
     display: flex;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .profile img {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    margin-right: 10px;
+    margin-right: 15px;
+    border: 2px solid #004f7c;
 }
 
 .profile span {
-    font-weight: bold;
-    color: #004F7C;
+    font-weight: 600;
+    color: #004f7c;
+    font-size: 1.1rem;
 }
 
 nav ul {
@@ -59,116 +80,196 @@ nav ul {
 }
 
 nav ul li {
-    margin: 15px 0;
-    padding: 10px;
+    margin: 10px 0;
+    padding: 12px 15px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
 }
 
 nav ul li:hover,
 nav ul li.active {
-    background-color: #D1E8EB;
+    background-color: #d1e8eb;
+    color: #004f7c;
 }
 
 .content {
     flex: 1;
-    padding: 30px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .thoughts {
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 }
 
 .textarea-wrapper {
     position: relative;
     width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .textarea-wrapper img.writing-icon {
     position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
+    left: 15px;
+    width: 20px;
+    height: 20px;
 }
 
 .thoughts input {
-    width: 100%;
-    padding: 50px; 
-    font-size: 1.2em;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #D1E8EB;
-    color: #004F7C;
+    flex-grow: 1;
+    padding: 15px 15px 15px 50px;
+    font-size: 1rem;
+    border: 2px solid #b0d8e0;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #004f7c;
     outline: none;
+    transition: all 0.3s ease;
+}
+
+.thoughts input:focus {
+    border-color: #004f7c;
+    box-shadow: 0 0 0 3px rgba(0, 79, 124, 0.1);
+}
+
+#add-task-btn {
+    padding: 15px 20px;
+    background-color: #004f7c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+#add-task-btn:hover {
+    background-color: #003b5e;
 }
 
 .task-section {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     width: 100%;
 }
 
 .task {
     flex: 1;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #E9F4F6;
-    color: #004F7C;
+    padding: 25px;
+    border-radius: 12px;
+    background-color: #e9f4f6;
+    color: #004f7c;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.task h2 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
 }
 
 .task.assigned {
-    background-color: #F0F8F8;
+    background-color: #f0f8f8;
 }
 
 .task.done {
-    background-color: #E0EFFA;
+    background-color: #e0effa;
 }
 
-.task-item {
+.task:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.task ul {
+    list-style-type: none;
+}
+
+.task li {
     display: flex;
     align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+    padding: 12px;
+    border-bottom: 1px solid #b0d8e0;
+    transition: background-color 0.3s ease;
+}
+
+.task li:last-child {
+    border-bottom: none;
+}
+
+.task li:hover {
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .task-checkbox {
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
-.task-content {
-    flex-grow: 1; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.task-text {
+    flex-grow: 1;
 }
 
 .task-timestamp {
-    margin-left: 10px;
-    color: #888;
-    font-size: 0.9em; 
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-right: 10px;
 }
 
-@media (max-width: 600px) {
+.delete-btn {
+    background-color: #004f7c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #b0d8e0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #b0d8e0;
+        padding: 20px;
+    }
+
+    .content {
+        padding: 30px 20px;
+    }
+
     .thoughts {
         width: 100%;
-        padding: 0 20px;
     }
 
     .task-section {
         flex-direction: column;
-        gap: 10px;
     }
 
     .task {
-        padding: 15px;
+        margin-bottom: 20px;
     }
 }
