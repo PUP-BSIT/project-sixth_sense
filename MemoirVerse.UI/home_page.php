@@ -45,7 +45,7 @@ $welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "Memoi
 
             <div class="feature">
                 <div class="icon">📈</div>
-                <a href="./to_do_list.php" class="icon"></a>
+                <a href="./chart.php" class="icon"></a>
                 <h3>Chart</h3>
                 <p>Gain insights into your emotional
                    well-being by charting your moods over time.</p>
