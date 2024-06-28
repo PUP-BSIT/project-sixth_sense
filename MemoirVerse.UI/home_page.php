@@ -20,30 +20,35 @@ $welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "Memoi
     </div>
 
     <div class="content">
-    <h1>Welcome to <?php echo $welcomeName; ?>!</h1>
+        <h1>Welcome to MemoirVerse!</h1>
         <p>Explore, reflect, and document your life's adventures in the MemoirVerse!</p>
-        <class="features">
+        <div class="features">
             <div class="feature">
                 <div class="icon">📔</div>
-                <a href="./main_page.php" class="icon">
                 <h3>Diary</h3>
                 <p>Keep track of your daily thoughts and experiences.</p>
             </div>
-            </a>    
 
             <div class="feature">
                 <div class="icon">😃😢</div>
-                <a href="./mood.php" class="icon">
+                <a href="./mood.php" class="icon"></a>
                 <h3>Emotional Tracker</h3>
                 <p>Monitor your emotions and well-being over time.</p>
             </div>
-            </a>
 
             <div class="feature">
                 <div class="icon">📝</div>
-                <a href="./to_do_list.php" class="icon">
+                <a href="./to_do_list.php" class="icon"></a>
                 <h3>To do List</h3>
                 <p>Track your tasks and progress throughout the day.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">📈</div>
+                <a href="./chart.php" class="icon"></a>
+                <h3>Chart</h3>
+                <p>Gain insights into your emotional
+                   well-being by charting your moods over time.</p>
             </div>
             </a>
         </div>

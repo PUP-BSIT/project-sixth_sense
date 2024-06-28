@@ -1,4 +1,5 @@
 body {
+  background: linear-gradient(to right, #DCF2F1, white); 
   font-family: 'Comic Sans MS';
   background-color: #f4f4f9;
   color: #333;
