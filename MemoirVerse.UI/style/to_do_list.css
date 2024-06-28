@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(to right, #DCF2F1, white); 
+    background:  white; 
     font-family: 'Comic Sans MS', 'Comic Sans', 'cursive';
     background-color: #f9f9f9;
     color: #004f7c;
@@ -271,5 +271,50 @@ nav ul li.active {
 
     .task {
         margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .sorting-dropdown select {
+        font-size: 0.8rem;
+    }
+
+    .sidebar {
+        padding: 20px 15px;
+    }
+
+    .profile span {
+        font-size: 1rem;
+    }
+
+    .content {
+        padding: 20px 15px;
+    }
+
+    .thoughts input {
+        padding: 12px 12px 12px 40px;
+        font-size: 0.9rem;
+    }
+
+    #add-task-btn {
+        padding: 12px 18px;
+        font-size: 0.9rem;
+    }
+
+    .task h2 {
+        font-size: 1.2rem;
+    }
+
+    .task {
+        padding: 20px;
     }
 }
