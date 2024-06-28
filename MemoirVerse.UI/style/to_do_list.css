@@ -5,6 +5,7 @@
 }
 
 body {
+    background: linear-gradient(to right, #DCF2F1, white); 
     font-family: 'Comic Sans MS', 'Comic Sans', 'cursive';
     background-color: #f9f9f9;
     color: #004f7c;
