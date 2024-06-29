@@ -1,37 +1,43 @@
 <?php
-$conn = new mysqli('hostname', 'username', 'password', 'database');
+// request_reset.php
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-
-    $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
-
-    if ($stmt->num_rows > 0) {
-        $token = bin2hex(random_bytes(32));
-        $tokenHash = hash('sha256', $token);
-        $expiration = date('Y-m-d H:i:s', strtotime('+1 hour'));
-
-        $stmt = $conn->prepare("UPDATE users SET reset_token_hash = ?, reset_token_expires_at = ? WHERE email = ?");
-        $stmt->bind_param("sss", $tokenHash, $expiration, $email);
-        $stmt->execute();
-
-        $resetLink = "http://yourdomain.com/reset_password.php?token=" . $token;
-        $subject = "Password Reset Request";
-        $message = "Click the link to reset your password: " . $resetLink;
-        $headers = "From: no-reply@yourdomain.com";
-
-        mail($email, $subject, $message, $headers);
-
-        echo "A password reset link has been sent to your email.";
-    } else {
-        echo "Email address not found.";
-    }
-
-    $stmt->close();
+if (!file_exists('db_conn.php')) {
+    die("Database connection file is missing.");
 }
 
-$conn->close();
+include 'db_conn.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $secretCode = $_POST['secretCode'];
+    $new_password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
+
+    // Check if email and secret code match
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND secret_code = ?");
+    $stmt->bind_param("ss", $email, $secretCode);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 1) {
+        // Update password
+        $stmt = $conn->prepare("UPDATE users SET password = ? WHERE email = ?");
+        $stmt->bind_param("ss", $new_password, $email);
+        $stmt->execute();
+
+        echo "Your password has been reset successfully.";
+    } else {
+        echo "Invalid email or secret code.";
+    }
+}
 ?>
+
+<!-- request_reset.html -->
+<form action="request_reset.php" method="post">
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+    <label for="secretCode">Secret Code:</label>
+    <input type="text" name="secretCode" id="secretCode" required>
+    <label for="new_password">New Password:</label>
+    <input type="password" name="new_password" id="new_password" required>
+    <button type="submit">Reset Password</button>
+</form>

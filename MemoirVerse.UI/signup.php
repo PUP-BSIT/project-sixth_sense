@@ -1,25 +1,27 @@
 <?php
-require 'functions.php';
+
+if (!file_exists('db_conn.php')) {
+    die("Database connection file is missing.");
+}
+
+include 'db_conn.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require 'db_conn.php';
-    $email = sanitize_input($_POST["email"]);
-    $lastName = sanitize_input($_POST["lastName"]);
-    $firstName = sanitize_input($_POST["firstName"]);
-    $password = password_hash(sanitize_input($_POST["password"]), PASSWORD_DEFAULT);
-    $dob = sanitize_input($_POST["dob"]);
+    $email = $_POST['email'];
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $dob = $_POST['dob'];
+    $secretCode = $_POST['secretCode'];
 
-    $sql = "INSERT INTO users (email, lastName, firstName, password, dob) 
-    VALUES ('$email', '$lastName', '$firstName', '$password', '$dob')";
+    $stmt = $conn->prepare("INSERT INTO users (email, firstName, lastName, password, dob, secret_code) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $email, $firstName, $lastName, $password, $dob, $secretCode);
 
-    if ($conn->query($sql) === TRUE) {
-      echo "<script>alert('New record created successfully');</script>";
-  } else {
-      echo "<script>alert('Error: " . $sql . "<br>" . $conn->error . "');
-      </script>";
-  }
-
-    $conn->close();
+    if ($stmt->execute()) {
+        echo "<script>alert('Signup successful.'); window.location.href = 'login.php';</script>";
+    } else {
+        echo "<script>alert('Signup failed: " . $stmt->error . "'); window.location.href = 'signup.php';</script>";
+    }
 }
 ?>
 
@@ -35,14 +37,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
   <div class="container">
     <div class="form-section">
-      <form action="signup.php" method="post">
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="text" name="lastName" placeholder="Last Name" required>
-    <input type="text" name="firstName" placeholder="First Name" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="date" name="dob" placeholder="Date of Birth" required>
-    <button type="submit" class="submit-btn">
-        <span class="submit-text">Register</span>
+    <form action="signup.php" method="post">
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+    <label for="firstName">First Name:</label>
+    <input type="text" name="firstName" id="firstName" required>
+    <label for="lastName">Last Name:</label>
+    <input type="text" name="lastName" id="lastName" required>
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" name="dob" id="dob" required>
+    <label for="secretCode">Secret Code:</label>
+    <input type="text" name="secretCode" id="secretCode" required>
+    <button type="submit">Sign Up</button>
     </button>
 
     <button type="button" class="submit-btn"
