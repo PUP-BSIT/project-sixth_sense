@@ -5,9 +5,6 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 .navbar {
@@ -17,13 +14,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .navbar a {
   color: white;
   text-decoration: none;
-  padding: 5px 10px;
+  padding: 0 15px;
 }
 
 .navbar a:hover {
@@ -34,31 +30,30 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  margin-right: 10px;
 }
 
 .content {
   text-align: center;
-  padding: 30px 20px;
-  flex: 1;
+  padding: 50px 20px;
 }
 
 .content h1 {
-  font-size: 2em;
+  font-size: 2.5em;
   color: #3b5998;
   margin-bottom: 20px;
 }
 
 .content p {
-  font-size: 1em;
+  font-size: 1.2em;
   margin-bottom: 30px;
   color: #555;
 }
 
 .features {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 .feature {
@@ -67,8 +62,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 100%;
-  max-width: 300px;
+  width: 200px;
   transition: transform 0.3s;
 }
 
@@ -82,28 +76,46 @@ body {
   margin: 15px 0;
 }
 
-.feature .icon {
-  font-size: 40px;
+.feature
+.icon {
+  font-size: 60px;
   margin-bottom: 10px;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content {
+  flex: 1;
+}
+
 .footer {
-  background-color: #DCF2F1;
+  background-color: white;
   padding: 20px;
   text-align: center;
   border-top: 1px solid #DCF2F1;
   font-family: 'Arial', sans-serif;
+
 }
 
 .footer-content {
-  max-width: 95%;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .footer p {
   margin: 0;
   color: #555;
-  font-size: 0.9em;
 }
 
 .footer-links {
@@ -120,32 +132,8 @@ body {
 .footer-links a {
   text-decoration: none;
   color: #007bff;
-  font-size: 0.9em;
 }
 
 .footer-links a:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-.navbar {
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.navbar a {
-  padding: 5px 0;
-}
-
-.content h1 {
-  font-size: 1.8em;
-}
-
-.content p {
-  font-size: 0.9em;
-}
-
-.feature {
-  width: 100%;
-  }
 }
