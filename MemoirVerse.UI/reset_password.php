@@ -1,5 +1,5 @@
 <?php
-// Database connection
+
 $conn = new mysqli('hostname', 'username', 'password', 'database');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
