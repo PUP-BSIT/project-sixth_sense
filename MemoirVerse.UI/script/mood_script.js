@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     const moodIcons = document.querySelectorAll('.mood-icon');
     const motivationalQuote = document.querySelector('.motivational-quote');
+    const submitMoodButton = document.getElementById('submitMoodButton');
+    const moodEntriesContainer = document.getElementById('mood_entries');
+    let selectedMood = null;
 
     const quotes = {
         happy: "Keep smiling, life is beautiful!",
@@ -12,22 +15,77 @@ document.addEventListener('DOMContentLoaded', function () {
 
     moodIcons.forEach(icon => {
         icon.addEventListener('click', function () {
-            const mood = this.dataset.mood;
-            motivationalQuote.textContent = quotes[mood];
-
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'mood.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        console.log(xhr.responseText);
-                    } else {
-                        console.error('Error occurred:', xhr.statusText);
-                    }
-                }
-            };
-            xhr.send('mood=' + mood);
+            selectedMood = this.dataset.mood;
+            motivationalQuote.textContent = quotes[selectedMood];
         });
     });
+
+    submitMoodButton.addEventListener('click', function () {
+        if (!selectedMood) {
+            alert("Please select a mood before submitting.");
+            return;
+        }
+
+        const formData = new URLSearchParams();
+        formData.append('mood', selectedMood);
+
+        fetch('mood.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formData.toString()
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => { throw new Error(text) });
+            }
+            return response.text();
+        })
+        .then(text => {
+            console.log('Raw response text:', text);
+            text = text.trim();
+            try {
+                const data = JSON.parse(text);
+                if (data.status === 'success') {
+                    alert(data.message);
+                    loadMoodEntries();
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error parsing JSON:', error, text);
+                alert('An error occurred while processing your request.');
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+            alert('An error occurred while submitting your mood.');
+        });
+    });
+
+    const loadMoodEntries = async () => {
+        try {
+            const response = await fetch('mood_entries.php');
+            const data = await response.json();
+            displayMoodEntries(data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+    const displayMoodEntries = (entries) => {
+        moodEntriesContainer.innerHTML = '<h2>Mood Entries</h2>';
+        entries.forEach(entry => {
+            const entryDiv = document.createElement('div');
+            entryDiv.classList.add('entry');
+            entryDiv.innerHTML = `
+                <p>Mood: ${entry.mood}</p>
+                <span class="timestamp">${entry.entry_date}</span>
+            `;
+            moodEntriesContainer.appendChild(entryDiv);
+        });
+    };
+
+    loadMoodEntries();
 });
