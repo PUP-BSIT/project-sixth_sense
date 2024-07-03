@@ -1,6 +1,5 @@
 <?php
-
-$conn = new mysqli('hostname', 'username', 'password', 'database');
+include 'db_conn.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $token = $_POST['token'];
@@ -17,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($userId && new DateTime($tokenExpiration) > new DateTime()) {
         $stmt = $conn->prepare("UPDATE users 
-                SET password = ?, reset_token_hash = 
-                NULL, reset_token_expires_at = NULL WHERE id = ?");
+            SET password = ?, reset_token_hash = 
+            NULL, reset_token_expires_at = NULL WHERE id = ?");
         $stmt->bind_param("si", $newPassword, $userId);
         $stmt->execute();
 
