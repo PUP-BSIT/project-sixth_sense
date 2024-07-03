@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f0f4f8;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.profile-summary {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.profile-name {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.profile-username {
+    color: gray;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #f8f9fa;
+    padding-top: 60px;
+}
+
+.nav {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-item {
+    padding: 15px;
+    cursor: pointer;
+}
+
+.main-content {
+    flex: 1;
+    padding: 60px 20px 20px 20px;
+    overflow-y: auto;
+}
+
+.profile-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.tab-button.active {
+    border-bottom: 2px solid #007bff;
+    font-weight: bold;
+}
+
+.tab-content {
+    padding: 10px 0;
+}
+
+.right-sidebar {
+    width: 200px;
+    background-color: #f8f9fa;
+    padding-top: 60px;
+}
+
+.status-blocks {
+    padding: 10px;
+}
+
+.status-block {
+    height: 30px;
+    background-color: #007bff;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
