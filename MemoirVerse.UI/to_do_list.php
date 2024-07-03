@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do Lists</title>
-    <link rel="stylesheet" href="./style/to_do_list.css">
+    <link rel="stylesheet" href="to_do_list.css">
 </head>
 <body>
     <div class="container">
@@ -17,7 +17,7 @@
                 <ul>
                     <li><a href="main_page.php">Home</a></li>
                     <li><a href="#">Mood Tracker</a></li>
-                    <li class="active"><a href="#">To Do List</a></li>
+                    <li><a href="#">To Do List</a></li>
                 </ul>
             </nav>
         </aside>
@@ -51,6 +51,6 @@
             </div>
         </main>
     </div>
-    <script src="./script/to_do_list.js"></script>
+    <script src="to_do_list.js"></script>
 </body>
 </html>
