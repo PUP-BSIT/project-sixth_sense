@@ -1,8 +1,3 @@
-<?php
-session_start();
-$welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "MemoirVerse";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,19 +20,16 @@ $welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "Memoi
         <div class="features">
             <div class="feature">
                 <div class="icon">📔</div>
-                <a href="./diary_entries.php" class="icon">
                 <h3>Diary</h3>
                 <p>Keep track of your daily thoughts and experiences.</p>
             </div>
-            </a>
 
             <div class="feature">
                 <div class="icon">😃😢</div>
-                <a href="./mood.php" class="icon">
+                <a href="./mood.php" class="icon"></a>
                 <h3>Emotional Tracker</h3>
                 <p>Monitor your emotions and well-being over time.</p>
             </div>
-            </a>
 
             <div class="feature">
                 <div class="icon">📝</div>
@@ -45,11 +37,10 @@ $welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "Memoi
                 <h3>To do List</h3>
                 <p>Track your tasks and progress throughout the day.</p>
             </div>
-            </a>
 
             <div class="feature">
                 <div class="icon">📈</div>
-                <a href="./chart.php" class="icon">
+                <a href="./to_do_list.php" class="icon"></a>
                 <h3>Chart</h3>
                 <p>Gain insights into your emotional
                    well-being by charting your moods over time.</p>
