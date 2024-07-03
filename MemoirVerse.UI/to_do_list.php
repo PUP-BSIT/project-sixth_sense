@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do Lists</title>
-    <link rel="stylesheet" href="to_do_list.css">
+    <link rel="stylesheet" href="./style/to_do_list.css">
 </head>
 <body>
     <div class="container">
@@ -51,6 +51,6 @@
             </div>
         </main>
     </div>
-    <script src="to_do_list.js"></script>
+    <script src="./script/to_do_list.js"></script>
 </body>
 </html>
