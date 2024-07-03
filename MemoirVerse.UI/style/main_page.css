@@ -6,7 +6,7 @@
 }
 
 body {
-  background: linear-gradient(to right, #DCF2F1, white); 
+  background: linear-gradient(to right, #f0f4f8, #d9e2ec);
   display: flex;
   height: 100vh;
   background-color: #f7f7f7;
@@ -19,39 +19,57 @@ body {
 
 .sidebar {
   width: 250px;
-  background-color: #fafafa;
-  border-right: 1px solid #e0e0e0;
-  padding: 20px;
+  background-color: white;
+  padding: 30px 20px;
+  border-right: 1px solid #b0d8e0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
 }
 
 .profile {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
-.profile-pic {
+.profile img {
+  border-radius: 50%;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  background-color: #c2e3ef;
-  margin-right: 10px;
+  margin-right: 15px;
+  border: 2px solid #004f7c;
 }
 
-.profile-name {
-  font-weight: bold;
+.profile span {
+  font-weight: 600;
+  color: #004f7c;
+  font-size: 1.1rem;
 }
 
-.menu .menu-item {
-  padding: 10px 0;
-  font-size: 18px;
-  color: #333;
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  margin: 10px 0;
+  padding: 12px 15px;
   cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.menu .menu-item.active {
-  background-color: #e0e0e0;
+nav ul li a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
 }
+
+nav ul li:hover,
+nav ul li.active {
+  background-color: #d1e8eb;
+  color: #004f7c;
+}
+
 
 .main {
   flex: 1;
@@ -60,25 +78,17 @@ body {
 }
 
 .header {
-  background-color: #c2e3ef;
+  background-color: #112d4e;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #ffffff;
 }
 
-.search-bar {
-  width: 200px;
-  padding: 8px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  outline: none;
-}
-
-.home-btn {
-  background-color: #3b5998;
-  color: white;
+.home-btn, .logout-btn, .sort-button, .save-entry-button, .more-pages-button {
+  background-color: #3f72af;
+  color: #ffffff;
   border: none;
   cursor: pointer;
   padding: 10px 20px;
@@ -87,29 +97,11 @@ body {
   display: inline-block;
   font-size: 16px;
   transition-duration: 0.4s;
-  margin-right: 10px;
+  border-radius: 5px;
 }
 
-.logout-form {
-  margin: 0;
-}
-
-.logout-btn {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  transition-duration: 0.4s;
-}
-
-.logout-btn:hover {
-  background-color: white;
-  color: black;
+.home-btn:hover, .logout-btn:hover, .sort-button:hover, .save-entry-button:hover, .more-pages-button:hover {
+  background-color: #112d4e;
 }
 
 .content {
@@ -127,17 +119,8 @@ body {
   margin-bottom: 20px;
 }
 
-.sort-button {
-  padding: 10px 20px;
-  background-color: #c2e3ef;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
 .writing-box {
-  background-color: #d9eef6;
+  background-color: #f0f4f8;
   padding: 20px;
   width: 100%;
   text-align: center;
@@ -151,59 +134,22 @@ body {
   border: none;
   outline: none;
   font-size: 18px;
-  background-color: #d9eef6;
+  background-color: #e3f2fd;
   color: #333;
   border-radius: 10px;
 }
-
-.save-entry-button {
-  padding: 10px 20px;
-  background-color: #c2e3ef;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 10px;
-}
-
-.color-palette {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.color {
-  width: 200px;
-  height: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.footer {
-  padding: 10px;
-  text-align: center;
-  border-top: 1px solid #e0e0e0;
-}
-
-.more-pages-button {
-  padding: 10px 20px;
-  background-color: #c2e3ef;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
 
 #entries_container {
   width: 100%;
   padding: 20px;
   margin-top: 20px;
-  background-color: #f7f7f7;
+  background-color: #ffffff;
   border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .entry {
-  background-color: #fff;
+  background-color: #f7f7f7;
   padding: 15px;
   margin-bottom: 10px;
   border: 1px solid #e0e0e0;
@@ -247,4 +193,23 @@ body {
   display: block;
   margin: 10px 0;
   border-radius: 10px;
+}
+
+.edit-button, .delete-button {
+  background-color: #3f72af;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.edit-button:hover, .delete-button:hover {
+  background-color: #112d4e;
 }
