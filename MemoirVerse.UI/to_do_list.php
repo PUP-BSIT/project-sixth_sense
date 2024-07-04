@@ -17,7 +17,7 @@
                 <ul>
                     <li><a href="main_page.php">Home</a></li>
                     <li><a href="#">Mood Tracker</a></li>
-                    <li class="active"><a href="#">To Do List</a></li>
+                    <li><a href="#">To Do List</a></li>
                 </ul>
             </nav>
         </aside>
