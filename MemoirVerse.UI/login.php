@@ -50,13 +50,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="login-section">
             <h2>Sign in</h2>
             <form id="login_form" action="login.php" method="post">
-                <input type="email" id="email" name="email" placeholder="Email" required>
-                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="email" id="email" name="email" 
+                    placeholder="Email" required>
+                <input type="password" id="password" name="password"
+                     placeholder="Password" required>
                 <button type="submit" class="btn login-btn">Sign in</button>
             </form>
             <p>Forgot your password? Click here! <a href="forgot_password.php">
                 Forgot Password</a></p>
-            <p>Don't have an account? Create one! <a href="signup.php">Register Here</a></p>
+            <p>Don't have an account? Create one! <a href="signup.php">
+                Register Here</a></p>
         </div>
     </div>
     <script src="./script/login.js"></script>
