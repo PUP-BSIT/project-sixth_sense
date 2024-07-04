@@ -1,51 +1,42 @@
 <?php
 
-$conn = new mysqli('hostname', 'username', 'password', 'database');
+if (!file_exists('db_conn.php')) {
+    die("Database connection is missing.");
+}
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $token = $_POST['token'];
-    $newPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
+include 'db_conn.php';
 
-    $tokenHash = hash('sha256', $token);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $secretCode = $_POST['secretCode'];
+    $new_password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare("SELECT id, reset_token_expires_at FROM users WHERE reset_token_hash = ?");
-    $stmt->bind_param("s", $tokenHash);
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? 
+        AND secret_code = ?");
+    $stmt->bind_param("ss", $email, $secretCode);
     $stmt->execute();
-    $stmt->bind_result($userId, $tokenExpiration);
-    $stmt->fetch();
+    $result = $stmt->get_result();
 
-    if ($userId && new DateTime($tokenExpiration) > new DateTime()) {
-        $stmt = $conn->prepare("UPDATE users SET password = ?, reset_token_hash = NULL, reset_token_expires_at = NULL WHERE id = ?");
-        $stmt->bind_param("si", $newPassword, $userId);
+    if ($result->num_rows == 1) {
+
+        $stmt = $conn->prepare("UPDATE users SET password = ? 
+            WHERE email = ?");
+        $stmt->bind_param("ss", $new_password, $email);
         $stmt->execute();
 
         echo "Your password has been reset successfully.";
     } else {
-        echo "Invalid or expired token.";
+        echo "Invalid email or secret code.";
     }
-
-    $stmt->close();
 }
-
-$conn->close();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <form action="reset_password.php" method="POST">
-        <input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token']); ?>">
-        <input type="password" name="password" placeholder="Enter your new password" required>
-        <button type="submit">Reset Password</button>
-    </form>
-
-</body>
-
-</html>
+<form action="request_reset.php" method="post">
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+    <label for="secretCode">Secret Code:</label>
+    <input type="text" name="secretCode" id="secretCode" required>
+    <label for="new_password">New Password:</label>
+    <input type="password" name="new_password" id="new_password" required>
+    <button type="submit">Reset Password</button>
+</form>
