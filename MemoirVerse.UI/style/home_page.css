@@ -1,6 +1,6 @@
 body {
-  background: linear-gradient(to right, #DCF2F1, white); 
-  font-family: 'Comic Sans MS';
+  background: linear-gradient(to right, #dcf2f1, white);
+  font-family: "Comic Sans MS";
   background-color: #f4f4f9;
   color: #333;
   margin: 0;
@@ -8,6 +8,25 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.features .feature {
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  transition: transform 0.2s;
+}
+
+.features .feature:hover {
+  transform: scale(1.05);
+}
+
+.features a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .navbar {
@@ -88,11 +107,11 @@ body {
 }
 
 .footer {
-  background-color: #DCF2F1;
+  background-color: #dcf2f1;
   padding: 20px;
   text-align: center;
-  border-top: 1px solid #DCF2F1;
-  font-family: 'Arial', sans-serif;
+  border-top: 1px solid #dcf2f1;
+  font-family: "Arial", sans-serif;
 }
 
 .footer-content {
@@ -128,24 +147,24 @@ body {
 }
 
 @media (max-width: 768px) {
-.navbar {
-  flex-direction: column;
-  align-items: flex-start;
-}
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.navbar a {
-  padding: 5px 0;
-}
+  .navbar a {
+    padding: 5px 0;
+  }
 
-.content h1 {
-  font-size: 1.8em;
-}
+  .content h1 {
+    font-size: 1.8em;
+  }
 
-.content p {
-  font-size: 0.9em;
-}
+  .content p {
+    font-size: 0.9em;
+  }
 
-.feature {
-  width: 100%;
+  .feature {
+    width: 100%;
   }
 }
