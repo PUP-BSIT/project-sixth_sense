@@ -5,9 +5,8 @@
 }
 
 body {
-    background:  #f7f7f7; 
-    font-family: 'Comic Sans MS', 'Comic Sans', 'cursive';
     background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
     color: #004f7c;
     line-height: 1.6;
 }
@@ -35,7 +34,7 @@ header h1 {
     font-size: 0.9rem;
     color: #004f7c;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .sorting-dropdown select:hover {
@@ -139,7 +138,7 @@ nav ul li.active {
     background-color: #fff;
     color: #004f7c;
     outline: none;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease;
 }
 
 .thoughts input:focus {
@@ -147,7 +146,7 @@ nav ul li.active {
     box-shadow: 0 0 0 3px rgba(0, 79, 124, 0.1);
 }
 
-#add-task-btn {
+#add_task_btn {
     padding: 15px 20px;
     background-color: #004f7c;
     color: #fff;
@@ -158,7 +157,7 @@ nav ul li.active {
     margin-left: 10px;
 }
 
-#add-task-btn:hover {
+#add_task_btn:hover {
     background-color: #003b5e;
 }
 
@@ -175,7 +174,7 @@ nav ul li.active {
     background-color: #e9f4f6;
     color: #004f7c;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .task h2 {
@@ -270,51 +269,51 @@ nav ul li.active {
     }
 
     .task {
-        margin-bottom: 20px;
+        width: 100%;
     }
-}
 
-@media (max-width: 480px) {
+    .textarea-wrapper {
+        flex-direction: column;
+    }
+
+    .textarea-wrapper input {
+        margin-bottom: 15px;
+    }
+
+    .writing-icon {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-bottom: 10px;
+    }
+
     header {
         flex-direction: column;
         align-items: flex-start;
-    }
-
-    header h1 {
-        font-size: 1.5rem;
+        padding: 15px 20px;
     }
 
     .sorting-dropdown select {
-        font-size: 0.8rem;
+        margin-top: 10px;
     }
 
-    .sidebar {
-        padding: 20px 15px;
+    .profile img {
+        margin-right: 10px;
     }
 
     .profile span {
-        font-size: 1rem;
-    }
-
-    .content {
-        padding: 20px 15px;
-    }
-
-    .thoughts input {
-        padding: 12px 12px 12px 40px;
         font-size: 0.9rem;
     }
 
-    #add-task-btn {
-        padding: 12px 18px;
-        font-size: 0.9rem;
+    nav ul li {
+        padding: 10px 0;
     }
 
     .task h2 {
         font-size: 1.2rem;
     }
 
-    .task {
-        padding: 20px;
+    .task li {
+        padding: 8px;
     }
 }

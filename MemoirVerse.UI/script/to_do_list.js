@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const input = document.getElementById('todo-input');
-    const addTaskBtn = document.getElementById('add-task-btn');
-    const assignedList = document.getElementById('assigned-list');
-    const doneList = document.getElementById('done-list');
-    const sortSelect = document.getElementById('sort-select');
+    const input = document.getElementById('todo_input');
+    const addTaskBtn = document.getElementById('add_task_btn');
+    const assignedList = document.getElementById('assigned_list');
+    const doneList = document.getElementById('done_list');
+    const sortSelect = document.getElementById('sort_select');
 
     function addTask(taskDescription) {
         const taskItem = document.createElement('li');
-        
+
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.classList.add('task-checkbox');
@@ -66,17 +66,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function sortTasks() {
         const sortBy = sortSelect.value;
-        const lists = [assignedList, doneList];
+        const tasks = Array.from(assignedList.children).concat(Array.from(doneList.children));
 
-        lists.forEach(list => {
-            const tasks = Array.from(list.children);
-            tasks.sort((a, b) => {
-                const dateA = new Date(a.querySelector('.task-timestamp').textContent);
-                const dateB = new Date(b.querySelector('.task-timestamp').textContent);
-                return sortBy === 'newest' ? dateB - dateA : dateA - dateB;
-            });
+        tasks.sort((a, b) => {
+            const dateA = new Date(a.querySelector('.task-timestamp').textContent);
+            const dateB = new Date(b.querySelector('.task-timestamp').textContent);
+            return sortBy === 'newest' ? dateB - dateA : dateA - dateB;
+        });
 
-            tasks.forEach(task => list.appendChild(task));
+        tasks.forEach(task => {
+            if (task.parentElement === doneList) {
+                doneList.appendChild(task);
+            } else {
+                assignedList.appendChild(task);
+            }
         });
     }
 
@@ -96,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function saveTasks() {
         const allTasks = [...assignedList.children, ...doneList.children];
-        const tasksToSave = Array.from(allTasks).map(task => ({
+        const tasksToSave = allTasks.map(task => ({
             description: task.querySelector('.task-text').textContent,
             done: task.parentElement === doneList
         }));
