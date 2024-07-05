@@ -53,7 +53,7 @@ $welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "Memoi
           </div>
         </a>
 
-        <a href="./chart.php">
+        <a href="./chart.html">
           <div class="feature">
             <div class="icon">📈</div>
             <h3>Chart</h3>
