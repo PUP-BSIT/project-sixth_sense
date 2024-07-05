@@ -1,14 +1,18 @@
 function fetchData() {
     const date = document.getElementById('datepicker').value;
-    if (!date) return;  
+    if (!date) return;
 
     fetch(`fetch_mood.php?date=${date}`)
         .then(response => response.json())
         .then(data => {
             if (data.length === 0) {
-                console.warn('No mood data available for the selected date.');
-                const moodCountsDiv = document.getElementById('moodCounts');
-                moodCountsDiv.innerHTML = '<p>No mood data available for the selected date.</p>';
+                console.warn(
+                    'No mood data available for the selected date.'
+                    );
+                const moodCountsDiv = document.getElementById(
+                    'mood_counts');
+                moodCountsDiv.innerHTML =
+                    '<p>No mood data available for the selected date.</p>';
                 if (window.myPieChart) {
                     window.myPieChart.destroy();
                 }
@@ -18,12 +22,14 @@ function fetchData() {
             const labels = data.map(item => item.mood);
             const values = data.map(item => item.count);
 
-            const colors = getComputedStyle(document.documentElement)
+            const colors = getComputedStyle(document
+                    .documentElement)
                 .getPropertyValue('--chart-colors')
                 .trim()
                 .split(',');
 
-            const ctx = document.getElementById('myChart').getContext('2d');
+            const ctx = document.getElementById('myChart')
+                .getContext('2d');
             if (window.myPieChart) {
                 window.myPieChart.destroy();
             }
@@ -44,11 +50,13 @@ function fetchData() {
                 }
             });
 
-            const moodCountsDiv = document.getElementById('moodCounts');
+            const moodCountsDiv = document.getElementById(
+                'mood_counts');
             moodCountsDiv.innerHTML = '';
             data.forEach(item => {
                 const p = document.createElement('p');
-                p.textContent = `During this day, there are ${item.count} people that are ${item.mood}`;
+                p.textContent =
+                    `During this day, there are ${item.count} people that are ${item.mood}`;
                 moodCountsDiv.appendChild(p);
             });
         })

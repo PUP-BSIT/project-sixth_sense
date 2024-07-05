@@ -14,28 +14,28 @@ h1 {
     margin-bottom: 20px;
 }
 
-#datepicker {
+#date_picker {
     font-size: 16px;
     padding: 5px;
     margin-bottom: 20px;
 }
 
-#chartContainer {
+#chart_container {
     margin: 0 auto;
     display: block;
     max-width: 600px;
 }
 
-#myChart {
+#my_chart {
     width: 100%;
     height: 400px;
 }
 
-#moodCounts {
+#mood_counts {
     margin-top: 20px;
 }
 
-#moodCounts p {
+#mood_counts p {
     font-size: 18px;
     margin: 5px 0;
 }

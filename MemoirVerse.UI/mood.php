@@ -57,21 +57,15 @@ while ($row = $result->fetch_assoc()) {
                 <div class="menu-item">Home</div>
                 <div class="menu-item active">Mood Tracker</div>
                 <div class="menu-item">To do List</div>
-                <div class="menu-item">Pinned</div>
             </div>
         </div>
-
-        <div class="main">
-            <div class="header">
-                <input type="text" class="search-bar" placeholder="Sorting"/>
-            </div>
 
             <div class="content">
                 <div class="mood-tracker">
                     <h2>Choose Your State of Mind:</h2>
                     <div class="mood-icons">
                         <div class="mood-icon" data-mood="happy">
-                            <img src="assests/happy.png" alt="Happy"/>
+                            <img src="assets/happy.png" alt="Happy"/>
                         </div>
 
                         <div class="mood-icon" data-mood="content">
@@ -99,23 +93,14 @@ while ($row = $result->fetch_assoc()) {
                     <h2>Mood Entries</h2>
                     <?php foreach ($mood_entries as $entry): ?>
                         <div class="entry">
-                            <p>Mood: <?php echo htmlspecialchars($entry['mood']); ?></p>
-                            <span class="timestamp"><?php echo htmlspecialchars($entry['entry_date']); ?></span>
+                            <p>Mood: <?php echo htmlspecialchars($entry['mood']);?>
+                             </p>
+                            <span class="timestamp">
+                            <?php echo htmlspecialchars($entry['entry_date']); ?>
+                        </span>
                         </div>
+                    <?php endforeach; ?>
                 </div>
-            </div>
-
-            <div class="footer">
-                <button class="more-pages-button">More Pages</button>
-                <div class="button-container">
-                    <a href="home-page.php">
-                        <button type="button" class="home-btn">Home Page</button>
-                    </a>
-                </div>
-
-                <form action="login.php" method="post">
-                    <button type="submit" class="logout-btn">Logout</button>
-                </form>
             </div>
         </div>
     </div>
