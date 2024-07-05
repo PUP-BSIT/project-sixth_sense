@@ -71,7 +71,7 @@ while ($row = $result->fetch_assoc()) {
                     <h2>Choose Your State of Mind:</h2>
                     <div class="mood-icons">
                         <div class="mood-icon" data-mood="happy">
-                            <img src="assests/happiness.png" alt="Happy"/>
+                            <img src="assests/happy.png" alt="Happy"/>
                         </div>
 
                         <div class="mood-icon" data-mood="content">
@@ -79,7 +79,7 @@ while ($row = $result->fetch_assoc()) {
                         </div>
 
                         <div class="mood-icon" data-mood="neutral">
-                            <img src="assets/neutrals.png" alt="Neutral"/>
+                            <img src="assets/neutral.png" alt="Neutral"/>
                         </div>
 
                         <div class="mood-icon" data-mood="sad">
