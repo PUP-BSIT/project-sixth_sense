@@ -34,8 +34,10 @@
             </header>
             <div class="thoughts">
                 <div class="textarea-wrapper">
-                    <img src="icon.png" alt="Writing Icon" class="writing-icon">
-                    <input type="text" id="todo_input" placeholder="Add a new task...">
+                    <img src="icon.png" alt="Writing Icon"
+                         class="writing-icon">
+                    <input type="text" id="todo_input" 
+                        placeholder="Add a new task...">
                     <button id="add_task_btn">Add Task</button>
                 </div>
                 <div class="task-section">
