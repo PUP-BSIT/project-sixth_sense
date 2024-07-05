@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do Lists</title>
-    <link rel="stylesheet" href="./style/to_do_list.css">
+    <link rel="stylesheet" href="to_do_list.css">
 </head>
 <body>
     <div class="container">
@@ -23,9 +23,9 @@
         </aside>
         <main class="content">
             <header>
-                <h1>To Do Lists</h1><br>
+                <h1>To Do Lists</h1>
                 <div class="sorting-dropdown">
-                    <select id="sort-select">
+                    <select id="sort_select">
                         <option value="">Sort by</option>
                         <option value="newest">Newest</option>
                         <option value="oldest">Oldest</option>
@@ -35,22 +35,22 @@
             <div class="thoughts">
                 <div class="textarea-wrapper">
                     <img src="icon.png" alt="Writing Icon" class="writing-icon">
-                    <input type="text" id="todo-input" placeholder="Add a new task...">
-                    <button id="add-task-btn">Add Task</button>
+                    <input type="text" id="todo_input" placeholder="Add a new task...">
+                    <button id="add_task_btn">Add Task</button>
                 </div>
                 <div class="task-section">
-                    <div class="task assigned" id="assigned-tasks">
+                    <div class="task assigned" id="assigned_tasks">
                         <h2>Assigned</h2>
-                        <ul id="assigned-list"></ul>
+                        <ul id="assigned_list"></ul>
                     </div>
-                    <div class="task done" id="done-tasks">
+                    <div class="task done" id="done_tasks">
                         <h2>Done</h2>
-                        <ul id="done-list"></ul>
+                        <ul id="done_list"></ul>
                     </div>
                 </div>
             </div>
         </main>
     </div>
-    <script src="./script/to_do_list.js"></script>
+    <script src="to_do_list.js"></script>
 </body>
 </html>
