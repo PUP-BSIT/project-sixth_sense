@@ -45,7 +45,7 @@ $welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "Memoi
           </div>
         </a>
 
-        <a href="./to_do.php">
+        <a href="./to_do_list.php">
           <div class="feature">
             <div class="icon">📝</div>
             <h3>To do List</h3>
