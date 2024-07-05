@@ -108,15 +108,41 @@ body {
 }
 
 .mood-icon img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.mood-icon:hover img {
+  transform: scale(1.1);
 }
 
 .motivational-quote {
   font-size: 18px;
   color: #333;
   margin-top: 20px;
+}
+
+#submitMoodButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#submitMoodButton:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+#submitMoodButton:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .footer {
@@ -198,8 +224,8 @@ body {
   }
 
   .mood-icon img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
 
   .mood-tracker {

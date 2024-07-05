@@ -71,24 +71,30 @@ while ($row = $result->fetch_assoc()) {
                     <h2>Choose Your State of Mind:</h2>
                     <div class="mood-icons">
                         <div class="mood-icon" data-mood="happy">
-                            <img src="assets/happy.png" alt="Happy"/>
+                            <img src="assests/happy.png" alt="Happy"/>
                         </div>
+
                         <div class="mood-icon" data-mood="content">
                             <img src="assets/content.png" alt="Content"/>
                         </div>
+
                         <div class="mood-icon" data-mood="neutral">
                             <img src="assets/neutral.png" alt="Neutral"/>
                         </div>
+
                         <div class="mood-icon" data-mood="sad">
                             <img src="assets/sad.png" alt="Sad"/>
                         </div>
+
                         <div class="mood-icon" data-mood="angry">
                             <img src="assets/anger.png" alt="Angry"/>
                         </div>
                     </div>
+
                     <div class="motivational-quote">Motivational Quote</div>
                     <button id="submitMoodButton">Submit Mood</button>
                 </div>
+
                 <div id="mood_entries">
                     <h2>Mood Entries</h2>
                     <?php foreach ($mood_entries as $entry): ?>
@@ -96,7 +102,6 @@ while ($row = $result->fetch_assoc()) {
                             <p>Mood: <?php echo htmlspecialchars($entry['mood']); ?></p>
                             <span class="timestamp"><?php echo htmlspecialchars($entry['entry_date']); ?></span>
                         </div>
-                    <?php endforeach; ?>
                 </div>
             </div>
 

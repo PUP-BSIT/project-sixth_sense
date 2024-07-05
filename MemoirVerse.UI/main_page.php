@@ -12,7 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $entry = mysqli_real_escape_string($conn, $_POST["entry"]);
         $userId = $_SESSION['user_id'];
         $entryDate = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO diary_entries (user_id, entry, entry_date) VALUES ('$userId', '$entry', '$entryDate')";
+        $entryId = uniqid(); // Generate a unique ID
+
+        $sql = "INSERT INTO diary_entries (entry_id, user_id, entry, entry_date) VALUES ('$entryId', '$userId', '$entry', '$entryDate')";
         if ($conn->query($sql) === TRUE) {
             echo "<script>alert('Diary entry saved successfully');</script>";
         } else {
@@ -54,9 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="writing-box">
-                    <form id="entry_form" action="main-page.php" method="post" enctype="multipart/form-data">
+                    <form id="entry_form" action="main_page.php" method="post" enctype="multipart/form-data">
                         <textarea id="entry_input" name="entry" class="writing-input" placeholder="Start Writing Your Thoughts" required></textarea>
-                        <input type="file" id="entry_image" name="entry_image" accept="image/*">
                         <button type="submit" class="save-entry-button">Save Entry</button>
                     </form>
                 </div>
