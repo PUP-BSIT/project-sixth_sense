@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (entryId) {
             method = 'PUT';
-            payload.entry_id = entryId;  // Add entry_id to the payload
+            payload.entry_id = entryId;
         }
 
         try {
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (data.status === 'success') {
                 loadEntries();
                 entryInput.value = '';
-                delete entryInput.dataset.id;  // Clear the dataset
+                delete entryInput.dataset.id;
             } else {
                 alert(data.message);
             }
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const entryToEdit = document.querySelector(`.edit-button[data-id="${id}"]`).closest('.entry');
         const entryText = entryToEdit.querySelector('p').textContent;
         entryInput.value = entryText;
-        entryInput.dataset.id = id;  // Set the entry ID in the dataset
+        entryInput.dataset.id = id;
     };
 
     const deleteEntry = async (id) => {
