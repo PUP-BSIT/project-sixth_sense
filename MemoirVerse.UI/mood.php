@@ -47,18 +47,19 @@ while ($row = $result->fetch_assoc()) {
 </head>
 <body>
     <div class="container">
-        <div class="sidebar">
-            <div class="profile">
-                <div class="profile-pic"></div>
-                <span class="profile-name">Memories</span>
-            </div>
-
-            <div class="menu">
-                <div class="menu-item">Home</div>
-                <div class="menu-item active">Mood Tracker</div>
-                <div class="menu-item">To do List</div>
-            </div>
+    <aside class="sidebar">
+        <div class="profile">
+            <img src="profile.jpg" alt="Profile Picture">
+            <span>Memories</span>
         </div>
+        <nav>
+            <ul>
+                <li><a href="./home_page.php">Home</a></li>
+                <li><a href="./mood.php">Mood Tracker</a></li>
+                <li><a href="./to_do_list.html">To do List</a></li>
+            </ul>
+        </nav>
+    </aside>
 
             <div class="content">
                 <div class="mood-tracker">
