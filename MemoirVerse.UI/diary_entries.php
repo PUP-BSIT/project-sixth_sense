@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $entry = $input["entry"] ?? '';
     if (!empty($entry)) {
         $entryDate = date('Y-m-d H:i:s');
-        $entryId = uniqid();  // Generate a unique ID
+        $entryId = uniqid()
 
         $stmt = $conn->prepare("INSERT INTO diary_entries (entry_id, entry, entry_date, user_id, time_created, time_updated) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param('ssssss', $entryId, $entry, $entryDate, $userId, $entryDate, $entryDate);
