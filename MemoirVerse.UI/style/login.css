@@ -1,150 +1,70 @@
 body {
-  background: linear-gradient(to right, #DCF2F1, white); 
   font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #DCF2F1, white);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #f0f2f5;
 }
 
-.container {
-  display: flex;
-  background-color: #fff;
+.login-container {
+  background-color: #e1f5fe;
+  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  width: 800px;
-  max-width: 100%;
-  padding: 0;
-  margin: 20px;
-  flex-direction: row;
-}
-
-.welcome-section {
-  background-color: #334868;
-  color: #ffffff;
-  padding: 50px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.login-section {
-  padding: 50px;
-  width: 50%;
-  box-sizing: border-box;
+  box-shadow: 0 2px 4px black;
+  width: 300px;
   text-align: center;
 }
 
-form {
+.header {
+  background-color: #365486;
+  color: white;
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.header p {
+  margin: 5px 0 0;
+}
+
+.form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-input {
-  padding: 15px;
-  font-size: 16px;
-  border: 1px solid #ccc;
+.input-field {
+  padding: 10px;
+  border: 1px solid #365486;
   border-radius: 5px;
+  outline: none;
 }
 
-.btn {
-  padding: 15px;
+.login-button {
+  padding: 10px;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  width: 100%;
+  background-color: #365486;
   color: white;
-  background-color: #2c3e50;
+  cursor: pointer;
 }
 
-.login-btn {
-  margin-top: 10px;
+.footer {
+  margin-top: 20px;
 }
 
-a {
-  color: #007bff;
-  text-decoration: none;
+.footer p {
+  margin: 10px 0;
+  color: black;
 }
 
-a:hover {
+.footer a:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    width: 100%;
-    margin: 0;
-  }
-
-  .login-section {
-    width: 100%;
-  }
-
-  .welcome-section {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
-  }
-
-  .container {
-    flex-direction: column;
-    width: 100%;
-    margin: 0;
-    box-shadow: none; 
-  }
-
-  .welcome-section,
-  .login-section {
-    padding: 20px;
-    align-items: center;
-    text-align: center;
-  }
-
-  .welcome-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .login-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  form {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  input {
-    width: 100%;
-  }
-
-  .btn {
-    width: 100%;
-  }
 }
