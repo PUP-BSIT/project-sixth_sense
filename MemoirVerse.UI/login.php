@@ -38,30 +38,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MemoirVerse Login</title>
-    <link rel="stylesheet" href="./style/login.css">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="container">
-        <div class="welcome-section">
+    <div class="login-container">
+        <div class="header">
             <h1>Welcome to MemoirVerse!</h1>
-            <p>Enter your personal details to use all of site features.</p>
+            <p>Sign in to continue</p>
         </div>
-        <div class="login-section">
-            <h2>Sign in</h2>
-            <form id="login_form" action="login.php" method="post">
-                <input type="email" id="email" name="email" 
-                    placeholder="Email" required>
-                <input type="password" id="password" name="password"
-                     placeholder="Password" required>
-                <button type="submit" class="btn login-btn">Sign in</button>
-            </form>
-            <p>Forgot your password? Click here! <a href="forgot_password.php">
-                Forgot Password</a></p>
-            <p>Don't have an account? Create one! <a href="signup.php">
-                Register Here</a></p>
+        <div class="form">
+            <input type="text" placeholder="Username" class="input-field">
+            <input type="password" placeholder="Password" class="input-field">
+            <button class="login-button">Sign In</button>
+        </div>
+        <div class="footer">
+            <p>Don't have an account? Create one! <a href="#">Register Here</a></p>
         </div>
     </div>
-    <script src="./script/login.js"></script>
 </body>
 </html>
