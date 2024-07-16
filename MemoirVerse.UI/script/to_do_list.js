@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const addTaskBtn = document.getElementById('add_task_btn');
     const assignedList = document.getElementById('assigned_list');
     const doneList = document.getElementById('done_list');
-    const sortSelect = document.getElementById('sort_select');
+    const sortAssigned = document.getElementById('sort_assigned');
+    const sortDone = document.getElementById('sort_done');
 
     function addTask(taskDescription) {
         const taskItem = document.createElement('li');
@@ -65,8 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function sortTasks() {
-        const sortBy = sortSelect.value;
-        const tasks = Array.from(assignedList.children).concat(Array.from(doneList.children));
+        sortList(assignedList, sortAssigned.value);
+        sortList(doneList, sortDone.value);
+    }
+
+    function sortList(list, sortBy) {
+        const tasks = Array.from(list.children);
 
         tasks.sort((a, b) => {
             const dateA = new Date(a.querySelector('.task-timestamp').textContent);
@@ -74,16 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return sortBy === 'newest' ? dateB - dateA : dateA - dateB;
         });
 
-        tasks.forEach(task => {
-            if (task.parentElement === doneList) {
-                doneList.appendChild(task);
-            } else {
-                assignedList.appendChild(task);
-            }
-        });
+        tasks.forEach(task => list.appendChild(task));
     }
 
-    sortSelect.addEventListener('change', sortTasks);
+    sortAssigned.addEventListener('change', sortTasks);
+    sortDone.addEventListener('change', sortTasks);
 
     function loadTasks() {
         const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
