@@ -24,45 +24,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MemoirVerse Registration</title>
-  <link rel="stylesheet" href="style/signup.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="signup.css">
 </head>
-
 <body>
-  <div class="container">
-    <div class="form-section">
-    <form action="signup.php" method="post">
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email" required>
-    <label for="firstName">First Name:</label>
-    <input type="text" name="firstName" id="firstName" required>
-    <label for="lastName">Last Name:</label>
-    <input type="text" name="lastName" id="lastName" required>
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" required>
-    <label for="dob">Date of Birth:</label>
-    <input type="date" name="dob" id="dob" required>
-    <label for="secretCode">Secret Code:</label>
-    <input type="text" name="secretCode" id="secretCode" required>
-    <button type="submit">Sign Up</button>
-    </button>
-
-    <button type="button" class="submit-btn"
-     onclick="window.location.href='login.php'">
-    <span class="submit-text">Back to Login</span>
-    </button>
-</form>
+    <div class="signup-container">
+        <div class="header">
+            <h1>Create an Account</h1>
+            <p>Sign up to get started</p>
+        </div>
+        <div class="form">
+            <input type="email" placeholder="Email" class="input-field">
+            <input type="text" placeholder="First Name" class="input-field">
+            <input type="text" placeholder="Last Name" class="input-field">
+            <input type="age" placeholder="Age" class="input-field">
+            <input type="gender" placeholder="Gender" class="input-field">
+            <input type="password" placeholder="Password" class="input-field">
+            <label for="dob" class="dob-label">Date of Birth:</label>
+            <input type="date" placeholder="Date of Birth" class="input-field">
+            <button class="signup-button">Sign Up</button>
+        </div>
+        <div class="footer">
+            <p>Already have an account? <a href="index.html">Sign In Here</a></p>
+        </div>
     </div>
-    <div class="welcome-section">
-      <h1>MemoirVerse Registration</h1>
-      <p>Enter your personal details to use all of site features.</p>
-    </div>
-  </div>
 </body>
 </html>
