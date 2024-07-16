@@ -197,7 +197,6 @@ button:hover {
     color: #d32f2f;
 }
 
-/* Media queries for mobile responsiveness */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
