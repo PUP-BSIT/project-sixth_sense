@@ -3,7 +3,7 @@
   <br><br>
   <strong>Credentials</strong>
   <br>
-  <strong>Username:</strong> admin@email.com
+  <strong>Username:</strong> admin@gmail.com
   <br>
   <strong>Password:</strong> password
 </p>
