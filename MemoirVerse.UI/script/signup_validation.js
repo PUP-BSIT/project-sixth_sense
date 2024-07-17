@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   window.validateForm = function () {
-    errorMessage.textContent = ""; 
+    errorMessage.textContent = "";
 
     if (!validatePassword(password.value)) {
       errorMessage.textContent =
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function validatePassword(password) {
     const re = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
     const isValid = re.test(password);
-    console.log(`Password: ${password}, Valid: ${isValid}`); // Debugging line
+    console.log(`Password: ${password}, Valid: ${isValid}`);
     return isValid;
   }
 });
