@@ -6,14 +6,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-function sanitize_input($data) {
-    return htmlspecialchars(stripslashes(trim($data)));
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["email"]) && isset($_POST["password"])) {
-        $email = sanitize_input($_POST["email"]);
-        $password = sanitize_input($_POST["password"]);
+        $email = $_POST["email"];
+        $password = $_POST["password"];
 
         $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
