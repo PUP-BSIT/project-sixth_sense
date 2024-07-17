@@ -130,3 +130,268 @@ p {
 .feature-box:nth-child(even) {
   background-color: #ffffff;
 }
+
+@media (max-width: 768px) {
+  header {
+    padding: 5px 10px;
+  }
+
+  .header-left .user-profile .profile-pic {
+    width: 20px;  
+    height: 20px;
+  }
+
+  .header-left .user-info {
+    font-size: 12px;  
+  }
+
+  nav .menu {
+    gap: 0.3rem;  
+  }
+
+  nav .menu li {
+    font-size: 12px;  
+  }
+
+  .logo {
+    width: 15px;  
+    height: 15px;
+    margin-left: 0.3rem;
+  }
+
+  .logout-button {
+    padding: 5px;  
+    font-size: 0.8em;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  main {
+    padding: 30px 20px; 
+    overflow-x: hidden; 
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px;
+    justify-items: center; 
+    padding: 0 10px; 
+    box-sizing: border-box; 
+  }
+
+  .feature-box {
+    font-size: 16px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 5px;
+  }
+
+  .header-left .user-profile .profile-pic {
+    width: 20px;  
+    height: 20px;
+  }
+
+  .header-left .user-info {
+    font-size: 10px;  
+  }
+
+  nav .menu {
+    gap: 0.2rem;  
+  }
+
+  nav .menu li {
+    font-size: 10px; 
+  }
+
+  .logo {
+    width: 15px; 
+    height: 15px;
+    margin-left: 0.2rem;
+  }
+
+  .logout-button {
+    padding: 3px; 
+    font-size: 0.7em;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+
+  main {
+    padding: 20px 10px; 
+    overflow-x: hidden; 
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 0 10px; 
+    box-sizing: border-box; 
+  }
+
+  .feature-box {
+    font-size: 14px;
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 320px) {
+  header {
+    padding: 5px;
+  }
+
+  .header-left .user-profile .profile-pic {
+    width: 15px;  
+    height: 15px;
+  }
+
+  .header-left .user-info {
+    font-size: 10px;  
+  }
+
+  nav .menu {
+    gap: 0.2rem;  
+  }
+
+  nav .menu li {
+    font-size: 10px; 
+  }
+
+  .logo {
+    width: 10px; 
+    height: 10px;
+    margin-left: 0.2rem;
+  }
+
+  .logout-button {
+    padding: 3px;  
+    font-size: 0.7em;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+
+  main {
+    padding: 10px 5px; 
+    overflow-x: hidden; 
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    padding: 0 5px; 
+    box-sizing: border-box; 
+  }
+
+  .feature-box {
+    font-size: 12px;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-left, nav, .logout-logo {
+    flex-shrink: 1;  
+  }
+
+  .header-left .user-profile .profile-pic {
+    width: 15px;
+    height: 15px;
+  }
+
+  .header-left .user-info {
+    font-size: 10px;
+    margin-right: 5px;  
+  }
+
+  nav .menu {
+    gap: 0.2rem; 
+  }
+
+  nav .menu li {
+    font-size: 10px;
+  }
+
+  .logo {
+    width: 10px;
+    height: 10px;
+    margin-left: 0.2rem; 
+  }
+
+  .logout-button {
+    padding: 3px;
+    font-size: 0.7em;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+
+  main {
+    padding: 20px 10px;
+    overflow-x: hidden; 
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box; 
+  }
+
+  .feature-box {
+    font-size: 14px;
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+}

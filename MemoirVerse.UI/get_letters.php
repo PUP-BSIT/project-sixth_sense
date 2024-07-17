@@ -1,5 +1,4 @@
 <?php
-
 $servername = "localhost"; 
 $username = "u586757316_root";  
 $password = "";  
@@ -12,6 +11,16 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$conn->set_charset("utf8mb4");
+$sql = "SELECT title, content, created_at FROM letters ORDER BY created_at DESC";
+$result = $conn->query($sql);
 
+$letters = [];
+
+while ($row = $result->fetch_assoc()) {
+    $letters[] = $row;
+}
+
+echo json_encode(["letters" => $letters]);
+
+$conn->close();
 ?>

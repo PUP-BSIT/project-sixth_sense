@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button class="signup-button">Sign Up</button>
         </div>
         <div class="footer">
-            <p>Already have an account? <a href="index.html">Sign In Here</a></p>
+            <p>Already have an account? <a href="login.php">Log In Here</a></p>
         </div>
     </div>
 </body>
