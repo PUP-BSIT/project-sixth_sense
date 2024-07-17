@@ -1,6 +1,38 @@
 <?php
 session_start();
-$welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "MemoirVerse";
+require 'db_conn.php';
+
+$welcomeName = "MemoirVerse";
+
+if (isset($_SESSION['user_id'])) {
+    $userId = $_SESSION['user_id'];
+
+    // Debugging: Check if the session user_id is set
+    error_log("User ID from session: " . $userId);
+
+    // Query to fetch user's full name from the database
+    $query = "SELECT firstName, lastName FROM users WHERE id = ?";
+    if ($stmt = $conn->prepare($query)) {
+        $stmt->bind_param('i', $userId);
+        if ($stmt->execute()) {
+            $stmt->bind_result($firstName, $lastName);
+            if ($stmt->fetch()) {
+                $welcomeName = "$firstName $lastName";
+                error_log("Fetched Name: " . $welcomeName);
+            } else {
+                error_log("Failed to fetch user name from result set.");
+            }
+        } else {
+            error_log("Query execution failed: " . $stmt->error);
+        }
+        $stmt->close();
+    } else {
+        error_log("Query Preparation Failed: " . $conn->error);
+    }
+} else {
+    // Debugging: Log if the user_id session variable is not set
+    error_log("User ID session variable not set.");
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +48,7 @@ $welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "Memoi
         <div class="header-left">
             <div class="user-profile">
                 <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
-                <span class="user-info">Jane Doe</span>
+                <span class="user-info"><?php echo htmlspecialchars($welcomeName); ?></span>
             </div>
         </div>
         <nav>
@@ -33,7 +65,7 @@ $welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "Memoi
         </nav>
     </header>
     <main>
-        <h1>Welcome "name ng user"!</h1>
+        <h1>Welcome <?php echo htmlspecialchars($welcomeName); ?>!</h1>
         <p>Explore, reflect, and document your life's adventures in the MemoirVerse!</p>
         <div class="features">
             <div class="feature-box">Keep track of your daily thoughts and experiences.</div>
