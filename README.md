@@ -1,3 +1,5 @@
+<div style="background-color: #f5f7fa; padding: 20px; font-family: Arial, sans-serif; color: #333;">
+
 <p align="center">
   <img src="./MemoirVerse.UI/assets/logo.png" alt="MemoirVerse Logo" width="200">
 </p>
@@ -13,7 +15,7 @@
   <strong>Username:</strong> admin@gmail.com<br>
   <strong>Password:</strong> password
 </p>
-x
+
 <h2 align="center">Features</h2>
 
 <h3>Letters from Strangers</h3>
@@ -30,3 +32,5 @@ x
 <p>
   Maintain a personal diary where you can write down your daily experiences, thoughts, and reflections. Secure and private, your entries are just for you. Keep track of your emotions daily. Our diary mood tracker allows you to monitor your emotional patterns and gain insights into your mental well-being over time.
 </p>
+
+</div>
