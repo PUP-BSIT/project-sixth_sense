@@ -1,6 +1,5 @@
 <?php
 require 'db_conn.php';
-require 'functions.php';
 session_start();
 
 ini_set('display_errors', 1);
