@@ -35,12 +35,33 @@ document.addEventListener("DOMContentLoaded", function () {
           const letterDiv = document.createElement("div");
           letterDiv.className = "letter";
           letterDiv.innerHTML = `
-                    <h2>${letter.title}</h2>
-                    <p>${letter.content}</p>
-                    <p>${letter.created_at}</p>`;
+            <div class="closed-envelope" style="display: block;">
+              <h2 class="title">${letter.title}</h2>
+            </div>
+            <div class="open-letter" style="display: none;">
+              <h2>${letter.title}</h2>
+              <p>${letter.content}</p>
+              <div class="timestamp">${letter.created_at}</div>
+            </div>`;
+          letterDiv.addEventListener("click", function() {
+            toggleLetter(letterDiv);
+          });
           lettersDiv.appendChild(letterDiv);
         });
       });
+  }
+
+  function toggleLetter(element) {
+    const closedEnvelope = element.querySelector('.closed-envelope');
+    const openLetter = element.querySelector('.open-letter');
+
+    if (closedEnvelope.style.display === 'none') {
+      closedEnvelope.style.display = 'block';
+      openLetter.style.display = 'none';
+    } else {
+      closedEnvelope.style.display = 'none';
+      openLetter.style.display = 'block';
+    }
   }
 
   fetchLetters();
