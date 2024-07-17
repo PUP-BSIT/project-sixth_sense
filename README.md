@@ -19,7 +19,7 @@ You can access our app using the following sample user credentials:
       <td colspan="2" align="center">
         Join our community by signing up for an account.<br>
         <a href=" https://memoirverse.site/">
-        <img src="https://img.shields.io/badge/Visit%20MemoirVerse-lightgreen">
+        <img src="https://img.shields.io/badge/Visit%20MemoirVerse-lightgreen" alt="MemoirVerse">
         </a>
       </td>
     </tr>
