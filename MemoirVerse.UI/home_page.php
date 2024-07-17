@@ -26,7 +26,7 @@ $welcomeName = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : "Memoi
                 <li><a href="#">Chart</a></li>
             </ul>
             <div class="logout-logo">
-                <a href="logout.php" class="logout-button">Log Out</a>
+                <a href="login.php" class="logout-button">Log Out</a>
             </div>
             <img src="./pictures/logo.png" alt="Logo" class="logo">
         </nav>
