@@ -1,26 +1,51 @@
-<p align="center">
-  <img src="./MemoirVerse.UI/assets/logo.png" alt="MemoirVerse Logo" width="200">
-</p>
+<div align="center">
 
-<h1 align="center">MemoirVerse</h1>
+## 🌐 Details about our Web Host 
 
-<p align="center">
-  <strong>Host URL:</strong> <a href="https://memoirverse.site/">https://memoirverse.site/</a>
-</p>
+You can access our app using the following sample user credentials:
 
-<p align="center">
-  <strong>Credentials</strong><br>
-  <strong>Username:</strong> admin@gmail.com<br>
-  <strong>Password:</strong> password
-</p>
+  <table align="center"; margin: auto;">
+    <tr>
+      <td align="center">
+        <strong>Email:</strong><br>
+        admin@gmail.com
+      </td>
+      <td align="center">
+        <strong>Password:</strong><br>
+        password
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        Join our community by signing up for an account.<br>
+        <a href=" https://memoirverse.site/">
+        <img src="https://img.shields.io/badge/Visit%20MemoirVerse-Click%20Here-lightgreen" alt="Visit Kajas">
+        </a>
+      </td>
+    </tr>
+  </table>
 
-<h2 align="center">Features</h2>
+## ✨ Features 
+ **_Diary_**,
+ **_To-Do List_**, 
+ **_Mood Tracker_**, and
+ **_Letters from Strangers_**
 
-### Letters from Strangers
-Engage with heartfelt letters from anonymous users. Share your own thoughts and feelings in a safe space and connect with others on a deeper level.
+## 🧑‍💻👩‍💻🧑‍💻 Team Members 👩‍💻🧑‍💻🧑‍💻
 
-### To-Do List
-Stay organized and manage your tasks efficiently. Create, edit, and mark tasks as done to keep your daily activities in check.
-
-### Diary
-Maintain a personal diary where you can write down your daily experiences, thoughts, and reflections. Secure and private, your entries are just for you. Keep track of your emotions daily. Our diary mood tracker allows you to monitor your emotional patterns and gain insights into your mental well-being over time.
+Behind the scenes of **_MemoirVerse_**: Meet **_Sixth Sense_**, a team of creators who work together to design, develop, and ensure the success of **_MemoirVerse_**.      
+  <table align="center">
+    <tr>
+      <td align="center"><strong>Project Manager / Technical Lead 1 / Developer</strong><br>John Deniel Escuro</td>
+      <td align="center"><strong>Project Manager / Technical Lead 2 / Developer</strong><br>Kian Lee Trinidad</td>
+    </tr>
+    <tr>
+      <td align="center"><strong>Technical Lead 3 / Developer</strong><br>Marc Oliver Gasta</td>
+      <td align="center"><strong>Tester / Developer</strong><br>Andrei Jireh Ilagan</td>
+    </tr>
+    <tr>     
+      <td align="center"><strong>UI/UX Designer / Developer</strong><br>Alliyah Samantha Armedilla</td>
+      <td align="center"><strong>UI/UX Designer / Developer</strong><br>Angelica Rosario</td>
+    </tr>
+  </table>
+</div>
