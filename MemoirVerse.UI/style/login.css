@@ -24,6 +24,171 @@ body {
   border-radius: 10px 10px 0 0;
   margin-bottom: 20px;
 }
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #DCF2F1, white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  background-color: #e1f5fe;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px black;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-sizing: border-box; /* Ensure the padding and border are included in the width */
+}
+
+.header {
+  background-color: #365486;
+  color: white;
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.header p {
+  margin: 5px 0 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.input-field {
+  padding: 10px;
+  border: 1px solid #365486;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box; /* Ensure the padding and border are included in the width */
+}
+
+.login-button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #365486;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box; /* Ensure the padding and border are included in the width */
+}
+
+.footer {
+  margin-top: 20px;
+}
+
+.footer p {
+  margin: 10px 0;
+  color: black;
+}
+
+.footer a {
+  color: black;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .login-container {
+    width: 80%;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 992px) {
+  .login-container {
+    width: 70%;
+    max-width: 300px;
+  }
+
+  .header h1 {
+    font-size: 1.4em;
+  }
+
+  .header p {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .header {
+    padding: 15px;
+  }
+
+  .input-field, .login-button {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .login-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .header {
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 1.2em;
+  }
+
+  .header p {
+    font-size: 0.8em;
+  }
+
+  .input-field, .login-button {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .header {
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 1em;
+  }
+
+  .header p {
+    font-size: 0.7em;
+  }
+
+  .input-field, .login-button {
+    padding: 6px;
+  }
+}
 
 .header h1 {
   margin: 0;
