@@ -27,32 +27,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Page</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="./style/signup.css">
 </head>
 <body>
     <div class="signup-container">
         <div class="header">
-            <h1>Create an Account</h1>
-            <p>Sign up to get started</p>
+            <h1>Sign Up</h1>
+            <p>Create your account</p>
         </div>
-        <div class="form">
-            <input type="email" placeholder="Email" class="input-field">
-            <input type="text" placeholder="First Name" class="input-field">
-            <input type="text" placeholder="Last Name" class="input-field">
-            <input type="age" placeholder="Age" class="input-field">
-            <input type="gender" placeholder="Gender" class="input-field">
-            <input type="password" placeholder="Password" class="input-field">
-            <input type="password" placeholder="Confirm Password" class="input-field">
-            <label for="dob" class="dob-label">Date of Birth:</label>
-            <input type="date" placeholder="Date of Birth" class="input-field">
-            <button class="signup-button">Sign Up</button>
-        </div>
-        <div class="footer">
-            <p>Already have an account? <a href="login.php">Log In Here</a></p>
-        </div>
+        <form class="form" action="signup_process.php" method="post">
+            <input type="text" name="username" class="input-field" placeholder="Username" required>
+            <input type="email" name="email" class="input-field" placeholder="Email" required>
+            <input type="password" name="password" class="input-field" placeholder="Password" required>
+            <button type="submit" class="signup-button">Sign Up</button>
+        </form>
     </div>
 </body>
 </html>
