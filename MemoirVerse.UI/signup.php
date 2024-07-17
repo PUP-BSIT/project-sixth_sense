@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Page</title>
     <link rel="stylesheet" href="./style/signup.css">
-    <script src="signup.js" defer></script>
+    <script src="./script/signup.js" defer></script>
 </head>
 <body>
     <div class="signup-container">
