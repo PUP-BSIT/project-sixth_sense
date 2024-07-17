@@ -6,6 +6,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+function sanitize_input($data) {
+    return htmlspecialchars(stripslashes(trim($data)));
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["email"]) && isset($_POST["password"])) {
         $email = sanitize_input($_POST["email"]);
@@ -23,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['first_name'] = $user['firstName'];
                 echo "<script>alert('Login successful'); window.location.href = 'home_page.php';</script>";
                 exit();
-            }
             } else {
                 echo "<script>alert('Invalid password');</script>";
             }
@@ -34,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->close();
         $conn->close();
     }
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,9 +54,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p>Sign in to continue</p>
         </div>
         <div class="form">
-            <input type="text" placeholder="Username" class="input-field">
-            <input type="password" placeholder="Password" class="input-field">
-            <button class="login-button">Sign In</button>
+            <form action="login.php" method="post">
+                <input type="text" name="email" placeholder="Email" class="input-field" required>
+                <input type="password" name="password" placeholder="Password" class="input-field" required>
+                <button type="submit" class="login-button">Sign In</button>
+            </form>
         </div>
         <div class="footer">
             <p>Don't have an account? Create one! <a href="signup.php">Register Here</a></p>
