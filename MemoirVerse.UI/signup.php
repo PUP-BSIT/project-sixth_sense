@@ -45,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="age" placeholder="Age" class="input-field">
             <input type="gender" placeholder="Gender" class="input-field">
             <input type="password" placeholder="Password" class="input-field">
+            <input type="password" placeholder="Confirm Password" class="input-field">
             <label for="dob" class="dob-label">Date of Birth:</label>
             <input type="date" placeholder="Date of Birth" class="input-field">
             <button class="signup-button">Sign Up</button>
