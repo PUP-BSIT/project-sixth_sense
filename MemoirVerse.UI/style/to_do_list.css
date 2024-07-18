@@ -1,12 +1,8 @@
 body {
-    display: flex;
     font-family: Arial, sans-serif;
-    flex-direction: column;
+    background-color: #E9F7FB;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    color: #004f7c;
-    background: linear-gradient(to right, #dcf2f1, white);
 }
 
 header {
@@ -14,8 +10,11 @@ header {
     padding: 5px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
 }
 
 .header-left {
@@ -29,10 +28,10 @@ header {
 }
 
 .header-left .user-profile .profile-pic {
-    width: 30px; 
-    height: 30px; 
-    border-radius: 50%; 
-    margin-right: 0.5rem; 
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
 }
 
 .header-left .user-info {
@@ -49,7 +48,7 @@ nav .menu {
     list-style: none;
     display: flex;
     gap: 1rem;
-    margin-right: auto; 
+    margin-right: auto;
 }
 
 nav .menu a {
@@ -58,9 +57,9 @@ nav .menu a {
 }
 
 .logo {
-    margin-left: 1rem; 
+    margin-left: 1rem;
     width: 25px;
-    height: 25px; 
+    height: 25px;
 }
 
 .logout-logo {
@@ -81,118 +80,203 @@ nav .menu a {
     text-decoration: none;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
 .container {
     width: 100%;
-    max-width: 1200px;
-    padding: 0 10px;
-}
-
-h1 {
+    max-width: 800px;
+    padding: 40px;
+    background: #E0F7FF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     text-align: center;
-    color: #3a506b;
+    margin-bottom: -10px;
+    padding-bottom: 10px;
 }
 
-.input-container {
+.main-content {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 50px 20px;
 }
 
-input[type="text"] {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    margin-left: 10px;
-    background-color: #3a506b;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    max-width: 150px;
-}
-
-button:hover {
-    background-color: #3a506b;
-}
-
-.tasks-container {
+.image-container {
+    flex: 1;
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.tasks {
-    width: 100%;
-    max-width: 45%;
-    background-color: #cce7ff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.tasks h2 {
-    text-align: center;
-    color: #3a506b;
-}
-
-.sort {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    cursor: pointer;
-}
-
-.task {
-    background-color: #b0d8e0;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
-.task span {
-    display: block;
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
 }
 
-.task div {
+h1 {
+    color: #2C3E50;
+    margin-bottom: 20px;
+}
+
+form {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.task button {
-    background: none;
+input[type="text"],
+textarea {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #2C3E50;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+button {
+    padding: 15px 80px;
     border: none;
-    color: #004f7c;
+    border-radius: 10px;
+    background-color: #2C3E50;
+    color: white;
     cursor: pointer;
-    margin-top: 5px;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-.task button.edit {
-    color: #388e3c;
+button:hover {
+    background-color: #1A242F;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.task button.delete {
-    color: #d32f2f;
+#message {
+    margin-top: 20px;
+    color: red;
 }
 
-/* Mobile Responsive Styles */
+.letters-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#letters {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    background-color: #E0F7FF;
+    margin-top: 1px;
+}
+
+.letter {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #c7e3e8;
+    border-radius: 20px;
+    word-break: break-word;
+    overflow: hidden; 
+}
+
+.letter:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.closed-envelope,
+.open-letter {
+    width: 100%;
+    height: 80%;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto;
+    text-align: center; 
+}
+
+.closed-envelope {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.closed-envelope .title {
+    margin-bottom: 10px;
+}
+
+.closed-envelope .click-message {
+    margin-top: 40px; 
+    color: #888; 
+    font-size: 14px; 
+    transition: color 0.3s ease; 
+}
+
+.closed-envelope .click-message:hover {
+    color: #3a506b;
+}
+
+.open-letter {
+    display: none;
+    background-color: #f9f9f9;
+}
+
+.open-letter h2 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.open-letter p {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    max-height: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.open-letter .timestamp {
+    font-size: 12px;
+    color: #888;
+    margin-top: 50px;
+    text-align: right;
+}
+
+.image-container.left {
+    margin-top: 0;
+}
+
+.image-container.right {
+    margin-top: 100px;
+}
+
 @media (max-width: 768px) {
     header {
       padding: 5px 10px;

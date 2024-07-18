@@ -4,6 +4,8 @@ document.getElementById('sort-oldest').addEventListener('click', () => sortTasks
 document.getElementById('sort-newest-completed').addEventListener('click', () => sortTasks('completed-tasks', 'newest'));
 document.getElementById('sort-oldest-completed').addEventListener('click', () => sortTasks('completed-tasks', 'oldest'));
 
+let currentTask;
+
 function addTask() {
     const taskInput = document.getElementById('task-input');
     const taskText = taskInput.value.trim();
@@ -21,16 +23,16 @@ function createTaskElement(text, timestamp) {
     task.dataset.timestamp = new Date(timestamp).getTime();
     task.innerHTML = `
         <span>${text}</span>
-        <span>${timestamp}</span>
-        <div>
+        <div class="task-actions">
             <button class="done">Done</button>
             <button class="edit">Edit</button>
             <button class="delete">Delete</button>
         </div>
+        <div class="timestamp">${timestamp}</div>
     `;
 
     task.querySelector('.done').addEventListener('click', () => moveToCompleted(task));
-    task.querySelector('.edit').addEventListener('click', () => editTask(task));
+    task.querySelector('.edit').addEventListener('click', () => openEditModal(task));
     task.querySelector('.delete').addEventListener('click', () => deleteTask(task));
 
     return task;
@@ -42,10 +44,21 @@ function moveToCompleted(task) {
     completedTasks.appendChild(task);
 }
 
-function editTask(task) {
-    const newText = prompt('Edit your task:', task.querySelector('span').innerText);
-    if (newText !== null && newText.trim() !== '') {
-        task.querySelector('span').innerText = newText.trim();
+function openEditModal(task) {
+    currentTask = task;
+    document.getElementById('modal-task-input').value = task.querySelector('span').innerText;
+    document.getElementById('editModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('editModal').style.display = 'none';
+}
+
+function saveTask() {
+    const newText = document.getElementById('modal-task-input').value.trim();
+    if (newText !== '') {
+        currentTask.querySelector('span').innerText = newText;
+        closeModal();
     }
 }
 
@@ -63,3 +76,11 @@ function sortTasks(containerId, order) {
     });
     tasks.forEach(task => container.appendChild(task));
 }
+
+document.querySelector('.close').addEventListener('click', closeModal);
+document.getElementById('save-task').addEventListener('click', saveTask);
+window.addEventListener('click', (event) => {
+    if (event.target == document.getElementById('editModal')) {
+        closeModal();
+    }
+});
