@@ -4,16 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mood Reactions by Date</title>
-    <link rel="stylesheet" href="./style/chart.css">
+    <link rel="stylesheet" href="./style/mood_per_date.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Select a date to view mood reactions</h1>
-    <input type="date" id="date_picker" onchange="fetch_data_by_date()">
-    <div id="chart_container">
-        <canvas id="my_chart"></canvas>
-    </div>
-    <div id="mood_counts"></div>
+    <header>
+        <div class="header-left">
+            <div class="user-profile">
+                <img src="profile.jpg" 
+                  alt="Profile Picture" 
+                  class="profile-pic">
+                <span class="user-info">Jane Doe</span>
+            </div>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="./entry.php">Diary</a></li>
+                <li><a href="./to_do_list.html">To do list</a></li>
+                <li><a href="./chart.html">Chart</a></li>
+                <li><a href="./letters.html">Letters from strangers</a></li>
+            </ul>
+            <div class="logout-logo">
+                <a href="login.php" class="logout-button">Log Out</a>
+            </div>
+            <img src="./assets/logo.png" alt="Logo" class="logo">
+        </nav>
+    </header>
+
+    <main>
+        <h1>Select a date to view mood reactions</h1>
+        <div class="date-picker-container">
+            <input type="date" id="date_picker" onchange="fetch_data_by_date()">
+        </div>
+        <div id="chart_container">
+            <canvas id="my_chart"></canvas>
+            <div id="mood_counts_container">
+                <div id="mood_counts"></div>
+            </div>
+        </div>
+    </main>
     <script src="./script/mood_per_date.js"></script>
 </body>
 </html>
+
