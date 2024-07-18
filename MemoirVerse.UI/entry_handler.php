@@ -12,19 +12,7 @@ function output_error($message) {
     exit();
 }
 
-function log_message($message) {
-    error_log($message, 3, 'error_log.log'); 
-}
-
-
-log_message("Session Data: " . print_r($_SESSION, true) . "\n");
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    log_message("POST request received.\n");
-
-   
-    log_message("POST Data: " . print_r($_POST, true) . "\n");
-    
     $entries = $_POST['entry'] ?? '';
     $mood = $_POST['mood'] ?? '';
     $user_id = $_SESSION['user_id'] ?? 0;
@@ -32,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $entry_image = '';
 
     if (empty($entries) || $user_id == 0) {
-        log_message("Invalid input data: entries or user_id is missing.\n");
         output_error('Invalid input data: entries or user_id is missing.');
     }
 
@@ -50,14 +37,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (move_uploaded_file($file_tmp, $target_file)) {
             $entry_image = $target_file;
         } else {
-            log_message("Failed to upload image.\n");
             output_error('Failed to upload image.');
         }
     }
 
     $stmt = $conn->prepare("INSERT INTO entries (user_id, entries, mood, entry_date, entry_image) VALUES (?, ?, ?, ?, ?)");
     if (!$stmt) {
-        log_message("Database prepare error: " . $conn->error . "\n");
         output_error('Database prepare error: ' . $conn->error);
     }
     $stmt->bind_param("issss", $user_id, $entries, $mood, $entry_date, $entry_image);
@@ -67,7 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->execute()) {
         echo json_encode(['status' => 'success', 'message' => 'Entry saved successfully.']);
     } else {
-        log_message("Failed to save entry: " . $stmt->error . "\n");
         output_error('Failed to save entry: ' . $stmt->error);
     }
 
@@ -75,18 +59,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    log_message("GET request received.\n");
     $user_id = $_SESSION['user_id'] ?? 0;
     $sortOrder = $_GET['sort'] == 'ASC' ? 'ASC' : 'DESC';
 
     if ($user_id == 0) {
-        log_message("Invalid user ID.\n");
         output_error('Invalid user ID');
     }
 
     $stmt = $conn->prepare("SELECT * FROM entries WHERE user_id = ? ORDER BY entry_date $sortOrder");
     if (!$stmt) {
-        log_message("Database prepare error: " . $conn->error . "\n");
         output_error('Database prepare error: ' . $conn->error);
     }
     $stmt->bind_param("i", $user_id);
@@ -103,22 +84,16 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "PUT") {
-    log_message("PUT request received.\n");
     parse_str(file_get_contents("php://input"), $_PUT);
     $entry_id = $_PUT['entry_id'] ?? 0;
     $entries = $_PUT['entry'] ?? '';
 
-   
-    log_message("PUT Data: " . print_r($_PUT, true) . "\n");
-
     if ($entry_id == 0 || empty($entries)) {
-        log_message("Invalid input data: entry_id or entries is missing.\n");
         output_error('Invalid input data: entry_id or entries is missing.');
     }
 
     $stmt = $conn->prepare("UPDATE entries SET entries = ? WHERE id = ?");
     if (!$stmt) {
-        log_message("Database prepare error: " . $conn->error . "\n");
         output_error('Database prepare error: ' . $conn->error);
     }
     $stmt->bind_param("si", $entries, $entry_id);
@@ -128,7 +103,6 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
     if ($stmt->execute()) {
         echo json_encode(['status' => 'success', 'message' => 'Entry updated successfully.']);
     } else {
-        log_message("Failed to update entry: " . $stmt->error . "\n");
         output_error('Failed to update entry: ' . $stmt->error);
     }
 
@@ -136,21 +110,15 @@ if ($_SERVER["REQUEST_METHOD"] == "PUT") {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
-    log_message("DELETE request received.\n");
     parse_str(file_get_contents("php://input"), $_DELETE);
     $entry_id = $_DELETE['entry_id'] ?? 0;
 
-   
-    log_message("DELETE Data: " . print_r($_DELETE, true) . "\n");
-
     if ($entry_id == 0) {
-        log_message("Invalid entry ID.\n");
         output_error('Invalid entry ID');
     }
 
     $stmt = $conn->prepare("DELETE FROM entries WHERE id = ?");
     if (!$stmt) {
-        log_message("Database prepare error: " . $conn->error . "\n");
         output_error('Database prepare error: ' . $conn->error);
     }
     $stmt->bind_param("i", $entry_id);
@@ -160,13 +128,11 @@ if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
     if ($stmt->execute()) {
         echo json_encode(['status' => 'success', 'message' => 'Entry deleted successfully.']);
     } else {
-        log_message("Failed to delete entry: " . $stmt->error . "\n");
         output_error('Failed to delete entry: ' . $stmt->error);
     }
 
     exit();
 }
 
-log_message("Unsupported request method.\n");
 output_error('Unsupported request method');
 ?>
