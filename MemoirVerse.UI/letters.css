@@ -12,6 +12,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
 }
 
 .header-left {
@@ -165,7 +168,7 @@ button:hover {
 
 .letters-container {
     width: 100%;
-    max-width: 1500px;
+    max-width: 1100px;
     margin: 20px auto;
     padding: 20px;
     background: #ffffff;
@@ -193,6 +196,7 @@ button:hover {
     background-color: #c7e3e8;
     border-radius: 20px;
     word-break: break-word;
+    overflow: hidden; 
 }
 
 .letter:hover {
@@ -214,10 +218,30 @@ button:hover {
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
+    overflow: auto;
+    text-align: center; 
 }
 
 .closed-envelope {
     display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.closed-envelope .title {
+    margin-bottom: 10px;
+}
+
+.closed-envelope .click-message {
+    margin-top: 40px; 
+    color: #888; 
+    font-size: 14px; 
+    transition: color 0.3s ease; 
+}
+
+.closed-envelope .click-message:hover {
+    color: #3a506b;
 }
 
 .open-letter {
@@ -233,12 +257,15 @@ button:hover {
 .open-letter p {
     margin: 0 0 10px 0;
     font-size: 16px;
+    max-height: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 
 .open-letter .timestamp {
     font-size: 12px;
     color: #888;
-    margin-top: auto;
+    margin-top: 50px;
     text-align: right;
 }
 
@@ -248,4 +275,149 @@ button:hover {
 
 .image-container.right {
     margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+    header {
+      padding: 5px 10px;
+    }
+  
+    .header-left .user-profile .profile-pic {
+      width: 20px;  
+      height: 20px;
+    }
+  
+    .header-left .user-info {
+      font-size: 12px;  
+    }
+  
+    nav .menu {
+      gap: 0.3rem;  
+    }
+  
+    nav .menu li {
+      font-size: 12px;  
+    }
+  
+    .logo {
+      width: 15px;  
+      height: 15px;
+      margin-left: 0.3rem;
+    }
+  
+    .logout-button {
+      padding: 5px;  
+      font-size: 0.8em;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+      padding: 5px;
+    }
+  
+    .header-left .user-profile .profile-pic {
+      width: 20px;  
+      height: 20px;
+    }
+  
+    .header-left .user-info {
+      font-size: 10px;  
+    }
+  
+    nav .menu {
+      gap: 0.2rem;  
+    }
+  
+    nav .menu li {
+      font-size: 10px; 
+    }
+  
+    .logo {
+      width: 15px; 
+      height: 15px;
+      margin-left: 0.2rem;
+    }
+  
+    .logout-button {
+      padding: 3px; 
+      font-size: 0.7em;
+      margin-left: 3px;
+      margin-right: 3px;
+    }
+}
+
+@media (max-width: 320px) {
+    header {
+      padding: 5px;
+    }
+  
+    .header-left .user-profile .profile-pic {
+      width: 15px;  
+      height: 15px;
+    }
+  
+    .header-left .user-info {
+      font-size: 10px;  
+    }
+  
+    nav .menu {
+      gap: 0.2rem;  
+    }
+  
+    nav .menu li {
+      font-size: 10px; 
+    }
+  
+    .logo {
+      width: 10px; 
+      height: 10px;
+      margin-left: 0.2rem;
+    }
+  
+    .logout-button {
+      padding: 3px;  
+      font-size: 0.7em;
+      margin-left: 3px;
+      margin-right: 3px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-left, nav, .logout-logo {
+      flex-shrink: 1;  
+    }
+  
+    .header-left .user-profile .profile-pic {
+      width: 15px;
+      height: 15px;
+    }
+  
+    .header-left .user-info {
+      font-size: 10px;
+      margin-right: 5px;  
+    }
+  
+    nav .menu {
+      gap: 0.2rem; 
+    }
+  
+    nav .menu li {
+      font-size: 10px;
+    }
+  
+    .logo {
+      width: 10px;
+      height: 10px;
+      margin-left: 0.2rem; 
+    }
+  
+    .logout-button {
+      padding: 3px;
+      font-size: 0.7em;
+      margin-left: 3px;
+      margin-right: 3px;
+    }
 }

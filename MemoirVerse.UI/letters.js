@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
           letterDiv.innerHTML = `
             <div class="closed-envelope" style="display: block;">
               <h2 class="title">${letter.title}</h2>
+              <div class="click-message">Click to open a message</div>
             </div>
             <div class="open-letter" style="display: none;">
               <h2>${letter.title}</h2>
