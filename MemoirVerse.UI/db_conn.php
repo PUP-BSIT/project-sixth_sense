@@ -1,9 +1,10 @@
 <?php
+session_start();
+
 $servername = "localhost"; 
 $username = "u586757316_root";  
 $password = "";  
 $dbname = "memoirverse1";  
-
 
 $conn = new mysqli('localhost', 'u586757316_root', 'Sixthsense21', 'u586757316_memoirverse1');
 

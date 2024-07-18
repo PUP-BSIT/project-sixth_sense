@@ -1,5 +1,6 @@
 <?php
 require 'db_conn.php';
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +22,9 @@ require 'db_conn.php';
          <nav>
             <ul class="menu">
                 <li><a href="./entry.php">Diary</a></li>
-                <li><a href="./to_do_list.php">To do list</a></li>
-                <li><a href="./chart.php">Chart</a></li>
-                <li><a href="./letters.php">Letters from strangers</a></li>
+                <li><a href="./to_do_list.html">To do list</a></li>
+                <li><a href="./chart.html">Chart</a></li>
+                <li><a href="./letters.html">Letters from strangers</a></li>
             </ul>
             <div class="logout-logo">
                 <a href="login.php" class="logout-button">Log Out</a>
