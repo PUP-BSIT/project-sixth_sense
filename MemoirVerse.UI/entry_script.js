@@ -26,12 +26,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     try {
-      const response = await fetch("../entry_handler.php", {
+      const response = await fetch("./entry_handler.php", {
         method: "POST",
         body: formData,
       });
-      const text = await response.text(); 
-      console.log("Response text:", text); 
+      const text = await response.text();
+      console.log("Response text:", text);
       const data = JSON.parse(text);
 
       if (data.status === "success") {
@@ -51,9 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const loadEntries = async (sortOrder = "DESC") => {
     try {
-      const response = await fetch(`../entry_handler.php?sort=${sortOrder}`);
-      const text = await response.text(); 
-      console.log("Response text:", text); 
+      const response = await fetch(`./entry_handler.php?sort=${sortOrder}`);
+      const text = await response.text();
+      console.log("Response text:", text);
       const data = JSON.parse(text);
 
       displayEntries(data);
@@ -122,14 +122,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const newContent = prompt("Edit your entry:");
     if (newContent !== null) {
       try {
-        const response = await fetch("../entry_handler.php", {
+        const response = await fetch("./entry_handler.php", {
           method: "PUT",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
           body: `entry_id=${entryId}&entry=${encodeURIComponent(newContent)}`,
         });
-        const text = await response.text(); 
+        const text = await response.text();
         console.log("Response text:", text);
         const data = JSON.parse(text);
 
@@ -148,16 +148,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const deleteEntry = async (entryId) => {
     if (confirm("Are you sure you want to delete this entry?")) {
       try {
-        const response = await fetch("../entry_handler.php", {
+        const response = await fetch("./entry_handler.php", {
           method: "DELETE",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
           body: `entry_id=${entryId}`,
         });
-        const text = await response.text(); 
+        const text = await response.text();
         console.log("Response text:", text);
-        const data = JSON.parse(text); 
+        const data = JSON.parse(text);
 
         if (data.status === "success") {
           loadEntries();
