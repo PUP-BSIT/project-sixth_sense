@@ -11,7 +11,7 @@ body {
 
 header {
   background-color: #ffffff;
-  padding: 10px 20px;
+  padding: 5px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
@@ -129,52 +129,4 @@ p {
 
 .feature-box:nth-child(even) {
   background-color: #ffffff;
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .features {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  p {
-    font-size: 1.25rem;
-  }
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  .feature-box {
-    padding: 20px;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  p {
-    font-size: 0.875rem;
-    margin-bottom: 20px;
-  }
-
-  .feature-box {
-    padding: 15px;
-    font-size: 0.875rem;
-  }
 }
