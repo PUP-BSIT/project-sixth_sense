@@ -39,7 +39,7 @@ require 'db_conn.php';
         </div>
 
         <div class="container">
-            <h1>Notes from Strangers</h1>
+            <h1>Letters from Strangers</h1>
             <form id="letterForm">
                 <input type="text" id="title" name="title" 
                   placeholder="Title" required>
