@@ -23,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         output_error('Invalid input data: entries or user_id is missing.');
     }
 
-    // Handle file upload
     if (isset($_FILES['entry_image']) && $_FILES['entry_image']['error'] == UPLOAD_ERR_OK) {
         $upload_dir = 'uploads/';
         if (!is_dir($upload_dir)) {
