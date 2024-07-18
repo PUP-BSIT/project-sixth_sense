@@ -19,17 +19,16 @@ session_start();
                 <span class="user-info">Jane Doe</span>
             </div>
         </div>
-        <nav>
+         <nav>
             <ul class="menu">
-                <li><a href="#">Diary</a></li>
-                <li><a href="#">To do list</a></li>
-                <li><a href="#">Chart</a></li>
+                <li><a href="./entry.php">Diary</a></li>
+                <li><a href="./to_do_list.html">To do list</a></li>
+                <li><a href="./chart.html">Chart</a></li>
+                <li><a href="./letters.html">Letters from strangers</a></li>
             </ul>
             <div class="logout-logo">
                 <a href="login.php" class="logout-button">Log Out</a>
             </div>
-            <img src="#" alt="Logo" class="logo">
-        </nav>
     </header>
     <main>
         <section class="diary-section">
