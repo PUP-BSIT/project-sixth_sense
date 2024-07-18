@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     try {
-      const response = await fetch("entry_handler.php", {
+      const response = await fetch("../entry_handler.php", {
         method: "POST",
         body: formData,
       });
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const loadEntries = async (sortOrder = "DESC") => {
     try {
-      const response = await fetch(`entry_handler.php?sort=${sortOrder}`);
+      const response = await fetch(`../entry_handler.php?sort=${sortOrder}`);
       const data = await response.json();
       displayEntries(data);
     } catch (error) {
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const newContent = prompt("Edit your entry:");
     if (newContent !== null) {
       try {
-        const response = await fetch("entry_handler.php", {
+        const response = await fetch("../entry_handler.php", {
           method: "PUT",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const deleteEntry = async (entryId) => {
     if (confirm("Are you sure you want to delete this entry?")) {
       try {
-        const response = await fetch("entry_handler.php", {
+        const response = await fetch("../entry_handler.php", {
           method: "DELETE",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
