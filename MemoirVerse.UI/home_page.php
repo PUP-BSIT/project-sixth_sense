@@ -44,8 +44,10 @@ if (isset($_SESSION['user_id'])) {
     <header>
         <div class="header-left">
             <div class="user-profile">
-                <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
-                <span class="user-info"><?php echo htmlspecialchars($welcomeName); ?></span>
+                <img src="profile.jpg" alt="Profile Picture" 
+                 class="profile-pic">
+                <span class="user-info">
+                <?php echo htmlspecialchars($welcomeName); ?></span>
             </div>
         </div>
         <nav>
