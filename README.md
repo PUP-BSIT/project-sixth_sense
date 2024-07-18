@@ -17,7 +17,7 @@ You can access our app using the following sample user credentials:
     </tr>
 </table>
 
-Join our community by signing up for an account. [MemoriVerse](https://memoirverse.site/) 
+Join our community by signing up for an account. [MemoirVerse](https://memoirverse.site/) 
 
 ## ✨ Features 
  **_Diary_**,
