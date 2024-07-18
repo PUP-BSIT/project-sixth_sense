@@ -30,7 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
         method: "POST",
         body: formData,
       });
-      const data = await response.json();
+      const text = await response.text(); 
+      console.log("Response text:", text); 
+      const data = JSON.parse(text);
+
       if (data.status === "success") {
         loadEntries();
         entryInput.value = "";
@@ -49,7 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const loadEntries = async (sortOrder = "DESC") => {
     try {
       const response = await fetch(`../entry_handler.php?sort=${sortOrder}`);
-      const data = await response.json();
+      const text = await response.text(); 
+      console.log("Response text:", text); 
+      const data = JSON.parse(text);
+
       displayEntries(data);
     } catch (error) {
       console.error("Error:", error);
@@ -123,7 +129,10 @@ document.addEventListener("DOMContentLoaded", function () {
           },
           body: `entry_id=${entryId}&entry=${encodeURIComponent(newContent)}`,
         });
-        const data = await response.json();
+        const text = await response.text(); 
+        console.log("Response text:", text);
+        const data = JSON.parse(text);
+
         if (data.status === "success") {
           loadEntries();
         } else {
@@ -146,7 +155,10 @@ document.addEventListener("DOMContentLoaded", function () {
           },
           body: `entry_id=${entryId}`,
         });
-        const data = await response.json();
+        const text = await response.text(); 
+        console.log("Response text:", text);
+        const data = JSON.parse(text); 
+
         if (data.status === "success") {
           loadEntries();
         } else {
