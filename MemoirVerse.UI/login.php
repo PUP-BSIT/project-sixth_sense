@@ -1,14 +1,17 @@
 <?php
-require 'db_conn.php';
-session_start();
+require 'db_conn.php'; 
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-function sanitize_input($data) {
+function sanitize_input($data)
+{
     return htmlspecialchars($data);
 }
+
+$message = "";
+$redirect = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["email"]) && isset($_POST["password"])) {
@@ -25,28 +28,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($password, $user["password"])) {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['first_name'] = $user['firstName'];
-                echo "<script>alert('Login successful'); window.location.href = 'home_page.php';</script>";
-                exit();
+                $message = "Login successful";
+                $redirect = "home_page.php";
             } else {
-                echo "<script>alert('Invalid password');</script>";
+                $message = "Invalid password";
             }
         } else {
-            echo "<script>alert('No user found with this email');</script>";
+            $message = "No user found with this email";
         }
 
         $stmt->close();
-        $conn->close();
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="./style/login.css">
 </head>
+
 <body>
     <div class="login-container">
         <div class="header">
@@ -64,5 +69,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p>Don't have an account? Create one! <a href="signup.php">Register Here</a></p>
         </div>
     </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-icon">&#10003;</div> 
+            <p id="modal-message"></p>
+        </div>
+    </div>
+
+    <script>
+        function showModal(message, redirect = null) {
+            document.getElementById('modal-message').innerText = message;
+            const modal = document.getElementById('modal');
+            modal.style.display = 'block';
+
+            document.querySelector('.close').onclick = function () {
+                modal.style.display = 'none';
+                if (redirect) {
+                    window.location.href = redirect;
+                }
+            };
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                    if (redirect) {
+                        window.location.href = redirect;
+                    }
+                }
+            };
+        }
+
+        <?php if (!empty($message)): ?>
+            showModal('<?php echo $message; ?>', '<?php echo $redirect; ?>');
+        <?php endif; ?>
+    </script>
 </body>
+
 </html>
