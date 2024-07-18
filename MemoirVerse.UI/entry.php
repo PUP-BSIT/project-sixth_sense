@@ -73,6 +73,6 @@ session_start();
         <img class="modal-content" id="img01">
         <div id="caption"></div>
     </div>
-    <script src="./script/entry_script.js"></script>
+    <script src="./entry_script.js"></script>
 </body>
 </html>
