@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="footer">
             <p>Don't have an account? Create one!
-             <a href="signup.php">Register Here</a></p>
+                 <a href="signup.php">Register Here</a></p>
         </div>
     </div>
 
