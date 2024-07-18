@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Reactions by Gender</title>
+    <link rel="stylesheet" href="./style/chart.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Select a gender to view mood reactions</h1>
+    <select id="gender_picker" onchange="fetch_data()">
+        <option value="">All</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select>
+    <div id="chart_container">
+        <canvas id="my_chart"></canvas>
+    </div>
+    <div id="mood_counts"></div>
+    <script src="./script/mood_per_gender.js"></script>
+</body>
+</html>

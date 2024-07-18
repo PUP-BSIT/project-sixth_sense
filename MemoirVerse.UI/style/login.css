@@ -38,6 +38,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: center;
 }
 
 .input-field {
@@ -45,6 +46,8 @@ body {
   border: 1px solid #365486;
   border-radius: 5px;
   outline: none;
+  width: 100%;
+  box-sizing: border-box; /* Ensure the padding and border are included in the width */
 }
 
 .login-button {
@@ -54,6 +57,8 @@ body {
   background-color: #365486;
   color: white;
   cursor: pointer;
+  width: 100%;
+  box-sizing: border-box; /* Ensure the padding and border are included in the width */
 }
 
 .footer {
@@ -62,6 +67,10 @@ body {
 
 .footer p {
   margin: 10px 0;
+  color: black;
+}
+
+.footer a {
   color: black;
 }
 
