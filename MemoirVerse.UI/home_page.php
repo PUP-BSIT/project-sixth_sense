@@ -7,10 +7,8 @@ $welcomeName = "MemoirVerse";
 if (isset($_SESSION['user_id'])) {
     $userId = $_SESSION['user_id'];
 
-    // Debugging: Check if the session user_id is set
     error_log("User ID from session: " . $userId);
 
-    // Query to fetch user's full name from the database
     $query = "SELECT firstName, lastName FROM users WHERE id = ?";
     if ($stmt = $conn->prepare($query)) {
         $stmt->bind_param('i', $userId);
@@ -30,7 +28,6 @@ if (isset($_SESSION['user_id'])) {
         error_log("Query Preparation Failed: " . $conn->error);
     }
 } else {
-    // Debugging: Log if the user_id session variable is not set
     error_log("User ID session variable not set.");
 }
 ?>
@@ -61,7 +58,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="logout-logo">
                 <a href="login.php" class="logout-button">Log Out</a>
             </div>
-            <img src="./pictures/logo.png" alt="Logo" class="logo">
+            <img src="./assets/logo.png" alt="Logo" class="logo">
         </nav>
     </header>
     <main>

@@ -23,6 +23,7 @@ body {
   padding: 20px;
   border-radius: 10px 10px 0 0;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .header h1 {
@@ -45,6 +46,33 @@ body {
   border: 1px solid #365486;
   border-radius: 5px;
   outline: none;
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.dob-label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #365486;
+  text-align: left;
+  width: calc(100% - 20px);
+  margin: 0 auto;
+}
+
+.date-container {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 20px);
+  margin: 0 auto;
+}
+
+.date-field {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #365486;
+  border-radius: 5px;
+  outline: none;
 }
 
 .signup-button {
@@ -54,4 +82,19 @@ body {
   background-color: #365486;
   color: white;
   cursor: pointer;
+  width: 100%;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer a {
+  color: #365486;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }
