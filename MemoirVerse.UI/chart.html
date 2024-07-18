@@ -4,12 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mood Tracker</title>
-    <link rel="stylesheet" href="./style/main.css">
+    <link rel="stylesheet" href="./style/chart.css">
 </head>
 <body>
-    <h1>Mood Tracker</h1>
-    <button onclick="location.href='mood_per_date.html'">View Mood per Date</button>
-    <button onclick="location.href='mood_gender.html'">View Mood per Gender</button>
-    <button onclick="location.href='view_users.html'">View All Users</button>
+    <header>
+        <div class="header-left">
+            <div class="user-profile">
+                <img src="profile.jpg" 
+                  alt="Profile Picture" 
+                  class="profile-pic">
+                <span class="user-info">Jane Doe</span>
+            </div>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="./entry.php">Diary</a></li>
+                <li><a href="./to_do_list.html">To do list</a></li>
+                <li><a href="./chart.html">Chart</a></li>
+                <li><a href="./letters.html">Letters from strangers</a></li>
+            </ul>
+            <div class="logout-logo">
+                <a href="login.php" class="logout-button">Log Out</a>
+            </div>
+            <img src="./assets/logo.png" alt="Logo" class="logo">
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Mood Tracker</h1>
+        <div class="button-container">
+            <button onclick="location.href='mood_per_date.html'" 
+            class="custom-button">View Mood per Date</button>
+            <button onclick="location.href='mood_gender.html'" 
+            class="custom-button">View Mood per Gender</button>
+            <button onclick="location.href='view_users.html'" 
+            class="custom-button">View All Users</button>
+        </div>
+    </main>
 </body>
 </html>
