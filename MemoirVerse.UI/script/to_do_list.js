@@ -17,7 +17,30 @@ function addTask() {
     );
     taskList.appendChild(taskElement);
     taskInput.value = "";
+    saveTaskToDatabase(taskText, "assigned", "not_done");
   }
+}
+
+function saveTaskToDatabase(taskText, assigned, done) {
+  const userId = "user123"; // Replace with actual user_id if available
+  const toDoId = Date.now(); // Unique ID for the task
+
+  fetch('to_do_list.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ to_do_id: toDoId, user_id: userId, assigned: taskText, done: done })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      console.log('Task saved to database');
+    } else {
+      console.error('Failed to save task to database');
+    }
+  })
+  .catch(error => console.error('Error:', error));
 }
 
 function createTaskElement(text, timestamp) {
