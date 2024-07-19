@@ -113,8 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
       modal.style.display = "none";
     };
   };
-
-  // Edit modal handling
+  
   const editModal = document.getElementById("editModal");
   const editEntryInput = document.getElementById("editEntryInput");
   const saveEditButton = document.getElementById("saveEditButton");
