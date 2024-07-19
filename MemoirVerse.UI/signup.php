@@ -5,6 +5,9 @@ if (!file_exists('db_conn.php')) {
 
 include 'db_conn.php';
 
+$message = '';
+$redirect = '';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $firstName = $_POST['firstName'];
@@ -16,9 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssss", $email, $firstName, $lastName, $password, $dob);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Signup successful.'); window.location.href = 'login.php';</script>";
+        $message = 'Signup successful.';
+        $redirect = 'login.php';
     } else {
-        echo "<script>alert('Signup failed: " . $stmt->error . "'); window.location.href = 'signup.php';</script>";
+        $message = 'Signup failed: ' . $stmt->error;
+        $redirect = 'signup.php';
     }
 }
 ?>
@@ -69,17 +74,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button type="submit" class="signup-button">Sign Up</button>
             </form>
         </div>
+
         <div id="error-message"></div>
         <div class="footer">
-            <p>Already have an account? <a href="login.php">Log In Here</a></p>
+            <p>Already have an account? 
+              <a href="login.php">Log In Here</a></p>
         </div>
-        <form class="form" action="signup_process.php" method="post">
-            <input type="text" name="username" class="input-field" placeholder="Username" required>
-            <input type="email" name="email" class="input-field" placeholder="Email" required>
-            <input type="password" name="password" class="input-field" placeholder="Password" required>
-            <button type="submit" class="signup-button">Sign Up</button>
-        </form>
     </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-icon">&#10003;</div> 
+            <p id="modal-message"></p>
+        </div>
+    </div>
+
     <script src="./script/signup_validation.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const message = <?php echo json_encode($message); ?>;
+            const redirect = <?php echo json_encode($redirect); ?>;
+
+            if (message) {
+                showModal(message, redirect);
+            }
+        });
+    </script>
 </body>
 </html>

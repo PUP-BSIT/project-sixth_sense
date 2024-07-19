@@ -16,11 +16,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!validatePassword(password.value)) {
       errorMessage.textContent =
         "Password must be at least 8 characters long and include numbers and special characters.";
+      showModal(errorMessage.textContent);
       return false;
     }
 
     if (password.value !== confirmPassword.value) {
       errorMessage.textContent = "Passwords do not match.";
+      showModal(errorMessage.textContent);
       return false;
     }
 
@@ -32,5 +34,27 @@ document.addEventListener("DOMContentLoaded", function () {
     const isValid = re.test(password);
     console.log(`Password: ${password}, Valid: ${isValid}`);
     return isValid;
+  }
+
+  function showModal(message, redirect = null) {
+    document.getElementById('modal-message').innerText = message;
+    const modal = document.getElementById('modal');
+    modal.style.display = 'block';
+
+    document.querySelector('.close').onclick = function () {
+      modal.style.display = 'none';
+      if (redirect) {
+        window.location.href = redirect;
+      }
+    };
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+        if (redirect) {
+          window.location.href = redirect;
+        }
+      }
+    };
   }
 });
