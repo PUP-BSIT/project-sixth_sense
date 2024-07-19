@@ -1,12 +1,13 @@
 <?php
-if (!file_exists('db_conn.php')) {
-    die("Database connection file is missing.");
-}
-
 include 'db_conn.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    error_log("POST request received");
+
     $input = json_decode(file_get_contents('php://input'), true);
+
+    error_log("Input received: " . print_r($input, true));
+
     if (isset($input['to_do_id'], $input['user_id'], $input['assigned'], $input['done'])) {
         $to_do_id = $conn->real_escape_string($input['to_do_id']);
         $user_id = $conn->real_escape_string($input['user_id']);
@@ -14,6 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $done = $conn->real_escape_string($input['done']);
 
         $sql = "INSERT INTO to_do_list (to_do_id, user_id, assigned, done) VALUES ('$to_do_id', '$user_id', '$assigned', '$done')";
+        
+        error_log("SQL Query: " . $sql);
+
         if ($conn->query($sql) === TRUE) {
             echo json_encode(['success' => true]);
         } else {
@@ -23,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['success' => false, 'error' => 'Invalid input']);
     }
 } else {
+    error_log("Invalid request method: " . $_SERVER['REQUEST_METHOD']);
     echo json_encode(['success' => false, 'error' => 'Invalid request method']);
 }
 
