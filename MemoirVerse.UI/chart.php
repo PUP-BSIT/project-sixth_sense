@@ -32,7 +32,7 @@ if (!isset($_SESSION['user_id'])) {
                 <li><a href="./letters.php">Letters from strangers</a></li>
             </ul>
             <div class="logout-logo">
-                <a href="login.php" class="logout-button">Log Out</a>
+                <a href="logout.php" class="logout-button">Log Out</a>
             </div>
         </nav>
     </header>

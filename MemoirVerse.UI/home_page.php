@@ -63,7 +63,7 @@ if (isset($_SESSION['user_id'])) {
             </ul>
 
             <div class="logout-logo">
-                <a href="login.php" class="logout-button">Log Out</a>
+                <a href="logout.php" class="logout-button">Log Out</a>
             </div>
         </nav>
     </header>
