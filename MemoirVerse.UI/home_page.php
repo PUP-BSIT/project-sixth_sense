@@ -2,6 +2,10 @@
 session_start();
 require 'db_conn.php';
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: /login.php");
+    exit();
+}
 $welcomeName = "MemoirVerse";
 
 if (isset($_SESSION['user_id'])) {
@@ -29,7 +33,7 @@ if (isset($_SESSION['user_id'])) {
     }
 } else {
     error_log("User ID session variable not set.");
-    header('Location: login.php'); // Redirect to login if not authenticated
+    header('Location: login.php'); 
     exit();
 }
 ?>
