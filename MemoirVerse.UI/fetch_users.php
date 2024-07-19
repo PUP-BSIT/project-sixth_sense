@@ -1,18 +1,21 @@
 <?php
-
 require 'db_conn.php';
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$month = isset($_GET['month']) ? $_GET['month'] : null;
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-$query = "SELECT user_id, DATE_FORMAT(time_created, '%Y-%m-%d') as date FROM users";
+$month = isset($_GET['month']) ? $_GET['month'] : 'all';
+
+$query = "SELECT id AS user_id, DATE_FORMAT(time_created, '%Y-%m-%d') as date FROM users";
 $params = [];
 $types = '';
 
-if ($month && $month !== 'all') {
+if ($month !== 'all') {
     $query .= " WHERE MONTH(time_created) = ?";
     $params[] = $month;
     $types .= 's';
