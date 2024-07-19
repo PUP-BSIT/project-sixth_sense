@@ -73,12 +73,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="footer">
             <p>Already have an account? <a href="login.php">Log In Here</a></p>
         </div>
-        <form class="form" action="signup_process.php" method="post">
-            <input type="text" name="username" class="input-field" placeholder="Username" required>
-            <input type="email" name="email" class="input-field" placeholder="Email" required>
-            <input type="password" name="password" class="input-field" placeholder="Password" required>
-            <button type="submit" class="signup-button">Sign Up</button>
-        </form>
     </div>
     <script src="./script/signup_validation.js"></script>
 </body>
