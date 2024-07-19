@@ -14,10 +14,7 @@ session_start();
 <body>
     <header>
         <div class="header-left">
-            <div class="user-profile">
-                <img src="#" alt="Profile Picture" class="profile-pic">
-                <span class="user-info">Jane Doe</span>
-            </div>
+          <img src="./assets/logo.png" alt="Logo" class="logo">
         </div>
 
         <nav>

@@ -13,11 +13,7 @@ require 'db_conn.php';
 <body>
     <header>
         <div class="header-left">
-            <div class="user-profile">
-                <img src="profile.jpg" alt="Profile Picture"
-                 class="profile-pic">
-                <span class="user-info">Jane Doe</span>
-            </div>
+            <img src="./assets/logo.png" alt="Logo" class="logo">
         </div>
 
         <nav>
@@ -31,7 +27,6 @@ require 'db_conn.php';
             <div class="logout-logo">
                 <a href="login.php" class="logout-button">Log Out</a>
             </div>
-            <img src="./assets/logo.png" alt="Logo" class="logo">
         </nav>
     </header>
 
