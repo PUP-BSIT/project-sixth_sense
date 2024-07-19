@@ -212,7 +212,8 @@ body {
   border-radius: 5px;
   outline: none;
   width: 100%;
-  box-sizing: border-box; /* Ensure the padding and border are included in the width */
+  box-sizing: border-box; 
+  margin-bottom: 5px;
 }
 
 .login-button {
@@ -223,7 +224,8 @@ body {
   color: white;
   cursor: pointer;
   width: 100%;
-  box-sizing: border-box; /* Ensure the padding and border are included in the width */
+  box-sizing: border-box; 
+  margin-bottom: 5px;
 }
 
 .footer {
@@ -241,4 +243,113 @@ body {
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6); 
+  border-color: #365486;
+}
+
+.modal-content {
+  background-color: #e1f5fe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 2px solid #061020; 
+  width: 70%; 
+  max-width: 400px; 
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-icon {
+  font-size: 50px;
+  color: #4CAF50; 
+  margin-bottom: 20px;
+}
+
+#modal-message {
+  font-size: 1em; 
+  margin: 10px 0; 
+}
+
+@media (max-width: 600px) {
+  .login-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .header {
+    padding: 15px;
+  }
+
+  .header h1 {
+    font-size: 1.2em;
+  }
+
+  .input-field,
+  .login-button {
+    padding: 8px;
+    font-size: 1em;
+  }
+
+  .footer p {
+    font-size: 0.9em;
+  }
+
+  .footer a {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 400px) {
+  .header h1 {
+    font-size: 1em;
+  }
+
+  .header p {
+    font-size: 0.9em;
+  }
+
+  .input-field,
+  .login-button {
+    padding: 6px;
+    font-size: 0.9em;
+  }
+
+  .footer p {
+    font-size: 0.8em;
+  }
+
+  .footer a {
+    font-size: 0.8em;
+  }
 }
