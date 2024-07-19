@@ -30,6 +30,7 @@
     <main>
         <h1>Select a month to view all registered users</h1>
         <select id="month_picker" onchange="fetch_users()">
+            <option value="" disabled selected>Select</option>
             <option value="all">All</option>
             <option value="01">January</option>
             <option value="02">February</option>
@@ -45,6 +46,10 @@
             <option value="12">December</option>
         </select>
         
+        <div class="logout-logo">
+            <a href="chart.php" class="logout-button">Back</a>
+        </div>
+
         <div id="chart_container">
             <canvas id="user_chart"></canvas>
         </div>
