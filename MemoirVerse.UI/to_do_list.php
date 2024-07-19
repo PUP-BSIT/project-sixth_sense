@@ -6,7 +6,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 
 include 'db_conn.php';
 
-error_log("Request method: " . $_SERVER['REQUEST_METHOD']);
+ob_start();
 
 header('Content-Type: application/json');
 
@@ -24,18 +24,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("isss", $to_do_id, $user_id, $assigned, $done);
 
         if ($stmt->execute()) {
+            
+            ob_end_clean();
             echo json_encode(["success" => true]);
         } else {
+            
+            ob_end_clean();
             echo json_encode(["success" => false, "error" => "Database error: " . $stmt->error]);
         }
     } else {
-        error_log("Invalid input: " . print_r($input, true));
-        echo json_encode(['success' => false, 'error' => 'Invalid input']);
+        
+        ob_end_clean();
+        echo json_encode(["success" => false, "error" => "Invalid input"]);
     }
 } else {
+        ob_end_clean();
     echo json_encode(["success" => false, "error" => "Invalid request method"]);
 }
 ?>
+
 
 
 <!DOCTYPE html>
