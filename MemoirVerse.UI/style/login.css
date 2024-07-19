@@ -135,3 +135,56 @@ body {
   font-size: 1em; 
   margin: 10px 0; 
 }
+
+@media (max-width: 600px) {
+  .login-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .header {
+    padding: 15px;
+  }
+
+  .header h1 {
+    font-size: 1.2em;
+  }
+
+  .input-field,
+  .login-button {
+    padding: 8px;
+    font-size: 1em;
+  }
+
+  .footer p {
+    font-size: 0.9em;
+  }
+
+  .footer a {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 400px) {
+  .header h1 {
+    font-size: 1em;
+  }
+
+  .header p {
+    font-size: 0.9em;
+  }
+
+  .input-field,
+  .login-button {
+    padding: 6px;
+    font-size: 0.9em;
+  }
+
+  .footer p {
+    font-size: 0.8em;
+  }
+
+  .footer a {
+    font-size: 0.8em;
+  }
+}
