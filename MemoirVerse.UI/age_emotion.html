@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age and Emotions</title>
+    <link rel="stylesheet" href="age_mood.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="age_emotion.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="user-profile">
+                <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+                <span class="user-info">Jane Doe</span>
+            </div>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="entry.php">Diary</a></li>
+                <li><a href="to_do_list.php">To-do List</a></li>
+                <li><a href="chart.php">Chart</a></li>
+                <li><a href="letters.php">Letters from Strangers</a></li>
+            </ul>
+            <div class="logout-logo">
+                <a href="login.php" class="logout-button">Log Out</a>
+            </div>
+            <img src="assets/logo.png" alt="Logo" class="logo">
+        </nav>
+    </header>
+
+    <main>
+        <h1>Age and Emotions</h1>
+        <div class="button-container">
+            <button class="mood-button" data-mood="Happy">Happy</button>
+            <button class="mood-button" data-mood="Sad">Sad</button>
+            <button class="mood-button" data-mood="Content">Content</button>
+            <button class="mood-button" data-mood="Neutral">Neutral</button>
+            <button class="mood-button" data-mood="Angry">Angry</button>
+        </div>
+        <div id="chart_container">
+            <canvas id="my_chart"></canvas>
+            <div id="age_emotion"></div>
+        </div>
+    </main>
+</body>
+</html>
