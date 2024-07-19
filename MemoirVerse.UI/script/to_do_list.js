@@ -22,8 +22,8 @@ function addTask() {
 }
 
 function saveTaskToDatabase(taskText, assigned, done) {
-  const userId = "user123"; // Replace with actual user_id if available
-  const toDoId = Date.now(); // Unique ID for the task
+  const userId = "user123"; 
+  const toDoId = Date.now(); 
 
   fetch('to_do_list.php', {
     method: 'POST',
@@ -37,7 +37,7 @@ function saveTaskToDatabase(taskText, assigned, done) {
     if (data.success) {
       console.log('Task saved to database');
     } else {
-      console.error('Failed to save task to database');
+      console.error('Failed to save task to database:', data.error);
     }
   })
   .catch(error => console.error('Error:', error));
