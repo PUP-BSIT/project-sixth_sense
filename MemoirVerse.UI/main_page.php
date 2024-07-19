@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Mood Tracker</a></li>
-                <li><a href="to_do_list.html">To do List</a></li>
+                <li><a href="to_do_list.php">To do List</a></li>
             </ul>
         </nav>
     </aside>
