@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
         body: formData,
       });
       const text = await response.text();
-      console.log("Response text:", text);
       const data = JSON.parse(text);
 
       if (data.status === "success") {
@@ -53,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const response = await fetch(`./entry_handler.php?sort=${sortOrder}`);
       const text = await response.text();
-      console.log("Response text:", text);
       const data = JSON.parse(text);
 
       displayEntries(data);
@@ -68,19 +66,17 @@ document.addEventListener("DOMContentLoaded", function () {
       const entryDiv = document.createElement("div");
       entryDiv.classList.add("entry");
       entryDiv.innerHTML = `
-                <p>${entry.entries}</p>
-                ${
-                  entry.entry_image
-                    ? `<img src="${entry.entry_image}" alt="Entry Image">`
-                    : ""
-                }
-                ${entry.mood ? `<p class="mood">Mood: ${entry.mood}</p>` : ""}
-                <span class="timestamp">${entry.entry_date}</span>
-                <button class="edit-button" data-id="${entry.id}">Edit</button>
-                <button class="delete-button" data-id="${
-                  entry.id
-                }">Delete</button>
-            `;
+        <p>${entry.entries}</p>
+        ${
+          entry.entry_image
+            ? `<img src="${entry.entry_image}" alt="Entry Image">`
+            : ""
+        }
+        ${entry.mood ? `<p class="mood">Mood: ${entry.mood}</p>` : ""}
+        <span class="timestamp">${entry.entry_date}</span>
+        <button class="edit-button" data-id="${entry.id}">Edit</button>
+        <button class="delete-button" data-id="${entry.id}">Delete</button>
+      `;
       entriesContainer.appendChild(entryDiv);
 
       if (entry.entry_image) {
@@ -118,23 +114,50 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   };
 
+  // Edit modal handling
+  const editModal = document.getElementById("editModal");
+  const editEntryInput = document.getElementById("editEntryInput");
+  const saveEditButton = document.getElementById("saveEditButton");
+  let currentEditEntryId = null;
+
+  document.querySelector(".edit-close").onclick = function () {
+    editModal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == editModal) {
+      editModal.style.display = "none";
+    }
+  };
+
   const editEntry = async (entryId) => {
-    const newContent = prompt("Edit your entry:");
-    if (newContent !== null) {
+    currentEditEntryId = entryId;
+    const entryText = document
+      .querySelector(`[data-id='${entryId}']`)
+      .parentElement.querySelector("p").innerText;
+    editEntryInput.value = entryText;
+    editModal.style.display = "block";
+  };
+
+  saveEditButton.addEventListener("click", async function () {
+    const newContent = editEntryInput.value;
+    if (newContent !== "") {
       try {
         const response = await fetch("./entry_handler.php", {
           method: "PUT",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: `entry_id=${entryId}&entry=${encodeURIComponent(newContent)}`,
+          body: `entry_id=${currentEditEntryId}&entry=${encodeURIComponent(
+            newContent
+          )}`,
         });
         const text = await response.text();
-        console.log("Response text:", text);
         const data = JSON.parse(text);
 
         if (data.status === "success") {
           loadEntries();
+          editModal.style.display = "none";
         } else {
           console.error(data.message);
           alert(data.message);
@@ -143,24 +166,37 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Error:", error);
       }
     }
+  });
+
+  const deleteModal = document.getElementById("deleteModal");
+  const confirmDeleteButton = document.getElementById("confirmDeleteButton");
+  const cancelDeleteButton = document.getElementById("cancelDeleteButton");
+  let currentDeleteEntryId = null;
+
+  document.getElementById("deleteClose").onclick = function () {
+    deleteModal.style.display = "none";
   };
 
-  const deleteEntry = async (entryId) => {
-    if (confirm("Are you sure you want to delete this entry?")) {
+  cancelDeleteButton.addEventListener("click", () => {
+    deleteModal.style.display = "none";
+  });
+
+  confirmDeleteButton.addEventListener("click", async function () {
+    if (currentDeleteEntryId) {
       try {
         const response = await fetch("./entry_handler.php", {
           method: "DELETE",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: `entry_id=${entryId}`,
+          body: `entry_id=${currentDeleteEntryId}`,
         });
         const text = await response.text();
-        console.log("Response text:", text);
         const data = JSON.parse(text);
 
         if (data.status === "success") {
           loadEntries();
+          deleteModal.style.display = "none";
         } else {
           console.error(data.message);
           alert(data.message);
@@ -169,6 +205,11 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Error:", error);
       }
     }
+  });
+
+  const deleteEntry = (entryId) => {
+    currentDeleteEntryId = entryId;
+    deleteModal.style.display = "block";
   };
 
   sortNewest.addEventListener("click", () => loadEntries("DESC"));
