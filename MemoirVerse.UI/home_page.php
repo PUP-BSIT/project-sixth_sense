@@ -29,6 +29,8 @@ if (isset($_SESSION['user_id'])) {
     }
 } else {
     error_log("User ID session variable not set.");
+    header('Location: login.php'); // Redirect to login if not authenticated
+    exit();
 }
 ?>
 
@@ -44,10 +46,8 @@ if (isset($_SESSION['user_id'])) {
     <header>
         <div class="header-left">
             <div class="user-profile">
-                <img src="profile.jpg" alt="Profile Picture" 
-                 class="profile-pic">
-                <span class="user-info">
-                <?php echo htmlspecialchars($welcomeName); ?></span>
+                <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+                <span class="user-info"><?php echo htmlspecialchars($welcomeName); ?></span>
             </div>
         </div>
         <nav>
