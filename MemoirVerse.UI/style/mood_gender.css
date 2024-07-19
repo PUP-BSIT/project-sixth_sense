@@ -96,6 +96,7 @@ nav .menu a:hover {
 .back {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .back-button {
@@ -105,11 +106,9 @@ nav .menu a:hover {
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 1em;
-  cursor: pointer;
   margin-left: 20px;
   margin-right: 20px;
   text-decoration: none;
-  transition: background-color 0.3s ease;
 }
 
 main {

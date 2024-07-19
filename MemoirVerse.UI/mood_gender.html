@@ -28,10 +28,6 @@
 
     <main>
         <h1>Select a gender to view mood reactions</h1>
-        
-        <div class="back">
-            <a href="chart.php" class="back-button">Back</a>
-        </div>
 
         <div class="select-container">
             <select id="gender_picker" onchange="fetch_data()">
@@ -40,7 +36,11 @@
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
-        </div>        
+        </div>      
+        
+        <div class="back">
+            <a href="chart.php" class="back-button">Back</a>
+        </div>
         
         <div id="chart_container">
             <canvas id="my_chart"></canvas>
