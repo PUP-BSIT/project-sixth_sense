@@ -136,8 +136,13 @@ function moveToCompleted(task) {
 
 function openEditModal(task) {
   currentTask = task;
-  document.getElementById("modal-task-input").value = task.querySelector("span").innerText;
-  document.getElementById("editModal").style.display = "block";
+  const modalTaskInput = document.getElementById("modal-task-input");
+  if (modalTaskInput) {
+    modalTaskInput.value = task.querySelector("span").innerText;
+    document.getElementById("editModal").style.display = "block";
+  } else {
+    console.error("Modal task input element not found");
+  }
 }
 
 function closeModal() {
