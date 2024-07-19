@@ -60,7 +60,17 @@ require 'db_conn.php';
                  
                 <img src="./assets/mood_users.png" alt="View All Users">
                 <span>View All Users</span>
+
             </div>
+
+            <div class="custom-button"
+                 onclick="location.href='view_users.html'">
+                 
+                <img src="./assets/age_mood.png" alt="View All Users">
+                <span>Emotions by Age</span>
+
+            <div>
+
         </div>
     </main>
 </body>
