@@ -1,8 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #dcf2f1, white);
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #dcf2f1, white);
+  margin: 0;
+  padding: 0;
 }
 
 header {
@@ -37,28 +37,28 @@ header {
 }
 
 nav {
-    display: flex;
-    align-items: center;
-  }
-  
-  nav .menu {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    margin-right: auto; 
-  }
-  
-  nav .menu a {
-    text-decoration: none;
-    color: var(--dark);
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  nav .menu a:hover {
-    background-color: #cce7ff;
-  }
+  display: flex;
+  align-items: center;
+}
+
+nav .menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin-right: auto; 
+}
+
+nav .menu a {
+  text-decoration: none;
+  color: var(--dark);
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav .menu a:hover {
+  background-color: #cce7ff;
+}
 
 .logo {
   margin-left: 1rem; 
@@ -87,7 +87,7 @@ nav {
 
 .logout-button:hover {
   background-color: #2c3e50;
-}
+}aaaawww
 
 .container {
     width: 100%;
