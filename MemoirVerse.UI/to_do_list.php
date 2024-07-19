@@ -2,12 +2,10 @@
 session_start();
 require 'db_conn.php';
 
-// Enable error reporting for debugging
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Ensure the output is always in JSON format
 header('Content-Type: application/json');
 
 function sendJsonResponse($success, $data = null, $error = null) {
@@ -15,7 +13,6 @@ function sendJsonResponse($success, $data = null, $error = null) {
     exit();
 }
 
-// Check if the user is authenticated
 if (!isset($_SESSION['user_id'])) {
     sendJsonResponse(false, null, 'User not authenticated');
 }
