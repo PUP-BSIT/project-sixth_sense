@@ -59,7 +59,7 @@ function saveTaskToDatabase(taskText, assigned, done) {
     try {
       const data = JSON.parse(text);
       if (data.success) {
-        fetchTasks(); // Fetch tasks again to update the list
+        fetchTasks();
       } else {
         console.error('Failed to save task to database:', data.error);
       }
