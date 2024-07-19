@@ -218,7 +218,6 @@ nav ul li.active {
   background-color: #112d4e;
 }
 
-/* Media Queries for Responsiveness */
 @media (min-width: 768px) {
   .container {
     flex-direction: row;
