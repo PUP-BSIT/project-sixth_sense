@@ -38,14 +38,12 @@ function addTask() {
   const taskInput = document.getElementById("task-input");
   const taskText = taskInput.value.trim();
   if (taskText !== "") {
-    saveTaskToDatabase(taskText, "assigned", "not_done");
+    saveTaskToDatabase(Date.now(), taskText, "not_done");
     taskInput.value = "";
   }
 }
 
-function saveTaskToDatabase(taskText, assigned, done) {
-  const toDoId = Date.now();
-
+function saveTaskToDatabase(toDoId, taskText, done) {
   fetch('to_do_list.php', {
     method: 'POST',
     headers: {
@@ -96,7 +94,7 @@ function renderTasks(tasks) {
   completedTaskList.innerHTML = '';
 
   tasks.forEach(task => {
-    const taskElement = createTaskElement(task.assigned, task.time_created, task.done === 'done');
+    const taskElement = createTaskElement(task.to_do_id, task.assigned, task.time_created, task.done === 'done');
     if (task.done === 'done') {
       completedTaskList.appendChild(taskElement);
     } else {
@@ -105,10 +103,11 @@ function renderTasks(tasks) {
   });
 }
 
-function createTaskElement(text, timestamp, isCompleted = false) {
+function createTaskElement(id, text, timestamp, isCompleted = false) {
   const task = document.createElement("div");
   task.className = "task";
   task.dataset.timestamp = new Date(timestamp).getTime();
+  task.dataset.id = id;
   task.innerHTML = `
         <span>${text}</span>
         <div class="task-actions">
@@ -120,7 +119,7 @@ function createTaskElement(text, timestamp, isCompleted = false) {
     `;
 
   if (!isCompleted) {
-    task.querySelector(".done").addEventListener("click", () => moveToCompleted(task));
+    task.querySelector(".done").addEventListener("click", () => updateTaskStatus(task, 'done'));
   }
   task.querySelector(".edit").addEventListener("click", () => openEditModal(task));
   task.querySelector(".delete").addEventListener("click", () => deleteTask(task));
@@ -128,10 +127,10 @@ function createTaskElement(text, timestamp, isCompleted = false) {
   return task;
 }
 
-function moveToCompleted(task) {
-  const completedTasks = document.getElementById("completed-task-list");
-  task.querySelector(".done").remove();
-  completedTasks.appendChild(task);
+function updateTaskStatus(task, status) {
+  const id = task.dataset.id;
+  const text = task.querySelector("span").innerText;
+  saveTaskToDatabase(id, text, status);
 }
 
 function openEditModal(task) {
@@ -152,13 +151,37 @@ function closeModal() {
 function saveTask() {
   const newText = document.getElementById("modal-task-input").value.trim();
   if (newText !== "") {
+    const id = currentTask.dataset.id;
     currentTask.querySelector("span").innerText = newText;
+    saveTaskToDatabase(id, newText, 'not_done');
     closeModal();
   }
 }
 
 function deleteTask(task) {
-  task.remove();
+  const id = task.dataset.id;
+  fetch('to_do_list.php', {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ to_do_id: id })
+  })
+  .then(response => response.text())
+  .then(text => {
+    console.log('Raw response:', text);
+    try {
+      const data = JSON.parse(text);
+      if (data.success) {
+        task.remove();
+      } else {
+        console.error('Failed to delete task from database:', data.error);
+      }
+    } catch (error) {
+      console.error('Error parsing JSON:', error);
+    }
+  })
+  .catch(error => console.error('Error:', error));
 }
 
 function sortTasks(containerId, order) {

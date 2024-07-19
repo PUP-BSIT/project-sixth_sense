@@ -18,8 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $done = $input['done'];
     $time_created = date('Y-m-d H:i:s');
 
-    $stmt = $conn->prepare("INSERT INTO to_do_list (to_do_id, user_id, assigned, done, time_created, time_updated) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("iissss", $to_do_id, $user_id, $assigned, $done, $time_created, $time_created);
+    $stmt = $conn->prepare("INSERT INTO to_do_list (to_do_id, user_id, assigned, done, time_created, time_updated) VALUES (?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE assigned=?, done=?, time_updated=?");
+    $stmt->bind_param("iisssssss", $to_do_id, $user_id, $assigned, $done, $time_created, $time_created, $assigned, $done, $time_created);
 
     if ($stmt->execute()) {
         echo json_encode(['success' => true]);
