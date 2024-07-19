@@ -2,8 +2,6 @@
 include 'db_conn.php';
 session_start();
 
-require 'db_conn.php';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     error_log("POST request received");
 
