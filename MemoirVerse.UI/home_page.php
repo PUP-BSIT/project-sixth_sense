@@ -45,8 +45,7 @@ if (isset($_SESSION['user_id'])) {
 <body>
     <header>
         <div class="header-left">
-            <div class="user-profile">
-                <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+                <img src="./assets/logo.png" alt="Logo" class="logo">
                 <span class="user-info"><?php echo htmlspecialchars($welcomeName); ?></span>
             </div>
         </div>
@@ -62,8 +61,6 @@ if (isset($_SESSION['user_id'])) {
             <div class="logout-logo">
                 <a href="login.php" class="logout-button">Log Out</a>
             </div>
-            
-            <img src="./assets/logo.png" alt="Logo" class="logo">
         </nav>
     </header>
 
