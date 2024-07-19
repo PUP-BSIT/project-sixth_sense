@@ -11,9 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lastName = $_POST['lastName'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $dob = $_POST['dob'];
+    $gender = $_POST['gender'];
+    $age = $_POST['age'];
 
-    $stmt = $conn->prepare("INSERT INTO users (email, firstName, lastName, password, dob) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $email, $firstName, $lastName, $password, $dob);
+    $stmt = $conn->prepare("INSERT INTO users (email, firstName, lastName, password, dob, gender, age) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssi", $email, $firstName, $lastName, $password, $dob, $gender, $age);
 
     if ($stmt->execute()) {
         echo "<script>alert('Signup successful.'); window.location.href = 'login.php';</script>";
