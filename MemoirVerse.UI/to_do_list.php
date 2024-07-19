@@ -19,9 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $assigned = $input['assigned'];
         $done = $input['done'];
 
-        $sql = "INSERT INTO to_do_list (to_do_id, user_id, assigned, done) VALUES ('$to_do_id', '$user_id', '$assigned', '$done')";
-
-        error_log("SQL Query: " . $sql);
         $sql = "INSERT INTO to_do_list (to_do_id, user_id, assigned, done) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("isss", $to_do_id, $user_id, $assigned, $done);
@@ -34,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         error_log("Invalid input: " . print_r($input, true));
         echo json_encode(['success' => false, 'error' => 'Invalid input']);
-        echo json_encode(["success" => false, "error" => "Invalid input"]);
     }
 } else {
     echo json_encode(["success" => false, "error" => "Invalid request method"]);
@@ -101,4 +97,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="./script/to_do_list.js"></script>
 </body>
 </html>
-
