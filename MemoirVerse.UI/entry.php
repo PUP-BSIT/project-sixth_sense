@@ -20,8 +20,9 @@ session_start();
             </div>
         </div>
 
-         <nav>
+        <nav>
             <ul class="menu">
+                <li><a href="./home_page.php">Home</a></li>
                 <li><a href="./entry.php">Diary</a></li>
                 <li><a href="./to_do_list.php">To do list</a></li>
                 <li><a href="./chart.php">Chart</a></li>
@@ -36,26 +37,16 @@ session_start();
     <main>
         <section class="diary-section">
             <h2>What's on your mind?</h2>
-            <form id="entry_form" class="diary-entry" 
-                enctype="multipart/form-data">
-
-                <textarea id="entry_input" name="entry"
-                 placeholder="Start Writing Your Thoughts">
-                </textarea>
+            <form id="entry_form" class="diary-entry" enctype="multipart/form-data">
+                <textarea id="entry_input" name="entry" placeholder="Start Writing Your Thoughts"></textarea>
 
                 <div class="form-controls">
-                    <button type="submit" id="submitCombinedButton" 
-                    class="diary-button">Submit</button>
+                    <button type="submit" id="submitCombinedButton" class="diary-button">Submit</button>
                 </div>
 
                 <div class="form-controls">
-                    <label for="entry_image"
-                        class="custom-file-label">Upload a picture
-                    </label>
-
-                    <input type="file" id="entry_image"
-                        name="entry_image" class="custom-file-input"
-                        accept="image/*">
+                    <label for="entry_image" class="custom-file-label">Upload a picture</label>
+                    <input type="file" id="entry_image" name="entry_image" class="custom-file-input" accept="image/*">
 
                     <select name="mood" id="entry_mood" class="mood-dropdown">
                         <option value="">Choose Mood</option>
@@ -72,11 +63,8 @@ session_start();
             </form>
 
             <div class="sort-buttons">
-                <button id="sort_newest"
-                    class="diary-button sort-button">Sort by Newest</button>
-
-                <button id="sort_oldest" 
-                    class="diary-button sort-button">Sort by Oldest</button>
+                <button id="sort_newest" class="diary-button sort-button">Sort by Newest</button>
+                <button id="sort_oldest" class="diary-button sort-button">Sort by Oldest</button>
             </div>
             <div id="entries_container"></div>
         </section>
