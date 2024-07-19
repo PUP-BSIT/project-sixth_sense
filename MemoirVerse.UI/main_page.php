@@ -49,15 +49,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="main">
             <div class="content">
                 <div class="sorting-buttons">
-                    <button id="sort_newest" class="sort-button">Sort by Newest</button>
-                    <button id="sort_oldest" class="sort-button">Sort by Oldest</button>
+                    <button id="sort_newest" 
+                    class="sort-button">Sort by Newest</button>
+
+                    <button id="sort_oldest" 
+                    class="sort-button">Sort by Oldest</button>
                 </div>
 
                 <div class="writing-box">
-                    <form id="entry_form" action="main-page.php" method="post" enctype="multipart/form-data">
-                        <textarea id="entry_input" name="entry" class="writing-input" placeholder="Start Writing Your Thoughts" required></textarea>
-                        <input type="file" id="entry_image" name="entry_image" accept="image/*">
-                        <button type="submit" class="save-entry-button">Save Entry</button>
+                    <form id="entry_form" action="main-page.php" method="post" 
+                    enctype="multipart/form-data">
+                    
+                    <textarea id="entry_input" name="entry" 
+                        class="writing-input" 
+                        placeholder="Start Writing Your Thoughts" required>
+                    </textarea>
+
+                        <input type="file" id="entry_image" name="entry_image" 
+                        accept="image/*">
+
+                        <button type="submit" 
+                        class="save-entry-button">Save Entry</button>
                     </form>
                 </div>
 

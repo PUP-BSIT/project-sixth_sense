@@ -30,33 +30,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Sign Up Page</title>
     <link rel="stylesheet" href="./style/signup.css">
 </head>
+
 <body>
     <div class="signup-container">
         <div class="header">
             <h1>Create an Account</h1>
             <p>Sign up to get started</p>
         </div>
+
         <div class="form">
             <form method="POST" onsubmit="return validateForm()">
                 <input type="email" id="email" name="email" 
                   placeholder="Email" class="input-field" required>
+
                 <input type="text" id="first-name" name="firstName" 
                   placeholder="First Name" class="input-field" required>
+
                 <input type="text" id="last-name" name="lastName" 
                   placeholder="Last Name" class="input-field" required>
+
                 <input type="number" id="age" name="age" 
                   placeholder="Age" class="input-field" required>
+
                 <input type="text" id="gender" name="gender" 
                   placeholder="Gender" class="input-field" required>
+
                 <input type="password" id="password" name="password" 
                   placeholder="Password" class="input-field" 
                   autocomplete="new-password" required>
+
                 <input type="password" id="confirm-password" 
                   placeholder="Confirm Password" class="input-field" 
                   autocomplete="new-password" required>
+
                 <label for="dob" class="dob-label">Date of Birth:</label>
                 <input type="date" id="dob" name="dob" 
                   class="input-field" required>
+                  
                 <button type="submit" class="signup-button">Sign Up</button>
             </form>
         </div>

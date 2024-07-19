@@ -4,12 +4,13 @@ require 'db_conn.php';
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mood Tracker</title>
-    <link rel="stylesheet" href="./style/chart.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Mood Tracker</title>
+     <link rel="stylesheet" href="./style/chart.css">
+    </head>
+
 <body>
     <header>
         <div class="header-left">
@@ -20,6 +21,7 @@ require 'db_conn.php';
                 <span class="user-info">Jane Doe</span>
             </div>
         </div>
+
         <nav>
             <ul class="menu">
                 <li><a href="./entry.php">Diary</a></li>
@@ -40,20 +42,27 @@ require 'db_conn.php';
             Here you can explore the mood patterns of our users.
             See how others are feeling and know that you are not alone. 
             Use the options below to view moods by date, gender, 
-            or see the moods of all registered users.</p>
+            or see the moods of all registered users.
+        </p>
+
         <div class="button-container">
             <div class="custom-button"
                  onclick="location.href='mood_per_date.html'">
+
                 <img src="./assets/mood_date.png" alt="View Mood per Date">
                 <span>View Mood per Date</span>
             </div>
+
             <div class="custom-button" 
                  onclick="location.href='mood_gender.html'">
+
                 <img src="./assets/mood_gender.png" alt="View Mood per Gender">
                 <span>View Mood per Gender</span>
             </div>
+
             <div class="custom-button"
                  onclick="location.href='view_users.html'">
+                 
                 <img src="./assets/mood_users.png" alt="View All Users">
                 <span>View All Users</span>
             </div>

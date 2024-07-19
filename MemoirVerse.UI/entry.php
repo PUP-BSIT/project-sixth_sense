@@ -19,6 +19,7 @@ session_start();
                 <span class="user-info">Jane Doe</span>
             </div>
         </div>
+
          <nav>
             <ul class="menu">
                 <li><a href="./entry.php">Diary</a></li>
@@ -29,24 +30,33 @@ session_start();
             <div class="logout-logo">
                 <a href="login.php" class="logout-button">Log Out</a>
             </div>
+        </nav>
     </header>
+
     <main>
         <section class="diary-section">
             <h2>What's on your mind?</h2>
             <form id="entry_form" class="diary-entry" 
-            enctype="multipart/form-data">
+                enctype="multipart/form-data">
+
                 <textarea id="entry_input" name="entry"
-                 placeholder="Start Writing Your Thoughts"></textarea>
+                 placeholder="Start Writing Your Thoughts">
+                </textarea>
+
                 <div class="form-controls">
                     <button type="submit" id="submitCombinedButton" 
                     class="diary-button">Submit</button>
                 </div>
+
                 <div class="form-controls">
                     <label for="entry_image"
-                        class="custom-file-label">Upload a picture</label>
+                        class="custom-file-label">Upload a picture
+                    </label>
+
                     <input type="file" id="entry_image"
                         name="entry_image" class="custom-file-input"
                         accept="image/*">
+
                     <select name="mood" id="entry_mood" class="mood-dropdown">
                         <option value="">Choose Mood</option>
                         <option value="Happy">Happy</option>
@@ -57,17 +67,21 @@ session_start();
                         <option value="Content">Content</option>
                     </select>
                 </div>
+
                 <span id="entry_image_name"></span>
             </form>
+
             <div class="sort-buttons">
                 <button id="sort_newest"
                     class="diary-button sort-button">Sort by Newest</button>
+
                 <button id="sort_oldest" 
                     class="diary-button sort-button">Sort by Oldest</button>
             </div>
             <div id="entries_container"></div>
         </section>
     </main>
+    
     <div id="myModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">

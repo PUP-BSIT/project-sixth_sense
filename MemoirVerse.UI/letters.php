@@ -19,6 +19,7 @@ require 'db_conn.php';
                 <span class="user-info">Jane Doe</span>
             </div>
         </div>
+
         <nav>
             <ul class="menu">
                 <li><a href="./entry.php">Diary</a></li>
@@ -43,8 +44,11 @@ require 'db_conn.php';
             <form id="letterForm">
                 <input type="text" id="title" name="title" 
                   placeholder="Title" required>
+
                 <textarea id="content" name="content" 
-                  placeholder="Your letter" required></textarea>
+                  placeholder="Your letter" required>
+                </textarea>
+
                 <button type="submit">Submit</button>
             </form>
             <div id="message"></div>
@@ -61,6 +65,7 @@ require 'db_conn.php';
                 <h2 class="title">Title of the Letter</h2>
                 <div class="click-message">Click to open a message</div>
             </div>
+            
             <div class="open-letter" style="display: none;">
                 <h2>Title of the Letter</h2>
                 <p>Content of the letter goes here...</p>

@@ -58,15 +58,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h1>Welcome to MemoirVerse!</h1>
             <p>Sign in to continue</p>
         </div>
+
         <div class="form">
             <form action="login.php" method="post">
-                <input type="text" name="email" placeholder="Email" class="input-field" required>
-                <input type="password" name="password" placeholder="Password" class="input-field" required>
+                <input type="text" name="email" 
+                placeholder="Email" class="input-field" required>
+
+                <input type="password" name="password" 
+                placeholder="Password" class="input-field" required>
+
                 <button type="submit" class="login-button">Sign In</button>
             </form>
         </div>
+
         <div class="footer">
-            <p>Don't have an account? Create one! <a href="signup.php">Register Here</a></p>
+            <p>Don't have an account? Create one! 
+                <a href="signup.php">Register Here</a>
+            </p>
         </div>
     </div>
 

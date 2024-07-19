@@ -57,20 +57,34 @@ if (isset($_SESSION['user_id'])) {
                 <li><a href="./chart.php">Chart</a></li>
                 <li><a href="./letters.php">Letters from strangers</a></li>
             </ul>
+
             <div class="logout-logo">
                 <a href="login.php" class="logout-button">Log Out</a>
             </div>
+            
             <img src="./assets/logo.png" alt="Logo" class="logo">
         </nav>
     </header>
+
     <main>
         <h1>Welcome <?php echo htmlspecialchars($welcomeName); ?>!</h1>
         <p>Explore, reflect, and document your life's adventures in the MemoirVerse!</p>
         <div class="features">
-            <div class="feature-box">Keep track of your daily thoughts and experiences.</div>
-            <div class="feature-box">Monitor your emotions and well-being over time.</div>
-            <div class="feature-box">Track your tasks and process throughout the day.</div>
-            <div class="feature-box">Gain insights into your emotional well-being by charting your moods over time.</div>
+            <div class="feature-box">
+                Keep track of your daily thoughts and experiences.
+            </div>
+
+            <div class="feature-box">
+                Monitor your emotions and well-being over time.
+            </div>
+
+            <div class="feature-box">
+                Track your tasks and process throughout the day.
+            </div>
+            
+            <div class="feature-box">
+                Gain insights into your emotional well-being by charting your moods over time.
+            </div>
         </div>
     </main>
 </body>

@@ -100,7 +100,9 @@ nav ul li.active {
   border-radius: 5px;
 }
 
-.home-btn:hover, .logout-btn:hover, .sort-button:hover, .save-entry-button:hover, .more-pages-button:hover {
+.home-btn:hover, 
+.logout-btn:hover, 
+.sort-button:hover, .save-entry-button:hover, .more-pages-button:hover {
   background-color: #112d4e;
 }
 
