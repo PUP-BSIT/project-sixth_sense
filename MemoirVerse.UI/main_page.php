@@ -26,25 +26,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Diary</title>
-    <link rel="stylesheet" href="./style/main_page.css" />
+    <link rel="stylesheet" href="./style/main_page.css">
 </head>
 <body>
     <div class="container">
-      <aside class="sidebar">
-        <div class="profile">
-            <img src="profile.jpg" alt="Profile Picture">
-            <span>Memories</span>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Mood Tracker</a></li>
-                <li><a href="to_do_list.html">To do List</a></li>
-            </ul>
-        </nav>
-    </aside>
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="profile.jpg" alt="Profile Picture">
+                <span>Memories</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Mood Tracker</a></li>
+                    <li><a href="to_do_list.html">To-Do List</a></li>
+                </ul>
+            </nav>
+        </aside>
 
         <div class="main">
             <div class="content">
