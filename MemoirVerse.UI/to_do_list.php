@@ -1,39 +1,34 @@
 <?php
 include 'db_conn.php';
-session_start();
+
+header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    error_log("POST request received");
-
     $input = json_decode(file_get_contents('php://input'), true);
 
-    error_log("Input received: " . print_r($input, true));
-
     if (isset($input['to_do_id'], $input['user_id'], $input['assigned'], $input['done'])) {
-        $to_do_id = $conn->real_escape_string($input['to_do_id']);
-        $user_id = $conn->real_escape_string($input['user_id']);
-        $assigned = $conn->real_escape_string($input['assigned']);
-        $done = $conn->real_escape_string($input['done']);
+        $to_do_id = $input['to_do_id'];
+        $user_id = $input['user_id'];
+        $assigned = $input['assigned'];
+        $done = $input['done'];
 
-        $sql = "INSERT INTO to_do_list (to_do_id, user_id, assigned, done) VALUES ('$to_do_id', '$user_id', '$assigned', '$done')";
-        
-        error_log("SQL Query: " . $sql);
+        $sql = "INSERT INTO to_do_list (to_do_id, user_id, assigned, done) VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("isss", $to_do_id, $user_id, $assigned, $done);
 
-        if ($conn->query($sql) === TRUE) {
-            echo json_encode(['success' => true]);
+        if ($stmt->execute()) {
+            echo json_encode(["success" => true]);
         } else {
-            echo json_encode(['success' => false, 'error' => $conn->error]);
+            echo json_encode(["success" => false, "error" => "Database error: " . $stmt->error]);
         }
     } else {
-        echo json_encode(['success' => false, 'error' => 'Invalid input']);
+        echo json_encode(["success" => false, "error" => "Invalid input"]);
     }
 } else {
-    error_log("Invalid request method: " . $_SERVER['REQUEST_METHOD']);
-    echo json_encode(['success' => false, 'error' => 'Invalid request method']);
+    echo json_encode(["success" => false, "error" => "Invalid request method"]);
 }
-
-$conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
