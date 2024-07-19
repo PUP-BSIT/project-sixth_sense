@@ -1,8 +1,36 @@
-document.getElementById("add-task").addEventListener("click", addTask);
-document.getElementById("sort-newest").addEventListener("click", () => sortTasks("tasks", "newest"));
-document.getElementById("sort-oldest").addEventListener("click", () => sortTasks("tasks", "oldest"));
-document.getElementById("sort-newest-completed").addEventListener("click", () => sortTasks("completed-tasks", "newest"));
-document.getElementById("sort-oldest-completed").addEventListener("click", () => sortTasks("completed-tasks", "oldest"));
+document.addEventListener("DOMContentLoaded", function() {
+  const addTaskButton = document.getElementById("add-task");
+  const sortNewest = document.getElementById("sort-newest");
+  const sortOldest = document.getElementById("sort-oldest");
+  const sortNewestCompleted = document.getElementById("sort-newest-completed");
+  const sortOldestCompleted = document.getElementById("sort-oldest-completed");
+  const closeButton = document.querySelector(".close");
+  const saveTaskButton = document.getElementById("save-task");
+
+  if (addTaskButton) {
+    addTaskButton.addEventListener("click", addTask);
+  }
+  if (sortNewest) {
+    sortNewest.addEventListener("click", () => sortTasks("tasks", "newest"));
+  }
+  if (sortOldest) {
+    sortOldest.addEventListener("click", () => sortTasks("tasks", "oldest"));
+  }
+  if (sortNewestCompleted) {
+    sortNewestCompleted.addEventListener("click", () => sortTasks("completed-tasks", "newest"));
+  }
+  if (sortOldestCompleted) {
+    sortOldestCompleted.addEventListener("click", () => sortTasks("completed-tasks", "oldest"));
+  }
+  if (closeButton) {
+    closeButton.addEventListener("click", closeModal);
+  }
+  if (saveTaskButton) {
+    saveTaskButton.addEventListener("click", saveTask);
+  }
+
+  fetchTasks();
+});
 
 let currentTask;
 
@@ -10,66 +38,92 @@ function addTask() {
   const taskInput = document.getElementById("task-input");
   const taskText = taskInput.value.trim();
   if (taskText !== "") {
-    const taskList = document.getElementById("task-list");
-    const taskElement = createTaskElement(
-      taskText,
-      new Date().toLocaleString()
-    );
-    taskList.appendChild(taskElement);
-    taskInput.value = "";
     saveTaskToDatabase(taskText, "assigned", "not_done");
+    taskInput.value = "";
   }
 }
 
 function saveTaskToDatabase(taskText, assigned, done) {
-  const userId = "user123"; 
-  const toDoId = Date.now(); 
+  const toDoId = Date.now();
 
   fetch('to_do_list.php', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ to_do_id: toDoId, user_id: userId, assigned: taskText, done: done })
+    body: JSON.stringify({ to_do_id: toDoId, assigned: taskText, done: done })
   })
   .then(response => response.text())
   .then(text => {
-    console.log(text); 
-    return JSON.parse(text);
-  })
-  .then(data => {
-    if (data.success) {
-      console.log('Task saved to database');
-    } else {
-      console.error('Failed to save task to database:', data.error);
+    console.log('Raw response:', text);
+    try {
+      const data = JSON.parse(text);
+      if (data.success) {
+        fetchTasks(); // Fetch tasks again to update the list
+      } else {
+        console.error('Failed to save task to database:', data.error);
+      }
+    } catch (error) {
+      console.error('Error parsing JSON:', error);
     }
   })
   .catch(error => console.error('Error:', error));
 }
 
-function createTaskElement(text, timestamp) {
+function fetchTasks() {
+  fetch('to_do_list.php')
+  .then(response => response.text())
+  .then(text => {
+    console.log('Raw response:', text);
+    try {
+      const data = JSON.parse(text);
+      if (data.success) {
+        renderTasks(data.data);
+      } else {
+        console.error('Failed to fetch tasks:', data.error);
+      }
+    } catch (error) {
+      console.error('Error parsing JSON:', error);
+    }
+  })
+  .catch(error => console.error('Error:', error));
+}
+
+function renderTasks(tasks) {
+  const taskList = document.getElementById("task-list");
+  const completedTaskList = document.getElementById("completed-task-list");
+  taskList.innerHTML = '';
+  completedTaskList.innerHTML = '';
+
+  tasks.forEach(task => {
+    const taskElement = createTaskElement(task.assigned, task.time_created, task.done === 'done');
+    if (task.done === 'done') {
+      completedTaskList.appendChild(taskElement);
+    } else {
+      taskList.appendChild(taskElement);
+    }
+  });
+}
+
+function createTaskElement(text, timestamp, isCompleted = false) {
   const task = document.createElement("div");
   task.className = "task";
   task.dataset.timestamp = new Date(timestamp).getTime();
   task.innerHTML = `
         <span>${text}</span>
         <div class="task-actions">
-            <button class="done">Done</button>
+            ${isCompleted ? '' : '<button class="done">Done</button>'}
             <button class="edit">Edit</button>
             <button class="delete">Delete</button>
         </div>
-        <div class="timestamp">${timestamp}</div>
+        <div class="timestamp">${new Date(timestamp).toLocaleString()}</div>
     `;
 
-  task
-    .querySelector(".done")
-    .addEventListener("click", () => moveToCompleted(task));
-  task
-    .querySelector(".edit")
-    .addEventListener("click", () => openEditModal(task));
-  task
-    .querySelector(".delete")
-    .addEventListener("click", () => deleteTask(task));
+  if (!isCompleted) {
+    task.querySelector(".done").addEventListener("click", () => moveToCompleted(task));
+  }
+  task.querySelector(".edit").addEventListener("click", () => openEditModal(task));
+  task.querySelector(".delete").addEventListener("click", () => deleteTask(task));
 
   return task;
 }
@@ -82,9 +136,13 @@ function moveToCompleted(task) {
 
 function openEditModal(task) {
   currentTask = task;
-  document.getElementById("modal-task-input").value =
-    task.querySelector("span").innerText;
-  document.getElementById("editModal").style.display = "block";
+  const modalTaskInput = document.getElementById("modal-task-input");
+  if (modalTaskInput) {
+    modalTaskInput.value = task.querySelector("span").innerText;
+    document.getElementById("editModal").style.display = "block";
+  } else {
+    console.error("Modal task input element not found");
+  }
 }
 
 function closeModal() {
@@ -104,9 +162,7 @@ function deleteTask(task) {
 }
 
 function sortTasks(containerId, order) {
-  const container = document.getElementById(
-    containerId === "tasks" ? "task-list" : "completed-task-list"
-  );
+  const container = document.getElementById(containerId === "tasks" ? "task-list" : "completed-task-list");
   const tasks = Array.from(container.children);
   tasks.sort((a, b) => {
     const timeA = parseInt(a.dataset.timestamp);
@@ -115,11 +171,3 @@ function sortTasks(containerId, order) {
   });
   tasks.forEach((task) => container.appendChild(task));
 }
-
-document.querySelector(".close").addEventListener("click", closeModal);
-document.getElementById("save-task").addEventListener("click", saveTask);
-window.addEventListener("click", (event) => {
-  if (event.target == document.getElementById("editModal")) {
-    closeModal();
-  }
-});
