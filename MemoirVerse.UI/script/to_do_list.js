@@ -32,7 +32,11 @@ function saveTaskToDatabase(taskText, assigned, done) {
     },
     body: JSON.stringify({ to_do_id: toDoId, user_id: userId, assigned: taskText, done: done })
   })
-  .then(response => response.json())
+  .then(response => response.text())
+  .then(text => {
+    console.log(text); 
+    return JSON.parse(text);
+  })
   .then(data => {
     if (data.success) {
       console.log('Task saved to database');
