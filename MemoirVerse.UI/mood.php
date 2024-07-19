@@ -56,7 +56,7 @@ while ($row = $result->fetch_assoc()) {
             <ul>
                 <li><a href="./home_page.php">Home</a></li>
                 <li><a href="./mood.php">Mood Tracker</a></li>
-                <li><a href="./to_do_list.html">To do List</a></li>
+                <li><a href="./to_do_list.php">To do List</a></li>
             </ul>
         </nav>
     </aside>

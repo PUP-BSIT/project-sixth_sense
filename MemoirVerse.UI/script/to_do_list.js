@@ -44,7 +44,7 @@ function addTask() {
 }
 
 function saveTaskToDatabase(toDoId, taskText, done) {
-  fetch('to_do_list.php', {
+  fetch('to_do_entry.php', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ function saveTaskToDatabase(toDoId, taskText, done) {
 }
 
 function fetchTasks() {
-  fetch('to_do_list.php')
+  fetch('to_do_entry.php')
   .then(response => response.text())
   .then(text => {
     console.log('Raw response:', text);
@@ -160,7 +160,7 @@ function saveTask() {
 
 function deleteTask(task) {
   const id = task.dataset.id;
-  fetch('to_do_list.php', {
+  fetch('to_do_entry.php', {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'

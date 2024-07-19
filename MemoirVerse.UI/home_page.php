@@ -57,7 +57,7 @@ if (isset($_SESSION['user_id'])) {
             <ul class="menu">
                 <li><a href="./home_page.php">Home</a></li>
                 <li><a href="./entry.php">Diary</a></li>
-                <li><a href="./to_do_list.html">To do list</a></li>
+                <li><a href="./to_do_list.php">To do list</a></li>
                 <li><a href="./chart.php">Chart</a></li>
                 <li><a href="./letters.php">Letters from strangers</a></li>
             </ul>
