@@ -64,7 +64,7 @@ require 'db_conn.php';
             </div>
 
             <div class="custom-button"
-                 onclick="location.href='view_users.html'">
+                 onclick="location.href='age_emotion.html'">
                  
                 <img src="./assets/age_mood.png" alt="View All Users">
                 <span>Emotions by Age</span>
