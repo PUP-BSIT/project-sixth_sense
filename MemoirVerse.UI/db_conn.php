@@ -2,7 +2,7 @@
 session_start();
 
 $servername = "localhost"; 
-$username = "root";  
+$username = "u586757316_root";  
 $password = "";  
 $dbname = "memoirverse1";  
 
