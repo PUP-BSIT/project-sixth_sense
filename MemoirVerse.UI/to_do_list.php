@@ -1,5 +1,11 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+
 include 'db_conn.php';
+
+error_log("Request method: " . $_SERVER['REQUEST_METHOD']);
 
 header('Content-Type: application/json');
 
@@ -12,6 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $assigned = $input['assigned'];
         $done = $input['done'];
 
+        $sql = "INSERT INTO to_do_list (to_do_id, user_id, assigned, done) VALUES ('$to_do_id', '$user_id', '$assigned', '$done')";
+
+        error_log("SQL Query: " . $sql);
         $sql = "INSERT INTO to_do_list (to_do_id, user_id, assigned, done) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("isss", $to_do_id, $user_id, $assigned, $done);
@@ -22,6 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode(["success" => false, "error" => "Database error: " . $stmt->error]);
         }
     } else {
+        error_log("Invalid input: " . print_r($input, true));
+        echo json_encode(['success' => false, 'error' => 'Invalid input']);
         echo json_encode(["success" => false, "error" => "Invalid input"]);
     }
 } else {
