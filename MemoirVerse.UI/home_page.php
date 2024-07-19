@@ -77,15 +77,19 @@ if (isset($_SESSION['user_id'])) {
             </div>
 
             <div class="feature-box">
-                Monitor your emotions and well-being over time.
+                Monitor your emotions and well-being over time and            
+                track your tasks and process throughout the day.
+
             </div>
 
             <div class="feature-box">
-                Track your tasks and process throughout the day.
+                Gain insights into your emotional well-being by charting your moods over time.
             </div>
             
             <div class="feature-box">
-                Gain insights into your emotional well-being by charting your moods over time.
+                Read letters from strangers and give them one of your own.
+                Engage in an anonymous exchange of thoughts 
+                and feelings through written words.
             </div>
         </div>
     </main>
