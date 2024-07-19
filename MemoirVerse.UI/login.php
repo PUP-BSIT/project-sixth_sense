@@ -1,12 +1,12 @@
 <?php
-require 'db_conn.php'; 
+session_start();
+require 'db_conn.php';
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-function sanitize_input($data)
-{
+function sanitize_input($data) {
     return htmlspecialchars($data);
 }
 
@@ -41,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
