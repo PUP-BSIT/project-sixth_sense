@@ -43,6 +43,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
 
         <div class="container">
+            <h1>Submit a letter</h1>
             <form id="letterForm">
                 <input type="text" id="title" name="title" 
                   placeholder="Title" required>
@@ -60,7 +61,7 @@ if (!isset($_SESSION['user_id'])) {
             <img src="./assets/two-people.svg" alt="Two People Image">
         </div>
     </div>
-    <h1>Letters from Strangers</h1>
+
     <div id="letters" class="letters-container">
         <div class="letter">
             <div class="closed-envelope" style="display: block;">
