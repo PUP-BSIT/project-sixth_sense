@@ -62,14 +62,6 @@ if (!isset($_SESSION['user_id'])) {
             </div>
 
             <div class="custom-button"
-                 onclick="location.href='view_users.html'">
-                 
-                <img src="./assets/mood_users.png" alt="View All Users">
-                <span>View All Users</span>
-
-            </div>
-
-            <div class="custom-button"
                  onclick="location.href='age_emotion.html'">
                  
                 <img src="./assets/age_mood.png" alt="View All Users">

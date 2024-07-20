@@ -43,7 +43,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
 
         <div class="container">
-            <h1>Letters from Strangers</h1>
+            <h1>Submit a letter</h1>
             <form id="letterForm">
                 <input type="text" id="title" name="title" 
                   placeholder="Title" required>
@@ -63,6 +63,7 @@ if (!isset($_SESSION['user_id'])) {
     </div>
 
     <div id="letters" class="letters-container">
+        <h1>Letters from strangers</h1>
         <div class="letter">
             <div class="closed-envelope" style="display: block;">
                 <h2 class="title">Title of the Letter</h2>
