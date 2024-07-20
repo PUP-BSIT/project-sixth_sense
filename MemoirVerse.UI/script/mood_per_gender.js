@@ -1,7 +1,7 @@
 function fetch_data() {
     const gender = document.getElementById('gender_picker').value;
 
-    let url = 'fetch_mood.php';  // Update with the correct relative path
+    let url = 'fetch_mood.php';
     if (gender) {
         url += `?gender=${encodeURIComponent(gender)}`;
     }

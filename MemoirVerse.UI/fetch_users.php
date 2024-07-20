@@ -1,24 +1,21 @@
 <?php
-$servername = "localhost"; 
-$username = "u586757316_root";  
-$password = "";  
-$dbname = "memoirverse1";  
-
-
-$conn = new mysqli('localhost', 'u586757316_root', 'Sixthsense21', 'u586757316_memoirverse1');
+require 'db_conn.php';
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-$month = isset($_GET['month']) ? $_GET['month'] : null;
+$month = isset($_GET['month']) ? $_GET['month'] : 'all';
 
-$query = "SELECT user_id, DATE_FORMAT(time_created, '%Y-%m-%d') as date FROM users";
+$query = "SELECT id AS user_id, DATE_FORMAT(time_created, '%Y-%m-%d') as date FROM users";
 $params = [];
 $types = '';
 
-if ($month && $month !== 'all') {
+if ($month !== 'all') {
     $query .= " WHERE MONTH(time_created) = ?";
     $params[] = $month;
     $types .= 's';

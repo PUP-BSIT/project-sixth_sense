@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,22 +18,19 @@
 <body>
     <header>
         <div class="header-left">
-            <div class="user-profile">
-                <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
-                <span class="user-info">Jane Doe</span>
-            </div>
+            <img src="./assets/logo.png" alt="Logo" class="logo">
         </div>
         <nav>
             <ul class="menu">
-                <li><a href="./entries.php">Diary</a></li>
-                <li><a href="./to_do_list.html">To do list</a></li>
-                <li><a href="./chart.html">Chart</a></li>
-                 <li><a href="./letters.html">Letters from strangers</a></li>
+                <li><a href="./home_page.php">Home</a></li>
+                <li><a href="./entry.php">Diary</a></li>
+                <li><a href="./to_do_list.php">To do list</a></li>
+                <li><a href="./chart.php">Chart</a></li>
+                <li><a href="./letters.php">Letters from strangers</a></li>
             </ul>
             <div class="logout-logo">
                 <a href="logout.php" class="logout-button">Log Out</a>
             </div>
-            <img src="./assets/logo.png" alt="Logo" class="logo">
         </nav>
     </header>
     <main>
@@ -54,6 +60,15 @@
             </div>
         </div>
     </main>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <input type="text" id="modal-task-input">
+            <button id="save-task">Save</button>
+        </div>
+    </div>
+
     <script src="./script/to_do_list.js"></script>
 </body>
 </html>

@@ -4,20 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mood Reactions by Gender</title>
-    <link rel="stylesheet" href="./style/chart.css">
+    <link rel="stylesheet" href="./style/mood_gender.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Select a gender to view mood reactions</h1>
-    <select id="gender_picker" onchange="fetch_data()">
-        <option value="">All</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-    </select>
-    <div id="chart_container">
-        <canvas id="my_chart"></canvas>
-    </div>
-    <div id="mood_counts"></div>
+    <header>
+        <div class="header-left">
+            <img src="./assets/logo.png" alt="Logo" class="logo">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="./home_page.php">Home</a></li>
+                <li><a href="./entries.php">Diary</a></li>
+                <li><a href="./to_do_list.php">To do list</a></li>
+                <li><a href="./chart.php">Chart</a></li>
+                <li><a href="./letters.php">Letters from strangers</a></li>
+            </ul>
+            <div class="logout-logo">
+                <a href="logout.php" class="logout-button">Log Out</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Select a gender to view mood reactions</h1>
+
+        <div class="select-container">
+            <select id="gender_picker" onchange="fetch_data()">
+                <option value="" disabled selected>Select</option>
+                <option value="">All</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>      
+        
+        <div class="back">
+            <a href="chart.php" class="back-button">Back</a>
+        </div>
+        
+        <div id="chart_container">
+            <canvas id="my_chart"></canvas>
+            <div id="mood_counts_container">
+                <div id="mood_counts"></div>
+            </div>
+        </div>
+    </main>
     <script src="./script/mood_per_gender.js"></script>
 </body>
 </html>

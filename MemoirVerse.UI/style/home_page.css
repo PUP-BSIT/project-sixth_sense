@@ -1,17 +1,13 @@
 body {
-  display: flex;
   font-family: Arial, sans-serif;
-  flex-direction: column;
+  background: linear-gradient(to right, #dcf2f1, white);
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  color: #004f7c;
-  background: linear-gradient(to right, #DCF2F1, white);
 }
 
 header {
   background-color: #ffffff;
-  padding: 5px 20px;
+  padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between; 
@@ -29,8 +25,8 @@ header {
 }
 
 .header-left .user-profile .profile-pic {
-  width: 30px; 
-  height: 30px;
+  width: 40px; 
+  height: 40px; 
   border-radius: 50%; 
   margin-right: 0.5rem; 
 }
@@ -55,12 +51,19 @@ nav .menu {
 nav .menu a {
   text-decoration: none;
   color: var(--dark);
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav .menu a:hover {
+  background-color: #cce7ff;
 }
 
 .logo {
   margin-left: 1rem; 
-  width: 25px; 
-  height: 25px; 
+  width: 35px;
+  height: 35px; 
 }
 
 .logout-logo {
@@ -79,6 +82,11 @@ nav .menu a {
   margin-left: 20px;
   margin-right: 20px;
   text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #2c3e50;
 }
 
 main {
@@ -88,14 +96,14 @@ main {
 
 h1 {
   color: #2b6aaf;
-  font-size: 48px;
+  font-size: 3rem;
   margin-bottom: 10px;
   font-family: 'Arial Black', sans-serif;
 }
 
 p {
   color: #5d718d;
-  font-size: 20px;
+  font-size: 1.5rem;
   margin-bottom: 40px;
   font-family: 'Arial', sans-serif;
 }
@@ -114,7 +122,7 @@ p {
   padding: 30px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #333;
   width: 100%;
   max-width: 400px;

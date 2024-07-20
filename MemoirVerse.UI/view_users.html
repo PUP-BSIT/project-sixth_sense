@@ -4,30 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Users</title>
-    <link rel="stylesheet" href="./style/main.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="./style/view_users.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
 </head>
 <body>
-    <h1>Select a month to view all registered users</h1>
-    <select id="month_picker" onchange="fetch_users()">
-        <option value="all">All</option>
-        <option value="01">January</option>
-        <option value="02">February</option>
-        <option value="03">March</option>
-        <option value="04">April</option>
-        <option value="05">May</option>
-        <option value="06">June</option>
-        <option value="07">July</option>
-        <option value="08">August</option>
-        <option value="09">September</option>
-        <option value="10">October</option>
-        <option value="11">November</option>
-        <option value="12">December</option>
-    </select>
-    <div id="chart_container">
-        <canvas id="user_chart"></canvas>
-    </div>
-    <div id="user_list"></div>
+    <header>
+        <div class="header-left">
+            <img src="./assets/logo.png" alt="Logo" class="logo">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="./home_page.php">Home</a></li>
+                <li><a href="./entry.php">Diary</a></li>
+                <li><a href="./to_do_list.php">To do list</a></li>
+                <li><a href="./chart.php">Chart</a></li>
+                <li><a href="./letters.php">Letters from strangers</a></li>
+            </ul>
+            <div class="logout-logo">
+                <a href="logout.php" class="logout-button">Log Out</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Select a month to view all registered users</h1>
+        <select id="month_picker" onchange="fetch_users()">
+            <option value="" disabled selected>Select</option>
+            <option value="all">All</option>
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select>
+        
+        <div class="back">
+            <a href="chart.php" class="back-button">Back</a>
+        </div>
+
+        <div id="chart_container">
+            <canvas id="user_chart"></canvas>
+        </div>
+
+        <div id="user_list">
+            <div id="title_container">
+                <h2>All Registered Users</h2>
+                <hr class="black-line">
+            </div>
+
+            <div id="table_header">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div id="table_body">
+                <table>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
     <script src="./script/view_users.js"></script>
 </body>
 </html>
