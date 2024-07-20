@@ -42,7 +42,7 @@ if (!isset($_SESSION['user_id'])) {
             </div>
             <div class="tasks-container">
                 <div class="tasks" id="tasks">
-                    <h2>Assigned</h2>
+                    <h2>To Do:</h2>
                     <div class="sort">
                         <span id="sort-newest">Newest</span>
                         <span id="sort-oldest">Oldest</span>
