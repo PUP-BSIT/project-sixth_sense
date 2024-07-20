@@ -107,6 +107,8 @@ if (!isset($_SESSION['user_id'])) {
             <button id="cancelDeleteButton">Cancel</button>
         </div>
     </div>
+    <div id="notification" class="notification"></div>
+
 
 
     <script src="./entry_script.js"></script>
