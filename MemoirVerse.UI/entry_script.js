@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
               showNotification(data.message, 'success');
           } else {
               console.error(data.message);
-              showNotification('Invalid input data: please input to submit', 'error');
+              showNotification('Error : please input to submit an entry', 'error');
           }
       } catch (error) {
           console.error("Error:", error);
