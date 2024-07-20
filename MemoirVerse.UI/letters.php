@@ -42,7 +42,7 @@ if (!isset($_SESSION['user_id'])) {
             <img src="./assets/heart.svg" alt="Heart Image">
         </div>
 
-        <div class="container">
+     <div class="container">
     <h1>Submit a letter</h1>
     <form id="letterForm">
         <input type="text" id="title" name="title" placeholder="Title" required>
