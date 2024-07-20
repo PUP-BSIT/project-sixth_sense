@@ -12,7 +12,7 @@ You can access our app using the following sample user credentials:
       </td>
       <td align="center">
         <strong>Password:</strong><br>
-        password
+        password!
       </td>
     </tr>
 </table>
