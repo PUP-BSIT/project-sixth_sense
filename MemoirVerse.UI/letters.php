@@ -42,35 +42,41 @@ if (!isset($_SESSION['user_id'])) {
             <img src="./assets/heart.svg" alt="Heart Image">
         </div>
 
-     <div class="container">
-    <h1>Submit a letter</h1>
-    <form id="letterForm">
-        <input type="text" id="title" name="title" placeholder="Title" required>
-        <textarea id="content" name="content" placeholder="Your letter" required></textarea>
-        <button type="submit">Submit</button>
-    </form>
-    <div id="message"></div>
-</div>
+        <div class="container">
+            <h1>Submit a letter</h1>
+            <form id="letterForm">
+                <input type="text" id="title" name="title" 
+                  placeholder="Title" required>
 
-<div class="image-container right">
-    <img src="./assets/two-people.svg" alt="Two People Image">
-</div>
+                <textarea id="content" name="content" 
+                  placeholder="Your letter" required>
+                </textarea>
 
-<div id="letters" class="letters-container">
-    <h1 class="center-text">Letters from strangers</h1>
-    <div class="letter">
-        <div class="closed-envelope" style="display: block;">
-            <h2 class="title">Title of the Letter</h2>
-            <div class="click-message">Click to open a message</div>
+                <button type="submit">Submit</button>
+            </form>
+            <div id="message"></div>
         </div>
-        <div class="open-letter" style="display: none;">
-            <h2>Title of the Letter</h2>
-            <p>Content of the letter goes here...</p>
-            <div class="timestamp">2024-07-17 21:52:12</div>
+
+        <div class="image-container right">
+            <img src="./assets/two-people.svg" alt="Two People Image">
         </div>
     </div>
-</div>
 
+    <div id="letters" class="letters-container">
+        <h1>Letters from strangers</h1>
+        <div class="letter">
+            <div class="closed-envelope" style="display: block;">
+                <h2 class="title">Title of the Letter</h2>
+                <div class="click-message">Click to open a message</div>
+            </div>
+            
+            <div class="open-letter" style="display: none;">
+                <h2>Title of the Letter</h2>
+                <p>Content of the letter goes here...</p>
+                <div class="timestamp">2024-07-17 21:52:12</div>
+            </div>
+        </div>
+    </div>
     
     <script src="./letters.js"></script>
 </body>
